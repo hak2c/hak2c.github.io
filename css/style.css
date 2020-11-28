@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color: #fff;
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #000000;
+}
+* {
+  box-sizing: border-box;
+}
+p,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 10px 0;
+  padding: 0;
+}
+p {
+  line-height: 18px;
+}
+img {
+  max-width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+.wrapper {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.row {
+  overflow: hidden;
+}
+
+.topBlock {
+  position: relative;
+  border-bottom: 15px solid #4b89dc;
+}
+
+.topBlock .banner {
+  position: relative;
+}
+.topBlock .banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.topBlock .banner .overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.topBlock .topMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 1px solid #fff;
+  height: 120px;
+  z-index: 9;
+}
+.topBlock .topMenu .menuContent {
+  padding-top: 20px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.topBlock .topMenu .menuContent > div {
+  float: left;
+}
+#logo {
+  width: 25%;
+}
+.mainmenu {
+  width: 75%;
+}
+.dropdownMenu {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0;
+  list-style: none;
+}
+.dropdownMenu li {
+  float: left;
+}
+.dropdownMenu a {
+  color: #fff;
+  margin: 0 10px;
+  font-weight: 600;
+  padding: 0;
+  padding-top: 40px;
+  color: #fff;
+  font-size: 14px;
+  height: 99px;
+  border-bottom: 5px solid transparent;
+  text-align: center;
+  text-transform: uppercase;
+  display: block;
+  text-decoration: none;
+}
+.dropdownMenu a.active {
+  border-color: #ffc21e;
+}
+
+.bottomBlock > div {
+  margin-bottom: 30px;
+}
+
+.bottomBlock .keepCalm {
+  /* background: url("../images/keepcalm-bg.jpg") no-repeat transparent;
+  background-size: cover; */
+  padding: 65px 0 85px 0;
+}
+.bottomBlock .keepCalm h1 {
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.bottomBlock .keepCalm .keepCalmContent {
+  text-align: center;
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bottomBlock .homeEvent h3 {
+  font-size: 60px;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-top: 80px;
+}
+.homeEventContent .item {
+  width: 50%;
+  float: left;
+}
+.homeEventContent .item .itemContent {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+}
+.homeEventContent .item .itemContent .event-info {
+  padding: 30px;
+  background-color: #f8f8f7;
+}
+.homeEventContent .item .itemContent .event-info h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.bottomBlock .instagramUpdate {
+  text-align: center;
+}
+.bottomBlock .instagramUpdate h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.instagramImage .item {
+  float: left;
+  width: 11.11111%;
+}
+.instagramImage .item a {
+  display: block;
+  padding: 5px;
+}
