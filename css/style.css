@@ -10,6 +10,10 @@ body {
 * {
   box-sizing: border-box;
 }
+a {
+  color: #4b89dc;
+  text-decoration: none;
+}
 p,
 ul,
 ol,
@@ -21,6 +25,7 @@ h5,
 h6 {
   margin: 10px 0;
   padding: 0;
+  font-weight: 500;
 }
 p {
   line-height: 18px;
@@ -115,6 +120,15 @@ img {
   border-color: #ffc21e;
 }
 
+.mainBlock {
+  padding: 90px 0 20px 0;
+}
+.mainBlock .blogTitle {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
 .bottomBlock > div {
   margin-bottom: 30px;
 }
@@ -176,4 +190,12 @@ img {
 .instagramImage .item a {
   display: block;
   padding: 5px;
+}
+
+.contactForm .preText {
+  text-align: center;
+}
+.contactForm input,
+.contactForm textarea {
+  min-width: 300px;
 }
