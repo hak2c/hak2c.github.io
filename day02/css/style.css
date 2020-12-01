@@ -134,6 +134,7 @@ ul {
   display: block;
   text-transform: uppercase;
   border-bottom: 1px solid #ffe87a;
+  text-align: left;
 }
 
 .images__list {
