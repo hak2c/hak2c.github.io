@@ -48,12 +48,13 @@ ul {
   line-height: 60px;
   padding: 0 19px;
   color: #ffc528;
+  border: solid 1px transparent;
 }
 .main__menu ul li a.active,
 .main__menu ul li a:hover {
   background-color: #ed7e1d;
   color: #171717;
-  border: solid 1px #f8c940;
+  border-color: #f8c940;
 }
 
 .banner img,
@@ -147,6 +148,14 @@ ul {
   display: block;
   margin: 4px 0.5%;
   width: 24%;
+}
+.images__list .images__list--item:nth-child(1),
+.images__list .images__list--item:nth-child(5) {
+  margin-left: 0;
+}
+.images__list .images__list--item:nth-child(4),
+.images__list .images__list--item:nth-child(8) {
+  margin-right: 0;
 }
 .images__list .images__list--item img:hover {
   transform: scale(1.1);
