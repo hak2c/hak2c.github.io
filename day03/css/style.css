@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  line-height: 1.5;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  background-color: #fcfcfc;
+  font-weight: 400;
+}
+body,
+p,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+a,
+body {
+  color: #32323d;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+a:hover {
+  color: #6e55b4;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  height: auto;
+  width: 100%;
+}
+.wrapper {
+  width: 1026px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* TOP MENU */
+.menu__bar {
+  height: 54px;
+}
+.menu__bar .top__menu li {
+  display: inline-block;
+  padding-right: 25px;
+}
+.menu__bar .top__menu li a {
+  text-transform: uppercase;
+  display: block;
+  line-height: 54px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.menu__bar .top__menu li a:hover,
+.menu__bar .top__menu li a.active {
+  color: #65509e;
+}
+
+/* PLAYLIST IN MAIN */
+.playlists .list {
+  padding-top: 30px;
+}
+.playlists .list .list--title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #32323d;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+.playlists .list .list--content {
+  margin-left: -9.5px;
+  margin-right: -9.5px;
+  font-size: 0;
+}
+.playlists .list .list--content .list--item {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 9.5px;
+  padding-right: 9.5px;
+  width: 20%;
+  font-size: 14px;
+}
+.playlists .list .list--content .list--item .item--image {
+  overflow: hidden;
+}
+.playlists .list .list--content .list--item .item--image img {
+  border-radius: 5px;
+}
+.playlists .list .list--content .list--item .item--image img:hover {
+  transform: scale(1.1);
+}
+.playlists .list .list--content .list--item .item--title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #32323d;
+  line-height: 1.45;
+  margin: 8px 0 3px;
+  text-transform: capitalize;
+}
+
+.zingchart {
+  margin-top: 20px;
+}
+.zingchart .zingchart__week .zingchart__week--list,
+.zingchart .zingchart__singer {
+  margin-left: -9.5px;
+  margin-right: -9.5px;
+  font-size: 0;
+}
+.zingchart .zingchart__week .zingchart__week--list .zingchart__week--item {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 9.5px;
+  padding-right: 9.5px;
+  width: 25%;
+  margin-bottom: 20px;
+}
+.zingchart .zingchart__week .zingchart__week--list .zingchart__week--item a {
+  display: block;
+  height: 60px;
+  overflow: hidden;
+}
+.zingchart .zingchart__week .zingchart__week--list .zingchart__week--item img {
+  border-radius: 5px;
+  height: 100%;
+}
+.zingchart
+  .zingchart__week
+  .zingchart__week--list
+  .zingchart__week--item
+  img:hover {
+  transform: scale(1.1);
+}
+.zingchart
+  .zingchart__singer
+  .zingchart__singer--list
+  .zingchart__singer--item {
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 9.5px;
+  padding-right: 9.5px;
+  width: 33.3333%;
+  margin-bottom: 20px;
+}
+.zingchart
+  .zingchart__singer
+  .zingchart__singer--list
+  .zingchart__singer--item
+  .zingchart__singer__item--inner {
+  max-width: 100%;
+  padding: 15px;
+  border: 0.9px solid #f3f3f3;
+  border-radius: 4px;
+  background-image: url(https://zjs.zadn.vn/zmp3-desktop/releases/v0.2.6/images/spotlight-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+}
+.zingchart__singer--item .singer--image {
+  max-width: 120px;
+}
+.zingchart__singer--item .singer--image a {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: normal;
+  display: inline-block;
+  overflow: hidden;
+}
+.zingchart__singer--item .singer--image img {
+  border-radius: 50%;
+}
+.zingchart__singer--item .singer--info {
+  text-align: right;
+  width: 100%;
+  padding: 15px 0 0;
+  line-height: normal;
+  font-size: 20px;
+  flex: 1;
+}
+.zingchart__singer--item .singer--info a {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+footer {
+  text-align: center;
+}
+footer .wrapper {
+  border-top: 1px solid #efefef;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
