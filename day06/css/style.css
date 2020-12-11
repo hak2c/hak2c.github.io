@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
@@ -137,25 +140,23 @@ ul {
   border-bottom: 1px solid #ffe87a;
   text-align: left;
 }
-
-.images__list {
-  margin: 15px auto 0;
+.images__list ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
   text-align: center;
 }
-.images__list .images__list--item {
-  float: left;
+.images__list ul .images__list--item {
+  width: 25%;
+  padding: 4px;
+}
+.images__list ul .images__list--item a {
   overflow: hidden;
   display: block;
-  margin: 4px 0.5%;
-  width: 24%;
 }
-.images__list .images__list--item:nth-child(1),
-.images__list .images__list--item:nth-child(5) {
-  margin-left: 0;
-}
-.images__list .images__list--item:nth-child(4),
-.images__list .images__list--item:nth-child(8) {
-  margin-right: 0;
+.images__list .images__list--item img {
+  transition: all 0.7s;
 }
 .images__list .images__list--item img:hover {
   transform: scale(1.1);
