@@ -116,7 +116,9 @@ input[type="submit"] {
   display: none;
 }
 .create-new #signup:checked + div {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .signup-form {
   bottom: 0;
