@@ -11,8 +11,10 @@ body {
   background: #fff;
   font-weight: 400;
   color: #555555;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
 }
-body,
 ul,
 ol,
 h1,
