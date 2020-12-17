@@ -51,7 +51,7 @@ console.log(`Số lớn nhất trong 3 số đã nhập là: ${max}`);
 
 // 2. VCT cho phép nhập một số, kiểm tra và in ra số đó có chia hết cho 5 và 11 hay không
 let numberCheck = +prompt('Nhập vào số để kiểm tra chia hết 5 và 11 hay không');
-if ((numberCheck % 5 == 0) && (numberCheck % 11 == 0)) {
+if (numberCheck % 55 == 0) {
     console.log(`${numberCheck} chia hết 5 và 11`);
 } else {
     console.log(`${numberCheck} không chia hết 5 và 11`);
@@ -61,7 +61,7 @@ let yearCheck = +prompt('Nhập vào năm để kiểm tra có phải năm nhu�
 if (yearCheck % 4 == 0) {
     console.log(`${yearCheck} là năm nhuận`);
 } else {
-    console.log(`${yearCheck} là năm nhuận`);
+    console.log(`${yearCheck} không phải là năm nhuận`);
 }
 // 4. VCT cho phép nhập một ký tự, kiểm tra và in ra ký tự đó có thuộc bảng ký tự alphabe (a-zA-Z) hay không
 let char = prompt('Nhập một ký tự để kiểm tra');
