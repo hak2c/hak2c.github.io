@@ -81,10 +81,21 @@ function printSoNguyenTo(a, b) {
             }
         }
     }
-    
     console.log(result);
 }
 printSoNguyenTo(0, 1000);
+
+// Viết hàm printPrime(n) in ra các số nguyên tố trong khoảng từ 0 > n, mặc định n = 100
+function printPrime(n = 100) {
+    let result = "";
+    for (let i = 0; i <= n; i++) {
+        if (checkSoNguyenTo(i)) {
+            result += `${i} `;
+        }
+    }
+    console.log(result);
+}
+printPrime();
 
 // VCT nhập vào 2 số a, b kiểm tra và in ra các số nguyên tố trong khoảng a -> b
 function timSoNguyenToTrongKhoang() {
@@ -113,3 +124,43 @@ function fibonacci(num) {
 console.log(fibonacci(100));
 
 // Viết chương trình tìm bội chung nhỏ nhất, ước chung lớn nhất của 2 số
+
+// Viết hàm convertTemperature(temp, from, to) chuyển đổi và in ra nhiệt độ từ Celsius sang Farenheit hoặc Kevin, mặc định sẽ chuyển từ Celsius sang Kevin
+function convertTemperature(temp, from = "C", to = "K") {
+    let result = temp;
+    if (from == "C") {
+        result = to == "K" ? temp - 273.15 :
+        to == "F" ? temp / 0.55 + 32 : temp
+    } else if (from == "F") {
+        result = to == "C" ? (temp - 32) * 0.55 :
+        to == "K" ? ((temp - 32) * 0.55) - 273.15 : temp
+    } else if (from == "K") {
+        result = to == "C" ? temp + 273.15 :
+        to == "F" ? (temp + 273.15 / 0.55) + 32 : temp
+    }
+    return result;
+}
+console.log(convertTemperature(25));
+
+// Viết chương trình in ra các pattern sau:
+/*
+    *
+   **
+  ***
+ ****
+*****
+*/
+function patternTwo(n) {
+    for (let i = 1; i <= n; i++) {
+        let str = "";
+        for (let j = 1; j <= n; j++) {
+            if (j < (n + 1 - i)) {
+                str += "  ";
+            } else {
+                str += "* ";
+            }
+        }
+
+        console.log(str);
+    }
+}
