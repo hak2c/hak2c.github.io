@@ -61,7 +61,7 @@ function checkSoNguyenTo(num) {
         result = false;
     } else {
         result = true;
-        for (let i = 3; i < num - 1; i += 2) { // chỉ check số lẻ
+        for (let i = 3; i < Math.sqrt(num); i += 2) { // chỉ check số lẻ
             if (num % i == 0) {
                 result = false;
                 break;
@@ -74,7 +74,12 @@ function checkSoNguyenTo(num) {
 // VCT kiểm tra và in ra các số nguyên tố trong khoảng 0 -> 1000
 function printSoNguyenTo(a, b) {
     let result = "";
-    if (a < b) {
+    if (checkNumber(a) && checkNumber(b)) {
+        if (a > b) {
+            let temp = a;
+            a = b;
+            b = temp;
+        }
         for (let i = a; i <= b; i++) {
             if (checkSoNguyenTo(i)) {
                 result += `${i} `;
@@ -115,16 +120,73 @@ function bangCuuChuongNguoc() {
 }
 bangCuuChuongNguoc();
 
+// VCT in ra chữ số đầu và cuối của một số. VD 12345 -> 15
+function demSoChuSo(num) {
+    let dem = 0;
+    while (num >= 10) {
+        num /= 10;
+        dem++;
+    }
+    return dem + 1;
+}
+function laySoDauTien(num) {
+    let soChuSo = demSoChuSo(num);
+    if (num == 1) {
+        return num;
+    } else {
+        let phanDu = num % (10 ** (soChuSo-1));
+        return ((num - phanDu) / (10 ** (soChuSo-1)));
+    }
+}
+function printSoDauSoCuoi(num) {
+    let soDauTien = laySoDauTien(num),
+        soCuoiCung = num % 10,
+        result = "";
+    if (soDauTien > 0) {
+        result = `${soDauTien}${soCuoiCung}`;
+    } else {
+        result = `${soCuoiCung}`
+    }
+    console.log(result);
+}
+printSoDauSoCuoi(15444);
+
 // Viết chương trình in dãy số Fibonacci
 function fibonacci(num) {
     return num == 0 ? 0
         : num == 1 ? 1
             : fibonacci(num - 1) + fibonacci(num - 2);
 }
-console.log(fibonacci(100));
+function printFibonacci() {
+    let num = +prompt("Nhập số phần tử trong dãy Fibonacci cần in:"),
+        result = "";
+    for (let i = 0; i < num; i++) {
+        result += `${fibonacci(i)} `;
+    }
+    console.log(result);
+}
+printFibonacci();
 
 // Viết chương trình tìm bội chung nhỏ nhất, ước chung lớn nhất của 2 số
-
+function uocChungLonNhat(a, b) {
+    if (a == 0) return b;
+    while (a != b) {
+        if (a > b)
+            a -= b;
+        else
+            b -= a;
+    }
+    return a;
+}
+function printUCLNvaBCNN() {
+    let a = +prompt("Nhập số a"),
+        b = +prompt("Nhập số b");
+    if (checkNumber(a) && checkNumber(b)) {
+        console.log(`Ước chung lớn nhất của ${a} và ${b} là: ${uocChungLonNhat(a,b)}`);
+        console.log(`Bội chung nhỏ nhất của ${a} và ${b} là: ${(a*b)/uocChungLonNhat(a,b)}`);
+    }
+}
+printUCLNvaBCNN();
 // Viết hàm convertTemperature(temp, from, to) chuyển đổi và in ra nhiệt độ từ Celsius sang Farenheit hoặc Kevin, mặc định sẽ chuyển từ Celsius sang Kevin
 function convertTemperature(temp, from = "C", to = "K") {
     let result = temp;
@@ -162,5 +224,14 @@ function patternTwo(n) {
         }
 
         console.log(str);
+    }
+}
+
+// Function check số nguyên dương
+function checkNumber(a) {
+    if (!isNaN(a) && a != null && a > 0) {
+        return true;
+    } else {
+        return false;
     }
 }
