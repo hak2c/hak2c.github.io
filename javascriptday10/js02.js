@@ -32,17 +32,10 @@ function printFizzBuzz() {
 printFizzBuzz();
 
 // VCT tính và in ra tổng bội chung của 3 và 5 trong khoảng 0 -> 1000
-function checkBoiChung(num) {
-    if (num % 15 == 0) {
-        return true;
-    } else {
-        return false;
-    }
-}
 function printBoiChung() {
     let result = "";
     for (let i = 0; i <= 1000; i++) {
-        if (checkBoiChung(i)) {
+        if (i % 15 == 0) {
             result += `${i} `;
         }
     }
@@ -74,7 +67,7 @@ function checkSoNguyenTo(num) {
 // VCT kiểm tra và in ra các số nguyên tố trong khoảng 0 -> 1000
 function printSoNguyenTo(a, b) {
     let result = "";
-    if (checkNumber(a) && checkNumber(b)) {
+    // if (checkNumber(a) && checkNumber(b)) { hàm checkNumber
         if (a > b) {
             let temp = a;
             a = b;
@@ -85,7 +78,7 @@ function printSoNguyenTo(a, b) {
                 result += `${i} `;
             }
         }
-    }
+    // }
     console.log(result);
 }
 printSoNguyenTo(0, 1000);
@@ -121,6 +114,8 @@ function bangCuuChuongNguoc() {
 bangCuuChuongNguoc();
 
 // VCT in ra chữ số đầu và cuối của một số. VD 12345 -> 15
+
+/* Cách dài dòng tách function
 function demSoChuSo(num) {
     let dem = 0;
     while (num >= 10) {
@@ -137,15 +132,18 @@ function laySoDauTien(num) {
         let phanDu = num % (10 ** (soChuSo-1));
         return ((num - phanDu) / (10 ** (soChuSo-1)));
     }
-}
-function printSoDauSoCuoi(num) {
-    let soDauTien = laySoDauTien(num),
-        soCuoiCung = num % 10,
+}*/
+function printDigit(num) {
+    let firstDigit = num,
+        lastDigit = num % 10,
         result = "";
-    if (soDauTien > 0) {
-        result = `${soDauTien}${soCuoiCung}`;
+    if (num < 10) {
+        result = `${lastDigit}`;
     } else {
-        result = `${soCuoiCung}`
+        while (firstDigit >= 10) {
+            firstDigit = (firstDigit - (firstDigit%10)) / 10;
+        }
+        result = `${firstDigit}${lastDigit}`;
     }
     console.log(result);
 }
@@ -181,10 +179,10 @@ function uocChungLonNhat(a, b) {
 function printUCLNvaBCNN() {
     let a = +prompt("Nhập số a"),
         b = +prompt("Nhập số b");
-    if (checkNumber(a) && checkNumber(b)) {
+    // if (checkNumber(a) && checkNumber(b)) { hàm checkNumber
         console.log(`Ước chung lớn nhất của ${a} và ${b} là: ${uocChungLonNhat(a,b)}`);
         console.log(`Bội chung nhỏ nhất của ${a} và ${b} là: ${(a*b)/uocChungLonNhat(a,b)}`);
-    }
+    // }
 }
 printUCLNvaBCNN();
 // Viết hàm convertTemperature(temp, from, to) chuyển đổi và in ra nhiệt độ từ Celsius sang Farenheit hoặc Kevin, mặc định sẽ chuyển từ Celsius sang Kevin
