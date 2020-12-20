@@ -151,9 +151,14 @@ printSoDauSoCuoi(15444);
 
 // Viết chương trình in dãy số Fibonacci
 function fibonacci(num) {
-    return num == 0 ? 0
-        : num == 1 ? 1
-            : fibonacci(num - 1) + fibonacci(num - 2);
+    var a = 1, b = 0, temp;
+    while (num > 0){
+        temp = a;
+        a = a + b;
+        b = temp;
+        num--;
+    }
+    return b;
 }
 function printFibonacci() {
     let num = +prompt("Nhập số phần tử trong dãy Fibonacci cần in:"),
@@ -161,7 +166,7 @@ function printFibonacci() {
     for (let i = 0; i < num; i++) {
         result += `${fibonacci(i)} `;
     }
-    console.log(result);
+    document.write(result);
 }
 printFibonacci();
 
