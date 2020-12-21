@@ -147,7 +147,7 @@ function printDigit(num) {
     }
     console.log(result);
 }
-printSoDauSoCuoi(15444);
+printDigit(15444);
 
 // Viết chương trình in dãy số Fibonacci
 function fibonacci(num) {
