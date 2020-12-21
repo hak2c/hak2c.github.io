@@ -230,6 +230,41 @@ function patternTwo(n) {
     }
 }
 
+// Số đối xứng
+
+/* Đảo ngược số và so sánh với param */
+function palindromeOption1(num) {
+    let temp = num,
+        soDaoNguoc = "";
+    while (temp >= 10) {
+        soDaoNguoc += `${temp%10}`;
+        temp = (temp - (temp % 10)) / 10;
+    }
+    soDaoNguoc += `${temp}`;
+    if (num == +soDaoNguoc) {
+        document.write(`${num} là số đối xứng`);
+    } else {
+        document.write(`${num} không phải là số đối xứng`);
+    }
+}
+
+/* Chuyển sang string và duyệt for */
+function palindromeOption2(num) {
+    let str = String(num),
+        result = true;
+    for (let i = 0; i <= (str.length / 2); i++) {
+        if (str[i] != str[str.length - i - 1]) {
+            result = false;
+            break;
+        }
+    }
+    if (result) {
+        document.write(`${num} là số đối xứng`);
+    } else {
+        document.write(`${num} không phải là số đối xứng`);
+    }
+}
+
 // Function check số nguyên dương
 function checkNumber(a) {
     if (!isNaN(a) && a != null && a > 0) {
