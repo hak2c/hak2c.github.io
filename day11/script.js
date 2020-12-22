@@ -122,3 +122,133 @@ function find(number) {
     }
     return n;
 }
+
+// 10. Viết hàm sum(value1, unit1, value2, unit2)
+let sum = (value1, unit1, value2, unit2) => {
+    if (unit1 == "km") {
+        if (unit2 == "km") {
+            return value1 + value2;
+        } else if (unit2 == "m") {
+            return value1 + value2*(10 ** -3);
+        } else if (unit2 == "cm") {
+            return value1 + value2*(10 ** -5);
+        } else if (unit2 == "dm") {
+            return value1 + value2*(10 ** -4);
+        } else if (unit2 == "mm") {
+            return value1 + value2*(10 ** -6);
+        }
+    } else if (unit1 == "m") {
+        if (unit2 == "km") {
+            return value1 + value2*1000;
+        } else if (unit2 == "m") {
+            return value1 + value2;
+        } else if (unit2 == "cm") {
+            return value1 + value2/100;
+        } else if (unit2 == "dm") {
+            return value1 + value2/10;
+        } else if (unit2 == "mm") {
+            return value1 + value2*(10 ** -3);
+        }
+    } else if (unit1 == "cm") {
+        if (unit2 == "km") {
+            return value1 + value2*(10 ** 5);
+        } else if (unit2 == "m") {
+            return value1 + value2*100;
+        } else if (unit2 == "cm") {
+            return value1 + value2;
+        } else if (unit2 == "dm") {
+            return value1 + value2*10;
+        } else if (unit2 == "mm") {
+            return value1 + value2/10;
+        }
+    } else if (unit1 == "dm") {
+        if (unit2 == "km") {
+            return value1 + value2*(10 ** 4);
+        } else if (unit2 == "m") {
+            return value1 + value2*10;
+        } else if (unit2 == "cm") {
+            return value1 + value2/10;
+        } else if (unit2 == "dm") {
+            return value1 + value2;
+        } else if (unit2 == "mm") {
+            return value1 + value2/100;
+        }
+    } else if (unit1 == "mm") {
+        if (unit2 == "km") {
+            return value1 + value2*(10 ** 6);
+        } else if (unit2 == "m") {
+            return value1 + value2*(10 ** 3);
+        } else if (unit2 == "cm") {
+            return value1 + value2*10;
+        } else if (unit2 == "dm") {
+            return value1 + value2*100;
+        } else if (unit2 == "mm") {
+            return value1 + value2;
+        }
+    }
+    return false;
+}
+function sum(value1, unit1, value2, unit2) {
+    if (unit1 == "km") {
+        if (unit2 == "km") {
+            return value1 + value2;
+        } else if (unit2 == "m") {
+            return value1 + value2*(10 ** -3);
+        } else if (unit2 == "cm") {
+            return value1 + value2*(10 ** -5);
+        } else if (unit2 == "dm") {
+            return value1 + value2*(10 ** -4);
+        } else if (unit2 == "mm") {
+            return value1 + value2*(10 ** -6);
+        }
+    } else if (unit1 == "m") {
+        if (unit2 == "km") {
+            return value1 + value2*1000;
+        } else if (unit2 == "m") {
+            return value1 + value2;
+        } else if (unit2 == "cm") {
+            return value1 + value2/100;
+        } else if (unit2 == "dm") {
+            return value1 + value2/10;
+        } else if (unit2 == "mm") {
+            return value1 + value2*(10 ** -3);
+        }
+    } else if (unit1 == "cm") {
+        if (unit2 == "km") {
+            return value1 + value2*(10 ** 5);
+        } else if (unit2 == "m") {
+            return value1 + value2*100;
+        } else if (unit2 == "cm") {
+            return value1 + value2;
+        } else if (unit2 == "dm") {
+            return value1 + value2*10;
+        } else if (unit2 == "mm") {
+            return value1 + value2/10;
+        }
+    } else if (unit1 == "dm") {
+        if (unit2 == "km") {
+            return value1 + value2*(10 ** 4);
+        } else if (unit2 == "m") {
+            return value1 + value2*10;
+        } else if (unit2 == "cm") {
+            return value1 + value2/10;
+        } else if (unit2 == "dm") {
+            return value1 + value2;
+        } else if (unit2 == "mm") {
+            return value1 + value2/100;
+        }
+    } else if (unit1 == "mm") {
+        if (unit2 == "km") {
+            return value1 + value2*(10 ** 6);
+        } else if (unit2 == "m") {
+            return value1 + value2*(10 ** 3);
+        } else if (unit2 == "cm") {
+            return value1 + value2*10;
+        } else if (unit2 == "dm") {
+            return value1 + value2*100;
+        } else if (unit2 == "mm") {
+            return value1 + value2;
+        }
+    }
+    return false;
+}
