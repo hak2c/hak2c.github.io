@@ -10,11 +10,68 @@ function isTriangle(a, b, c) {
     }
 }
 
-// 4. Viết hàm nearest(a, b) 
+// 4. Viết hàm nearest(a, b) kiểm tra và trả về số gần 100 nhất:
+let nearest = (a, b) => (a > 100 && b > 100) ? false :
+    (a > 100 && b < 100) ? b :
+        (b > 100 && a < 100) ? a :
+            (100 - a > 100 - b) ? b : a;
+function nearest(a, b) {
+    if (a > 100 && b > 100) {
+        return false;
+    } else if (a > 100 && b < 100) {
+        return b;
+    } else if (b > 100 && a < 100) {
+        return a;
+    } else if (100 - a > 100 - b) {
+        return b;
+    } else {
+        return a;
+    }
+}
+
+// 5. Viết hàm sequense(a,b,c) kiểm tra a,b,c có phải tăng dần đều hay giảm dần đều hay không
+let sequense = (a, b, c) => (a > b && b > c) ? "Dãy giảm dần đều" :
+    (a < b && b < c) ? "Dãy tăng dần đều" : "Không thuộc 2 dãy trên";
+function sequense(a, b, c) {
+    if (a > b && b > c) {
+        return "Dãy giảm dần đều";
+    } else if (a < b && b < c) {
+        return "Dãy tăng dần đều";
+    } else {
+        return "Không thuộc 2 dãy trên";
+    }
+}
+
+// 6. Viết hàm countDecimal(number) trả về số chữ số trong phần thập phần
+let countDecimal = (number) => ((number + "").split(".")[1]).length;
+function countDecimal(number) {
+    let decimal = (number + "").split(".")[1];
+    return decimal.length;
+} 
+
+// 7. Viết hàm isAscending(number) kiểm tra dãy số của number có phải dãy tăng dần hay không
+let isAscending = (number) => {
+    let str = number + "";
+    for (let i = 0; i < str.length - 1; i++) {
+        if (+str[i] > +str[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
+function isAscending(params) {
+    let str = number + "";
+    for (let i = 0; i < str.length - 1; i++) {
+        if (+str[i] > +str[i + 1]) {
+            return false;
+        }
+    }
+    return true;
+}
 
 // 8. Viết hàm countEven(number) trả về số chữ số chẵn của number
 let countEven = (number) => {
-    let str = String(number),
+    let str = number + "",
         count = 0;
     for (let i = 0; i < str.length; i++) {
         if (+str[i] % 2 == 0) {
@@ -24,7 +81,7 @@ let countEven = (number) => {
     return count;
 }
 function countEven(number) {
-    let str = String(number),
+    let str = number + "",
         count = 0;
     for (let i = 0; i < str.length; i++) {
         if (+str[i] % 2 == 0) {
