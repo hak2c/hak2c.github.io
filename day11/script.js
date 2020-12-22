@@ -1,4 +1,8 @@
-
+// 1. Viết hàm random(a,b) trả về ngẫu nhiên trong khoảng a-b
+function random(a, b) {
+    return a + Math.floor(Math.random() * (b - a));
+}
+let random = (a,b) => a + Math.floor(Math.random() * (b - a));
 
 // 2. Kiểm tra cạnh tam giác
 let isTriangle = (a, b, c) => (a + b > c && a + c > b && b + c > a) ? true : false;
