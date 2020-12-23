@@ -3,7 +3,7 @@ function random(a, b) {
     return a + Math.floor(Math.random() * (b - a));
 }
 let random = (a,b) => a + Math.floor(Math.random() * (b - a));
-
+random(0, 1000);
 // 2. Kiểm tra cạnh tam giác
 let isTriangle = (a, b, c) => (a + b > c && a + c > b && b + c > a) ? true : false;
 function isTriangle(a, b, c) {
@@ -13,25 +13,55 @@ function isTriangle(a, b, c) {
         return false;
     }
 }
+isTriangle(5, 10, 12); // true
+isTriangle(1, 2, 3.3); // false
 
-// 4. Viết hàm nearest(a, b) kiểm tra và trả về số gần 100 nhất:
-let nearest = (a, b) => (a > 100 && b > 100) ? false :
-    (a > 100 && b < 100) ? b :
-        (b > 100 && a < 100) ? a :
-            (100 - a > 100 - b) ? b : a;
-function nearest(a, b) {
-    if (a > 100 && b > 100) {
-        return false;
-    } else if (a > 100 && b < 100) {
-        return b;
-    } else if (b > 100 && a < 100) {
-        return a;
-    } else if (100 - a > 100 - b) {
-        return b;
-    } else {
-        return a;
+// 3. Viết hàm guessNumber()
+let random = (a,b) => a + Math.floor(Math.random() * (b - a));
+let guessNumber = () => {
+    let rand = random(0, 10),
+        guess = +prompt("Nhập vào 1 số xem có trùng"),
+        count = 0;
+    console.log(`rand = ${rand}`);
+    while (guess != "" && guess != null && count <= 3) {
+        count++;
+        if (guess == rand) {
+            console.log("A mây zing, gút chóp");
+            return;
+        } else {
+            console.log("Không khớp");
+            guess = +prompt("Không khớp, nhập lại để kiểm tra");
+        }
     }
 }
+function guessNumber() {
+    let rand = random(0, 10),
+        guess = +prompt("Nhập vào 1 số xem có trùng"),
+        count = 0;
+    console.log(`rand = ${rand}`);
+    while (guess != "" && guess != null && count <= 3) {
+        count++;
+        if (guess == rand) {
+            console.log("A mây zing, gút chóp");
+            return;
+        } else {
+            console.log("Không khớp");
+            guess = +prompt("Không khớp, nhập lại để kiểm tra");
+        }
+    }
+}
+guessNumber();
+
+// 4. Viết hàm nearest(a, b) kiểm tra và trả về số gần 100 nhất:
+let nearest = (a, b) => (Math.abs(a - 100) < Math.abs(b - 100)) ? a : b;
+function nearest(a, b) {
+    if (Math.abs(a - 100) < Math.abs(b - 100)) {
+        return a;
+    } else {
+        return b;
+    }
+}
+nearest(82, 107);
 
 // 5. Viết hàm sequense(a,b,c) kiểm tra a,b,c có phải tăng dần đều hay giảm dần đều hay không
 let sequense = (a, b, c) => (a > b && b > c) ? "Dãy giảm dần đều" :
@@ -45,13 +75,17 @@ function sequense(a, b, c) {
         return "Không thuộc 2 dãy trên";
     }
 }
+sequense(1, 3, 7);
+sequense(1, 7, 3);
+sequense(9, 3, 2);
 
 // 6. Viết hàm countDecimal(number) trả về số chữ số trong phần thập phần
-let countDecimal = (number) => ((number + "").split(".")[1]).length;
+let countDecimal = (number) => (String(number).split(".")[1]).length;
 function countDecimal(number) {
-    let decimal = (number + "").split(".")[1];
+    let decimal = String(number).split(".")[1];
     return decimal.length;
 } 
+countDecimal(2.87666443);
 
 // 7. Viết hàm isAscending(number) kiểm tra dãy số của number có phải dãy tăng dần hay không
 let isAscending = (number) => {
@@ -94,6 +128,7 @@ function countEven(number) {
     }
     return count;
 }
+countEven(12544573);
 
 // 9. Viết hàm find(number)
 let find = (number) => {
