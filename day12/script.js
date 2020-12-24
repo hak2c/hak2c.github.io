@@ -55,3 +55,40 @@ function Calculator() {
 let cal = new Calculator();
 cal.get();
 cal.add();
+
+
+// Viết hàm tạo Counter, có thuộc tính count, và các phương thức
+function Counter(count = 0) {
+    this.count = count;
+    this.up = function() {
+        return this.count++;
+    };
+    this.down = function() {
+        return this.count--;
+    };
+    this.get = function() {
+        console.log(this.count);
+    }
+}
+let count = new Counter();
+count.up();
+count.get();
+
+// Viết hàm tạo Girl có các thuộc tính và phương thức tùy ý
+function Girl(name, age, className, hasBoyfriend) {
+    this.name = name;
+    this.age = age;
+    this.className = className;
+    this.hasBoyfriend = hasBoyfriend;
+}
+let motAiDo = new Girl("Một ai đó", 17, "A2", true);
+
+// Viết hàm tạo Boy có các thuộc tính và phương thức tùy ý 
+function Boy(name, age, className, hasGirlfriend, isHandsome) {
+    this.name = name;
+    this.age = age;
+    this.className = className;
+    this.hasGirlfriend = hasGirlfriend;
+    this.isHandsome = isHandsome;
+}
+let themMotAiDo = new Boy("Thêm một ai đó", 17, "A2", false, true);
