@@ -10,14 +10,14 @@ let bua = new Weapon("Búa", 80);
 
 // Viết hàm tạo Player với các thuộc tính name, level, weapon, weapon object khởi tạo từ Weapon. Player có các methods: attack() tính và in ra màn hình lượng sát thương gây ra = weapon.damage * level,changeWeapon() thay đổi weapon của Player
 
-function Player(name, level, weapon){
+function Player(name, level, weapon) {
     this.name = name;
     this.level = level;
     this.weapon = weapon;
-    this.attack = function() {
+    this.attack = function () {
         console.log("Sát thương gây ra: " + this.weapon.damage * this.level);
     };
-    this.changeWeapon = function(otherWeapon) {
+    this.changeWeapon = function (otherWeapon) {
         this.weapon = otherWeapon;
     }
 }
@@ -28,26 +28,26 @@ ha.attack();
 ha.changeWeapon(bua);
 ha.attack();
 let tuanAnh = new Player("Tuấn Anh", 20, dao);
-ha.tuanAnh();
+tuanAnh.attack();
 
 // Tạo một object calculator, có các thuộc tính a, b là 2 số, và các phương thức:
 function Calculator() {
-    this.get = function() {
+    this.get = function () {
         let a = +prompt('Nhập vào số a'),
-        b = +prompt('Nhập vào số b');
+            b = +prompt('Nhập vào số b');
         this.a = a;
         this.b = b;
     };
-    this.add = function() {
+    this.add = function () {
         console.log(`a + b = ${this.a + this.b}`);
     };
-    this.sub = function() {
+    this.sub = function () {
         console.log(`a - b = ${this.a - this.b}`);
     };
-    this.div = function() {
+    this.div = function () {
         console.log(`a / b = ${this.a / this.b}`);
     };
-    this.mul = function() {
+    this.mul = function () {
         console.log(`a * b = ${this.a * this.b}`);
     };
 }
@@ -60,13 +60,13 @@ cal.add();
 // Viết hàm tạo Counter, có thuộc tính count, và các phương thức
 function Counter(count = 0) {
     this.count = count;
-    this.up = function() {
-        return this.count++;
+    this.up = function () {
+        this.count++;
     };
-    this.down = function() {
-        return this.count--;
+    this.down = function () {
+        this.count--;
     };
-    this.get = function() {
+    this.get = function () {
         console.log(this.count);
     }
 }
