@@ -16,16 +16,18 @@ function Player(name, level, weapon) {
     this.weapon = weapon;
     this.attack = function () {
         console.log("Sát thương gây ra: " + this.weapon.damage * this.level);
+        return this;
     };
     this.changeWeapon = function (otherWeapon) {
         this.weapon = otherWeapon;
+        return this;
     }
 }
 
 // Tạo một vài đối tượng từ Player và Weapon, gọi phương thức attack() trên các đối tượng đó
 let ha = new Player('Hà', 10, sung);
 ha.attack();
-ha.changeWeapon(bua);
+ha.attack().changeWeapon(bua).attack();
 ha.attack();
 let tuanAnh = new Player("Tuấn Anh", 20, dao);
 tuanAnh.attack();
@@ -37,18 +39,23 @@ function Calculator() {
             b = +prompt('Nhập vào số b');
         this.a = a;
         this.b = b;
+        return this;
     };
     this.add = function () {
         console.log(`a + b = ${this.a + this.b}`);
+        return this;
     };
     this.sub = function () {
         console.log(`a - b = ${this.a - this.b}`);
+        return this;
     };
     this.div = function () {
         console.log(`a / b = ${this.a / this.b}`);
+        return this;
     };
     this.mul = function () {
         console.log(`a * b = ${this.a * this.b}`);
+        return this;
     };
 }
 
@@ -61,13 +68,16 @@ cal.add();
 function Counter(count = 0) {
     this.count = count;
     this.up = function () {
-        this.count++;
+        console.log('Count = ' + this.count++);
+        return this;
     };
     this.down = function () {
-        this.count--;
+        console.log('Count = ' + this.count--);
+        return this;
     };
     this.get = function () {
         console.log(this.count);
+        return this;
     }
 }
 let count = new Counter();
