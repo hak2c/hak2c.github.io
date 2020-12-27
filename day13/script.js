@@ -86,3 +86,85 @@ let shortString = (str, n) => {
     return result + "...";
 }
 shortString('abcdef', 2);
+
+// 8. Viết hàm đếm số lần xuất hiện của chuỗi con trong chuỗi. VD “abca”, “a” => 2
+let countSubString = (str1, str2) => str1.split(str2).length - 1;
+countSubString('abcabcaaabfcbacbab', 'ab'); // 4
+
+// 9. Viết hàm cắt chuỗi theo số từ chỉ định. VD “My name is Ba”, 2 => “My name”
+let cutStringByWord = (str, n) => {
+    let count = 0,
+        result = "";
+    for (let i = 0; i < str.length; i++) {
+        if (str[i - 1] != " " && str[i] == " ") {
+            count++;
+            if (count == n) return result;
+            else result += str[i];
+        } else {
+            result += str[i];
+        }
+    }
+    return result;
+}
+cutStringByWord('My name is Ba', 2);
+
+// 10. Viết hàm tạo chuỗi GUID ngẫu nhiên với độ dài 32 ký tự
+
+// 11. Viết hàm thay thế các ký tự trong chuỗi thành ký tự liền sau trong bảng mã Unicode.
+let nextCode = (str) => {
+    let newStr = "";
+    for (let i = 0; i < str.length; i++) {
+      newStr += String.fromCodePoint(str.charCodeAt(i) + 1);
+    }
+    return newStr;
+};
+
+// Viết hàm arr._concat(arr2) gộp các phần tử của mảng arr2 vào arr1
+arr._concat = function (arr2) {
+    let result = [];
+    for (let i = 0; i < this.length; i++) {
+      result[result.length] = this[i];
+    }
+    for (let i = 0; i < arr2.length; i++) {
+      result[result.length] = arr2[i];
+    }
+    return result;
+};
+
+// Viết hàm arr._push(value) thêm giá trị vào cuối mảng
+arr._push = function (value) {
+    let result = this;
+    result[result.length] = value;
+    return result;
+};
+// arr._pop() xóa phần tử cuối mảng, đồng thời trả về giá trị của các phần tử bị xóa
+arr._pop = function () {
+    let result = this[this.length - 1];
+    this.length--;
+    return result;
+};
+// arr._indexOf() tìm và trả về index của phần tử, nếu ko có trả về -1
+arr._indexOf = function (value) {
+    for (let i = 0; i < this.length; i++) {
+      if (this[i] == value) {
+        return i;
+      }
+    }
+    return -1;
+};
+// arr._reverse() đảo ngược
+arr._reverse = function () {
+    /*for (let i = 0; i < this.length / 2; i++) {
+      temp = this[i];
+      this[i] = this[this.length - 1 - i];
+      this[this.length - 1 - i] = temp;
+    }*/
+    for(let i=0, j = this.length - 1; i < j; i++, j--) {
+          let temp = this[i];
+          this[i] = this[j];
+          this[j] = temp;
+    }
+    return this;
+};
+
+// Viết hàm arr._sort(arr, callback) thực thi code giống như hàm sort()
