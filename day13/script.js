@@ -109,6 +109,15 @@ let cutStringByWord = (str, n) => {
 cutStringByWord('My name is Ba', 2);
 
 // 10. Viết hàm tạo chuỗi GUID ngẫu nhiên với độ dài 32 ký tự
+let random = (a, b) => a + Math.floor(Math.random() * (b - a));
+let createGuidCode = () => {
+    let result = "";
+    for (let i = 1; i <= 32; i++) {
+        result += String.fromCodePoint(random(33, 126));
+    }
+    return result;
+}
+createGuidCode();
 
 // 11. Viết hàm thay thế các ký tự trong chuỗi thành ký tự liền sau trong bảng mã Unicode.
 let nextCode = (str) => {
@@ -168,7 +177,10 @@ arr._reverse = function () {
 };
 
 // Viết hàm arr._sort(arr, callback) thực thi code giống như hàm sort()
-let s = (a, b) => a - b;
+let s = (a, b) => {
+    if (a > b) return true;
+    else return false;
+}
 arr = [12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213];
 arr._sort = function (callback) {
     let swapp;
@@ -179,7 +191,14 @@ arr._sort = function (callback) {
         for (let i = 0; i < this.length - 1; i++) {
             // so sánh phần tử thứ i và i+1 trong mảng
             if (typeof callback == 'function') {
-                
+                if (callback(this[i], this[i + 1])) {
+                    let temp = this[i];
+                    this[i] = this[i + 1];
+                    // Gán lại i và i+1
+                    this[i + 1] = temp;
+                    // Set flag là true, đánh dấu đã có tráo đổi trong mảng
+                    swapp = true;
+                }
             } else { 
                 // Nếu không có hàm callback, mặc định sắp xếp lớn dần theo string
                 if (`${this[i]}` > `${this[i + 1]}`) {
@@ -196,4 +215,4 @@ arr._sort = function (callback) {
     } while (swapp);
     return this;
 }
-arr._sort();
+arr._sort(s);
