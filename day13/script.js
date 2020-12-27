@@ -168,3 +168,32 @@ arr._reverse = function () {
 };
 
 // Viết hàm arr._sort(arr, callback) thực thi code giống như hàm sort()
+let s = (a, b) => a - b;
+arr = [12, 345, 4, 546, 122, 84, 98, 64, 9, 1, 3223, 455, 23, 234, 213];
+arr._sort = function (callback) {
+    let swapp;
+    do { // chạy code trước khi check điều kiện swapp là true
+        // Set flag false
+        swapp = false;
+        // loop mảng this
+        for (let i = 0; i < this.length - 1; i++) {
+            // so sánh phần tử thứ i và i+1 trong mảng
+            if (typeof callback == 'function') {
+                
+            } else { 
+                // Nếu không có hàm callback, mặc định sắp xếp lớn dần theo string
+                if (`${this[i]}` > `${this[i + 1]}`) {
+                    let temp = this[i];
+                    this[i] = this[i + 1];
+                    // Gán lại i và i+1
+                    this[i + 1] = temp;
+                    // Set flag là true, đánh dấu đã có tráo đổi trong mảng
+                    swapp = true;
+                }
+            }
+            
+        }
+    } while (swapp);
+    return this;
+}
+arr._sort();
