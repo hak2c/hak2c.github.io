@@ -217,18 +217,7 @@ arr._sort = function (callback) {
 }
 arr._sort(s);
 
-// arr._forEach
-arr._forEach = function (callback) {
-    for (let i = 0; i < this.length; i++) {
-        callback(this[i], i, this);
-    }
-}
-
 // arr._filter
-let condition = (i) => {
-    if (i.age > 25) return true;
-    else return false;
-}
 arr = [
     {
         name: "Hà",
@@ -259,6 +248,23 @@ arr = [
         age: 25
     },
 ]
+
+let condition = (i) => {
+    if (i.age > 25) return true;
+    else return false;
+}
+let printName = (i) => {
+    console.log(i.name);
+}
+
+// arr._forEach
+arr._forEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        if(typeof callback == 'function') callback(this[i]);
+    }
+}
+arr._forEach(printName);
+
 arr._filter = function (callback) {
     let result = [];
     for (let i = 0; i < this.length; i++) {
