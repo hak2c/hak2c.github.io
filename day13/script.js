@@ -216,3 +216,56 @@ arr._sort = function (callback) {
     return this;
 }
 arr._sort(s);
+
+// arr._forEach
+arr._forEach = function (callback) {
+    for (let i = 0; i < this.length; i++) {
+        callback(this[i], i, this);
+    }
+}
+
+// arr._filter
+let condition = (i) => {
+    if (i.age > 25) return true;
+    else return false;
+}
+arr = [
+    {
+        name: "Hà",
+        age: 35
+    },
+    {
+        name: "Thắng",
+        age: 25
+    },
+    {
+        name: "Tuấn",
+        age: 23
+    },
+    {
+        name: "Thảo",
+        age: 22
+    },
+    {
+        name: "Hưng",
+        age: 27
+    },
+    {
+        name: "Giang",
+        age: 24
+    },
+    {
+        name: "Tuấn Anh",
+        age: 25
+    },
+]
+arr._filter = function (callback) {
+    let result = [];
+    for (let i = 0; i < this.length; i++) {
+        if (typeof callback == 'function' && callback(this[i])) {
+            result[result.length] = this[i];
+        }
+    }
+    return result;
+}
+arr._filter(condition);
