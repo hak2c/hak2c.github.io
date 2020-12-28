@@ -47,10 +47,7 @@ let findMax = (arr, number) => {
   //   return arr[number - 1];
 };
 findMax(arr, 3);
-arr
-  .sort((a, b) => b - a)
-  .filter((value, index, arr) => value < arr[0])
-  .filter((value, index, arr) => value < arr[0][0]);
+arr.map((i) => arr.filter((x) => x == i).length).sort((a, b) => b - a)[0];
 
 // 7. Viết hàm chuyển đổi một chuỗi thành dạng capitalize. VD “hello world” => “Hello World”
 let changeCapitalize = (str) => {
@@ -86,18 +83,31 @@ let findMaxExist = (arr) => {
 findMaxExist(arr);
 
 // 9. Viết hàm cắt chuỗi thành một mảng có độ dài chỉ định. VD “Hello”, 2 => [“He”, “ll”, “o”]
-let cutStringToArray = (str, number) => {
+let cutStringToArray = (str, len) => {
   let result = [];
-  for (let i = 0; i < str.length; i += number) {
-    let item = "";
-    for (let j = 0; j < number; j++) {
-      if (str[i + j] != undefined) item += `${str[i + j]}`;
-    }
-    result.push(item);
+  for (let i = 0, j = 0; i < str.length; i += len, j++) {
+    result[j] = str.slice(i, i + len);
   }
   return result;
 };
 cutStringToArray("Hello", 2);
+
+// 13. Viết hàm trả về một mảng các số trùng nhau trong 2 mảng. VD [1,2,3], [2,3,4] => [2,3]
+let arr1 = [1, 2, 3];
+let arr2 = [2, 3, 4];
+let findSimilar = (arr1, arr2) => {
+  let result = [];
+  for (let i = 0; i < arr1.length; i++) {
+    if (arr2.indexOf(arr1[i]) != -1 && result.indexOf(arr1[i]) == -1)
+      result.push(arr1[i]);
+  }
+  for (let i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) != -1 && result.indexOf(arr2[i]) == -1)
+      result.push(arr2[i]);
+  }
+  return result;
+};
+findSimilar(arr1, arr2);
 
 // 14. Viết hàm trả về một mảng các số không trùng nhau trong 2 mảng. VD [1,2,3], [2,3,4] => [1,4]
 let arr1 = [1, 2, 3];
