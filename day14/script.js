@@ -391,6 +391,12 @@ onlyName(arr);
 
 /* BÀI TẬP DATE TIME */
 
+// 6. Viết hàm tính số ngày còn lại đến tết dương lịch năm sau
+let dayLeft = () => {
+  let today = new Date(),
+   nextHoliday = new Date()
+}
+
 // 7. Viết hàm kiểm tra một ngày có phải cuối tuần không
 let day = "2021-02-28";
 let checkWeekend = (day) => {
@@ -401,7 +407,22 @@ let checkWeekend = (day) => {
 checkWeekend(day); // true
 checkWeekend("2021-02-25"); // false
 
-// 8. Viết 
+// 8. Viết hàm trả về số quý tương ứng với giá trị ngày tháng truyền vào
+let day = "2021-02-28";
+let checkQuarter = (day) => {
+  let date = new Date(day),
+    month = date.getMonth() + 1;
+  if (month == 1 || month == 2 || month ==  3) {
+    return "Ngày này thuộc quý 1";
+  } else if (month == 4 || month == 5 || month ==  6) {
+    return "Ngày này thuộc quý 1";
+  } else if (month == 7 || month == 8 || month ==  9) {
+    return "Ngày này thuộc quý 3";
+  } else {
+    return "Ngày này thuộc quý 4";
+  }
+}
+checkQuarter(day);
 
 // 11. Viết hàm trả về chuỗi ngày tháng hiện tại có dạng "10:01:30 CN 20/01/2020"
 let changeFormatToday = () => {
