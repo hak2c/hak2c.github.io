@@ -101,11 +101,11 @@ let cutStringToArray = (str) => {
   let res = [];
   for (let i = 0; i < str.length; i++) {
     for (let j = i; j < str.length; j++) {
-      res.push(str.slice(i, j+1));
+      res.push(str.slice(i, j + 1));
     }
   }
   return res;
-}
+};
 cutStringToArray(str);
 
 // 11. Cho một mảng số, viết hàm loại bỏ số trùng lặp trong mảng. VD [1,2,2,3] => [1,2,3]
@@ -116,7 +116,7 @@ let removeDuplicate = (arr) => {
     if (result.indexOf(arr[i]) === -1) result.push(arr[i]);
   }
   return result;
-}
+};
 arr = removeDuplicate(arr);
 
 // 12. Mảng lưu số Fibonacci từ 0->n
@@ -131,14 +131,14 @@ let fibonacci = (num) => {
     num--;
   }
   return b;
-}
+};
 let createFibonacciArray = (n) => {
   let result = [];
   for (let i = 0; i < n; i++) {
     result.push(fibonacci(i));
   }
   return result;
-}
+};
 createFibonacciArray(8);
 
 // 13. Viết hàm trả về một mảng các số trùng nhau trong 2 mảng. VD [1,2,3], [2,3,4] => [2,3]
@@ -175,7 +175,7 @@ findDefference(arr1, arr2);
 
 // 15. Viết hàm loại bỏ các giá trị “false” khỏi mảng. VD [null, 1, 0, NaN, “”] => [1]
 let filterArray = (arr) => arr.filter((i) => !!i);
-filterArray([null, 1, 0, NaN, '']);
+filterArray([null, 1, 0, NaN, ""]);
 
 /* BÀI TẬP MẢNG PAGE 2 */
 // 1. Viết hàm sắp xếp một mảng số nguyên
@@ -216,7 +216,8 @@ arr._sort(); // sắp xếp string
 let sortByAge = (arr) => arr.sort((a, b) => a.age - b.age);
 
 // 4. Tương tự, viết hàm sắp xếp mảng user theo name.length
-let sortByNameLength = (arr) => arr.sort((a, b) => a.name.length - b.name.length);
+let sortByNameLength = (arr) =>
+  arr.sort((a, b) => a.name.length - b.name.length);
 
 // 5. Viết hàm sắp xếp mảng user theo name
 let user = [
@@ -249,9 +250,13 @@ let user = [
     age: 25,
   },
 ];
-user.sort((a,b) => {
-  if (a.name.toLowerCase() < b.name.toLowerCase()) {return -1;}
-  if (a.name.toLowerCase() > b.name.toLowerCase()) {return 1;}
+user.sort((a, b) => {
+  if (a.name.toLowerCase() < b.name.toLowerCase()) {
+    return -1;
+  }
+  if (a.name.toLowerCase() > b.name.toLowerCase()) {
+    return 1;
+  }
   return 0;
 });
 
@@ -259,12 +264,12 @@ user.sort((a,b) => {
 let findSum = (arr, n) => {
   let result = [];
   for (let i = 0; i <= arr.length - 1; i++) {
-    for (let j = i+1; j < arr.length; j++){
+    for (let j = i + 1; j < arr.length; j++) {
       if (arr[i] + arr[j] == n) result.push(`${i} ${j}`);
     }
   }
   return result;
-}
+};
 let arr = [1, 2, 3, 2, 5, 6, 3, 5, 7, 3, 5, 3, 8];
 findSum(arr, 5);
 
@@ -288,11 +293,15 @@ let shuffleArray = (arr) => {
     arr[randomIndex] = temp;
   }
   return arr;
-}
+};
 shuffleArray(arr);
 
 // 8, 9. Viết hàm biến một một mảng nhiều chiều thành mảng 1 chiều.
-let arr = [[1, 2, 3], [2, 3, 4], [5, 6, 7]];
+let arr = [
+  [1, 2, 3],
+  [2, 3, 4],
+  [5, 6, 7],
+];
 let multiDimensions = (arr) => {
   let result = [];
   for (let i = 0; i < arr.length; i++) {
@@ -305,7 +314,7 @@ let multiDimensions = (arr) => {
     }
   }
   return result;
-}
+};
 multiDimensions(arr);
 
 /* BÀI TẬP MẢNG PAGE 3 */
@@ -316,11 +325,11 @@ squareArray([1, 2, 3, 4]);
 
 // 2. Viết hàm biến đổi các phần tử của mảng chuỗi thành dạng uppercase()
 let uppercaseArray = (arr) => arr.map((i) => i.toUpperCase());
-uppercaseArray(['abc', 'def']);
+uppercaseArray(["abc", "def"]);
 
 // 3. Viết hàm lọc ra các phần tử có kiểu “number” trong một mảng hỗn hợp
-let filterNumber = (arr) => arr.filter((i) => typeof i == 'number');
-filterNumber(['a', 1, 2, 'b']);
+let filterNumber = (arr) => arr.filter((i) => typeof i == "number");
+filterNumber(["a", 1, 2, "b"]);
 
 // 4->8
 let arr = [
@@ -359,43 +368,65 @@ let filterByAge = (arr) => arr.filter((i) => i.age > 20);
 filterByAge(arr);
 
 // 6. Viết hàm chuyển đổi name của object thành dạng capitalize => sai
-let capitalizeName = (arr) => arr.map((i) => {
-  let split = i.name.split(" ");
-  let result = "";
-  console.log(split);
-  for (let j = 0; j < split.length; j++) {
-    if(split[i] != " ") result += split[j][0].toUpperCase() + split[i].slice(1) + " ";
-  }
-  i.name = result;
-  return i;
-})
+let capitalizeName = (arr) =>
+  arr.map((i) => {
+    let split = i.name.split(" ");
+    let result = "";
+    console.log(split);
+    for (let j = 0; j < split.length; j++) {
+      if (split[i] != " ")
+        result += split[j][0].toUpperCase() + split[i].slice(1) + " ";
+    }
+    i.name = result;
+    return i;
+  });
 capitalizeName(arr);
 
 // 7. Viết hàm chuyển đổi name của object thành dạng viết tắt. VD “Ba Nguyen” => “Ba N.”
-let shortName = (arr) => arr.map((i) => {
-  let idx = i.name.indexOf(" "),
-    newName = i.name[0].toUpperCase();
-  if (idx != -1) {
-    newName += i.name.slice(1, idx + 1) + i.name[idx + 1].toUpperCase() + ".";
-  } else {
-    newName += i.name.slice(1, i.name.length);
-  }
-  i.name = newName;
-  return i;
-});
+let shortName = (arr) =>
+  arr.map((i) => {
+    let idx = i.name.indexOf(" "),
+      newName = i.name[0].toUpperCase();
+    if (idx != -1) {
+      newName += i.name.slice(1, idx + 1) + i.name[idx + 1].toUpperCase() + ".";
+    } else {
+      newName += i.name.slice(1, i.name.length);
+    }
+    i.name = newName;
+    return i;
+  });
 shortName(arr);
 // 8. Viết hàm để chuyển mảng object thành một mảng chỉ chứa name
 let onlyName = (arr) => arr.map((i) => i.name);
 onlyName(arr);
 
-
 /* BÀI TẬP DATE TIME */
+
+// 5. Viết hàm tính số giây hiện tại trong ngày
+let secondsLeft = () => {
+  let today = new Date(),
+    begin = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+  let diff = today.getTime() - begin.getTime();
+  console.log(
+    `Số giây trong ngày ${Math.floor((diff % (1000 * 60)) / 1000)} giây`
+  );
+};
+secondsLeft();
 
 // 6. Viết hàm tính số ngày còn lại đến tết dương lịch năm sau
 let dayLeft = () => {
   let today = new Date(),
-   nextHoliday = new Date()
-}
+    nextHoliday = new Date(today.getFullYear() + 1, 0, 1),
+    diff = nextHoliday.getTime() - today.getTime();
+  let day = Math.floor(diff / (1000 * 3600 * 24)),
+    hour = Math.floor((diff % (1000 * 3600 * 24)) / (1000 * 3600)),
+    min = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+    sec = Math.floor((diff % (1000 * 60)) / 1000);
+  console.log(
+    `Còn ${day} ngày ${hour}:${min}:${sec} nữa đến Tết Dương lịch năm sau`
+  );
+};
+dayLeft();
 
 // 7. Viết hàm kiểm tra một ngày có phải cuối tuần không
 let day = "2021-02-28";
@@ -403,7 +434,7 @@ let checkWeekend = (day) => {
   let date = new Date(day);
   if (date.getDay() == 0 || date.getDay() == 6) return true;
   else return false;
-}
+};
 checkWeekend(day); // true
 checkWeekend("2021-02-25"); // false
 
@@ -412,60 +443,63 @@ let day = "2021-02-28";
 let checkQuarter = (day) => {
   let date = new Date(day),
     month = date.getMonth() + 1;
-  if (month == 1 || month == 2 || month ==  3) {
+  if (month == 1 || month == 2 || month == 3) {
     return "Ngày này thuộc quý 1";
-  } else if (month == 4 || month == 5 || month ==  6) {
+  } else if (month == 4 || month == 5 || month == 6) {
     return "Ngày này thuộc quý 1";
-  } else if (month == 7 || month == 8 || month ==  9) {
+  } else if (month == 7 || month == 8 || month == 9) {
     return "Ngày này thuộc quý 3";
   } else {
     return "Ngày này thuộc quý 4";
   }
-}
+};
 checkQuarter(day);
 
 // 11. Viết hàm trả về chuỗi ngày tháng hiện tại có dạng "10:01:30 CN 20/01/2020"
 let changeFormatToday = () => {
   let today = new Date(),
     dayOfWeek;
-    switch (today.getDay()) {
-      case 0:
-        dayOfWeek = "CN";
-        break;
-      case 1:
-        dayOfWeek = "T2";
-        break;
-      case 2:
-        dayOfWeek = "T3";
-        break;
-      case 3:
-        dayOfWeek = "T4";
-        break;
-      case 4:
-        dayOfWeek = "T5";
-        break;
-      case 5:
-        dayOfWeek = "T6";
-        break;
-      case 6:
-        dayOfWeek = "T7";
-        break;
-      default:
-        dayOfWeek = "CN";
-        break;
-    }
-  return `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()} ${dayOfWeek} ${today.getDate()}/${today.getMonth()+1}/${today.getFullYear()}`;
-}
+  switch (today.getDay()) {
+    case 0:
+      dayOfWeek = "CN";
+      break;
+    case 1:
+      dayOfWeek = "T2";
+      break;
+    case 2:
+      dayOfWeek = "T3";
+      break;
+    case 3:
+      dayOfWeek = "T4";
+      break;
+    case 4:
+      dayOfWeek = "T5";
+      break;
+    case 5:
+      dayOfWeek = "T6";
+      break;
+    case 6:
+      dayOfWeek = "T7";
+      break;
+    default:
+      dayOfWeek = "CN";
+      break;
+  }
+  return `${today.getHours()}:${today.getMinutes()}:${today.getSeconds()} ${dayOfWeek} ${today.getDate()}/${
+    today.getMonth() + 1
+  }/${today.getFullYear()}`;
+};
 changeFormatToday();
+
+// 12. Viết hàm trả về thời gian chênh lệnh giữa 2 quốc gia, giá trị trả về dạng “01h 10m 30s”
 
 // 13. Viết hàm trả về ngày sau ngày hiện tại n ngày
 let returnNumberDay = (n) => {
-  let today = new Date(),
-    day = new Date();
+  let day = new Date();
   day.setDate(new Date().getDate() + n);
   return day;
-}
-returnNumberDay(35); 
+};
+returnNumberDay(35);
 
 // 14. Viết hàm trả về số giờ chênh lệch giữa 2 ngày
 let day1 = "2021-02-28",
@@ -474,8 +508,8 @@ let diffDay = (day1, day2) => {
   day1 = new Date(day1);
   day2 = new Date(day2);
   let diff = Math.abs(day1.getTime() - day2.getTime());
-  return parseInt(diff/(1000*3600));
-}
+  return parseInt(diff / (1000 * 3600));
+};
 diffDay(day1, day2); // 1728 giờ ~ 72 ngày
 
 // 15. Viết hàm trả về ngày đầu tuần
@@ -509,5 +543,5 @@ let getFirstDayOfWeek = () => {
       break;
   }
   return monday;
-}
+};
 getFirstDayOfWeek();
