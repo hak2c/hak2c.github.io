@@ -14,7 +14,7 @@ let doing = document.querySelector("#doing"),
   complete = document.querySelector("#complete");
 for (let i = 0; i < todos.length; i++) {
   if (todos[i].completed) {
-    complete.lastElementChild.innerHTML += `<div><input type="checkbox" name="${todos[i].id}" checked id="${todos[i].id}">${todos[i].title}</div>`;
+    complete.lastElementChild.innerHTML += `<div><input type="checkbox" name="${todos[i].id}" disabled checked id="${todos[i].id}">${todos[i].title}</div>`;
   } else {
     doing.lastElementChild.innerHTML += `<div id='${todos[i].id}'><input type="checkbox" name="${todos[i].id}" id="${todos[i].id}">${todos[i].title}</div>`;
   }
