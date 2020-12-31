@@ -8,16 +8,27 @@
       body{
         background-color: grey;
       }
-      #doing, #complete {
+      #doing, #complete, #input {
         background-color: #ffffff;
         padding: 15px;
         width: 500px;
         margin: 20px auto;
         border-radius: 15px;
       }
+      #input input {
+        width: 100%;
+        border: none;
+        height: 30px;
+      }
+      #input input:focus {
+        outline: none;
+      }
     </style>
   </head>
   <body>
+      <div id="input">
+        <input type="text" placeholder="What you want to do?">
+      </div>
       <div id="doing">
         <h3>Doing</h3>
         <div></div>
