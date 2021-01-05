@@ -44,20 +44,24 @@ function handleClick() {
 
 function horizonalCheck(rowIndex, cellIndex, turn) {
   let countCheck = 1;
-  for (let i = cellIndex - 1; i >= 0; i--) {
-    if (board.rows[rowIndex].cells[i].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+  if (cellIndex > 0) {
+    for (let i = cellIndex - 1; i >= 0; i--) {
+      if (board.rows[rowIndex].cells[i].textContent == turn) {
+        countCheck++;
+        if (countCheck == 5) return true;
+      } else {
+        break;
+      }
     }
   }
-  for (let i = cellIndex + 1; i <= row - 1;i++) {
-    if (board.rows[rowIndex].cells[i].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+  if (cellIndex < row - 2) {
+    for (let i = cellIndex + 1; i <= row - 1;i++) {
+      if (board.rows[rowIndex].cells[i].textContent == turn) {
+        countCheck++;
+        if (countCheck == 5) return true;
+      } else {
+        break;
+      }
     }
   }
   return false;
@@ -65,20 +69,24 @@ function horizonalCheck(rowIndex, cellIndex, turn) {
 
 function verticalCheck(rowIndex, cellIndex, turn) {
   let countCheck = 1;
-  for (let i = rowIndex - 1; i >= 0; i--) {
-    if (board.rows[i].cells[cellIndex].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+  if (rowIndex > 0) {
+    for (let i = rowIndex - 1; i >= 0; i--) {
+      if (board.rows[i].cells[cellIndex].textContent == turn) {
+        countCheck++;
+        if (countCheck == 5) return true;
+      } else {
+        break;
+      }
     }
   }
-  for (let i = rowIndex + 1; i <= row - 1;i++) {
-    if (board.rows[i].cells[cellIndex].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+  if (rowIndex < row - 2) {
+    for (let i = rowIndex + 1; i <= row - 1;i++) {
+      if (board.rows[i].cells[cellIndex].textContent == turn) {
+        countCheck++;
+        if (countCheck == 5) return true;
+      } else {
+        break;
+      }
     }
   }
   return false;
@@ -90,48 +98,68 @@ function diagonalCheck(rowIndex, cellIndex, turn) {
 }
 
 function diagonalDescendingColIndex(rowIndex, cellIndex, turn, countCheck) {
-  let descColIndex = cellIndex;
-  for (let i = rowIndex - 1; i >= 0; i--) {
-    descColIndex -= 1;
-    if (board.rows[i].cells[descColIndex].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+  let descCellIndex = cellIndex;
+  if (rowIndex > 0 && rowIndex < row - 2 && cellIndex > 0 && cellIndex < row - 2) {
+    for (let i = rowIndex - 1; i >= 0; i--) {
+      descCellIndex -= 1;
+      if (descCellIndex >= 0) {
+        if (board.rows[i].cells[descCellIndex].textContent == turn) {
+          countCheck++;
+          if (countCheck == 5) return true;
+        } else {
+          break;
+        }
+      } else {
+        break;
+      }
     }
-  }
-  descColIndex = cellIndex;
-  for (let i = rowIndex + 1; i < row - 1; i++) {
-    descColIndex -= 1;
-    if (board.rows[i].cells[descColIndex].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+    descCellIndex = cellIndex;
+    for (let i = rowIndex + 1; i < row - 1; i++) {
+      descCellIndex -= 1;
+      if (descCellIndex >= 0) {
+        if (board.rows[i].cells[descCellIndex].textContent == turn) {
+          countCheck++;
+          if (countCheck == 5) return true;
+        } else {
+          break;
+        }
+      } else {
+        break;
+      }
     }
   }
   return false;
 }
 
 function diagonalAscendingColIndex(rowIndex, cellIndex, turn, countCheck) {
-  let ascColIndex = cellIndex;
-  for (let i = rowIndex - 1; i >= 0; i--) {
-    ascColIndex += 1;
-    if (board.rows[i].cells[ascColIndex].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+  let ascCellIndex = cellIndex;
+  if (rowIndex > 0 && rowIndex < row - 2 && cellIndex > 0 && cellIndex < row - 2) {
+    for (let i = rowIndex - 1; i >= 0; i--) {
+      ascCellIndex += 1;
+      if (ascCellIndex < row - 1) {
+        if (board.rows[i].cells[ascCellIndex].textContent == turn) {
+          countCheck++;
+          if (countCheck == 5) return true;
+        } else {
+          break;
+        }
+      } else {
+        break;
+      }
     }
-  }
-  ascColIndex = cellIndex;
-  for (let i = rowIndex + 1; i < row - 1; i++) {
-    ascColIndex += 1;
-    if (board.rows[i].cells[ascColIndex].textContent == turn) {
-      countCheck++;
-      if (countCheck == 5) return true;
-    } else {
-      break;
+    ascCellIndex = cellIndex;
+    for (let i = rowIndex + 1; i < row - 1; i++) {
+      ascCellIndex += 1;
+      if (ascCellIndex < row - 1) {
+        if (board.rows[i].cells[ascCellIndex].textContent == turn) {
+          countCheck++;
+          if (countCheck == 5) return true;
+        } else {
+          break;
+        }
+      } else {
+        break;
+      }
     }
   }
   return false;
