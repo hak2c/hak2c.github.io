@@ -1,33 +1,13 @@
 // 1. Đếm xem có tất cả bao nhiêu từ trong 2 đoạn văn có độ dài lớn hơn 8
-let paragraph = document.getElementsByTagName("p");
-let countString = (str) => {
-    if (str.length > 8) return true;
-    else return false;
-}
 
-for (let i = 0; i < paragraph.length; i++) {
-    let content = paragraph[i].innerHTML.split(" "),
-        count = 0;
-    for (let j = 0; j < content.length;j++) {
-        if (countString(content[j])) {
-            count++;
-        } else {
-            if (content[j] != " ") content[j] = "<span class='color'>Anh Ba đẹp trai 🤣</span>";
-        }
-    }
-    // 3. Thay thế các từ có độ nhỏ hơn 8 trong p2 thành "Anh Ba đẹp trai 🤣". Lưu ý thay thế đúng không thì 0đ!!!
-    if (count > 0) {
-        let newContent = content.join(" ");
-        paragraph[i].innerHTML = newContent;
-    }
-    console.log(`Đoạn văn thứ ${i+1} có ${count} từ có độ dài lớn hơn 8`);
-}
 
 // 2. Style cho các từ có độ dài lớn hơn 8 trong p1
-let span = document.body.querySelectorAll(".color");
-for (s of span) {
-    s.style.color = "red";
-}
+let p1 = document.querySelector(".p1");
+p1.innerHTML = p1.textContent.split(" ").map(i => i.length > 8 ? `<span class="color">${i}</span>` : i).join(" ");
+
+// 3. Thay thế các từ có độ nhỏ hơn 8 trong p2 thành "Anh Ba đẹp trai 🤣". Lưu ý thay thế đúng không thì 0đ!!!
+
+p2.innerHTML = p2.textContent.split(" ").map(i=> i.length < 8 ? "Anh Ba đẹp trai 🤣" : i).join(" ");
 
 // 4. Thêm src, alt, href cho ảnh, link
 let image = document.body.getElementsByTagName("img")[0];
@@ -44,4 +24,5 @@ let table = document.body.getElementsByTagName("table")[0];
 for (let i = 0; i < table.rows.length; i++) {
     let j = Math.floor(Math.random() * table.rows.length);
     table.rows[i].cells[j].style.backgroundColor = "red";
+    table.rows[i].cells[j].innerHTML = "😍 Mr. Ba đẹp trai";
 }
