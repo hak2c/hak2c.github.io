@@ -28,7 +28,7 @@ function handleClick() {
     this.textContent = turn;
     let rowIndex = this.parentElement.rowIndex,
       cellIndex = this.cellIndex;
-    if (horizonalCheck(rowIndex, cellIndex, turn) || verticalCheck(rowIndex, cellIndex, turn) || diagonalCheck(rowIndex, cellIndex, turn)) {
+    if (horizonalCheck(rowIndex, cellIndex, turn) || verticalCheck(rowIndex, cellIndex, turn) || diagonalLeft(rowIndex, cellIndex, turn) || diagonalRight(rowIndex, cellIndex, turn)) {
       next.textContent = "Winner: " + turn;
       end = true;
       reset.hidden = false;
@@ -92,30 +92,13 @@ function verticalCheck(rowIndex, cellIndex, turn) {
   return false;
 }
 
-function diagonalCheck(rowIndex, cellIndex, turn) {
+function diagonalLeft(rowIndex, cellIndex, turn) {
   let countCheck = 1;
-  return (diagonalDescendingColIndex(rowIndex, cellIndex, turn, countCheck) || diagonalAscendingColIndex(rowIndex, cellIndex, turn, countCheck)) ? true : false;
-}
-
-function diagonalDescendingColIndex(rowIndex, cellIndex, turn, countCheck) {
   let descCellIndex = cellIndex;
-  if (rowIndex > 0 && rowIndex < row - 2 && cellIndex > 0 && cellIndex < row - 2) {
+  let ascCellIndex = cellIndex;
+  if (cellIndex > 0 && rowIndex > 0) {
     for (let i = rowIndex - 1; i >= 0; i--) {
-      descCellIndex -= 1;
-      if (descCellIndex >= 0) {
-        if (board.rows[i].cells[descCellIndex].textContent == turn) {
-          countCheck++;
-          if (countCheck == 5) return true;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
-    }
-    descCellIndex = cellIndex;
-    for (let i = rowIndex + 1; i < row - 1; i++) {
-      descCellIndex -= 1;
+      descCellIndex--;
       if (descCellIndex >= 0) {
         if (board.rows[i].cells[descCellIndex].textContent == turn) {
           countCheck++;
@@ -128,15 +111,11 @@ function diagonalDescendingColIndex(rowIndex, cellIndex, turn, countCheck) {
       }
     }
   }
-  return false;
-}
-
-function diagonalAscendingColIndex(rowIndex, cellIndex, turn, countCheck) {
-  let ascCellIndex = cellIndex;
-  if (rowIndex > 0 && rowIndex < row - 2 && cellIndex > 0 && cellIndex < row - 2) {
-    for (let i = rowIndex - 1; i >= 0; i--) {
-      ascCellIndex += 1;
-      if (ascCellIndex < row - 1) {
+  if (rowIndex < row - 2) {
+    ascCellIndex = cellIndex;
+    for (let i = rowIndex + 1; i < row - 1; i++) {
+      ascCellIndex++;
+      if (ascCellIndex <= row - 1) {
         if (board.rows[i].cells[ascCellIndex].textContent == turn) {
           countCheck++;
           if (countCheck == 5) return true;
@@ -147,11 +126,34 @@ function diagonalAscendingColIndex(rowIndex, cellIndex, turn, countCheck) {
         break;
       }
     }
-    ascCellIndex = cellIndex;
-    for (let i = rowIndex + 1; i < row - 1; i++) {
-      ascCellIndex += 1;
-      if (ascCellIndex < row - 1) {
+  }
+  return false;
+}
+function diagonalRight(rowIndex, cellIndex, turn) {
+  let countCheck = 1;
+  let descCellIndex = cellIndex;
+  let ascCellIndex = cellIndex;
+  if (rowIndex > 0 && cellIndex < row - 2) {
+    for (let i = rowIndex - 1; i >= 0; i--) {
+      ascCellIndex++;
+      if (ascCellIndex <= row - 1) {
         if (board.rows[i].cells[ascCellIndex].textContent == turn) {
+          countCheck++;
+          if (countCheck == 5) return true;
+        } else {
+          break;
+        }
+      } else {
+        break;
+      }
+    }
+  }
+  if (cellIndex > 0 && rowIndex < row - 2) {
+    descCellIndex = cellIndex;
+    for (let i = rowIndex + 1; i < row - 1; i++) {
+      descCellIndex--;
+      if (descCellIndex >= 0) {
+        if (board.rows[i].cells[descCellIndex].textContent == turn) {
           countCheck++;
           if (countCheck == 5) return true;
         } else {
