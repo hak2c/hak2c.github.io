@@ -147,5 +147,3 @@ reset.addEventListener("click", () => {
   reset.hidden = true;
   end = false;
 });
-
-let checkWinner = () => {};
