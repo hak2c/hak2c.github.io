@@ -19,15 +19,22 @@ body {
   margin: 20px auto;
   border-radius: 15px;
 }
+#doing span,
+#complete span {
+  cursor: pointer;
+}
 #input {
   position: relative;
 }
-#input input {
+input[type="text"] {
   width: 100%;
-  border: none;
   height: 30px;
+  margin-bottom: 15px;
 }
-#input input:focus {
+#input input[type="text"] {
+  border: none;
+}
+#input input[type="text"]:focus {
   outline: none;
 }
 #add {
@@ -41,4 +48,21 @@ body {
 }
 #add:focus {
   outline: none;
+}
+
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10;
+}
+.popup-content {
+  width: 90%;
+  max-width: 500px;
+  margin: 50px auto 30px auto;
+  background: #ffffff;
+  padding: 15px;
 }

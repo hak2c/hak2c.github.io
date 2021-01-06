@@ -1,6 +1,6 @@
-let row = +prompt("Input number of rows (minimum 10 rows)");
-if (row < 10) row = 10;
-// let row = 10;
+// let row = +prompt("Input number of rows (minimum 10 rows)");
+// if (row < 10) row = 10;
+let row = 10;
 let turn = "X";
 let count = 0;
 let end = false;
@@ -43,7 +43,11 @@ function handleClick() {
     turn = turn == "X" ? "O" : "X";
     next.textContent = "Player: " + turn;
     count++;
-    if (count == row * row) reset.hidden = false;
+    if (count >= row * row) {
+      reset.hidden = false;
+      next.textContent = "All loser";
+      end = !end;
+    }
   }
 }
 
@@ -54,18 +58,14 @@ function horizonalCheck(rowIndex, cellIndex, turn) {
     if (board.rows[rowIndex].cells[i].textContent == turn) {
       countCheck++;
       if (countCheck == 5) return true;
-    } else {
-      break;
-    }
+    } else break;
   }
   for (let i = cellIndex + 1; i <= row - 1; i++) {
     if (board.rows[rowIndex].cells[i] == undefined) break;
     if (board.rows[rowIndex].cells[i].textContent == turn) {
       countCheck++;
       if (countCheck == 5) return true;
-    } else {
-      break;
-    }
+    } else break;
   }
   return false;
 }
@@ -95,45 +95,37 @@ function verticalCheck(rowIndex, cellIndex, turn) {
 
 function diagonalLeft(rowIndex, cellIndex, turn) {
   let countCheck = 1;
-  for (let i = rowIndex - 1, j = cellIndex - 1; i >= 0; i--, j--) {
+  for (let i = rowIndex - 1, j = cellIndex - 1; i >= 0 && j >= 0; i--, j--) {
     if (board.rows[i].cells[j] == undefined) break;
     if (board.rows[i].cells[j].textContent == turn) {
       countCheck++;
       if (countCheck == 5) return true;
-    } else {
-      break;
-    }
+    } else break;
   }
-  for (let i = rowIndex + 1, j = cellIndex + 1; i <= row - 1; i++, j++) {
+  for (let i = rowIndex + 1, j = cellIndex + 1; i < row && j < row; i++, j++) {
     if (board.rows[i].cells[j] == undefined) break;
     if (board.rows[i].cells[j].textContent == turn) {
       countCheck++;
       if (countCheck == 5) return true;
-    } else {
-      break;
-    }
+    } else break;
   }
   return false;
 }
 function diagonalRight(rowIndex, cellIndex, turn) {
   let countCheck = 1;
-  for (let i = rowIndex - 1, j = cellIndex + 1; i >= 0; i--, j++) {
+  for (let i = rowIndex - 1, j = cellIndex + 1; i >= 0 && j < row; i--, j++) {
     if (board.rows[i].cells[j] == undefined) break;
     if (board.rows[i].cells[j].textContent == turn) {
       countCheck++;
       if (countCheck == 5) return true;
-    } else {
-      break;
-    }
+    } else break;
   }
-  for (let i = rowIndex + 1, j = cellIndex - 1; i <= row - 1; i++, j--) {
+  for (let i = rowIndex + 1, j = cellIndex - 1; i < row && j >=0; i++, j--) {
     if (board.rows[i].cells[j] == undefined) break;
     if (board.rows[i].cells[j].textContent == turn) {
       countCheck++;
       if (countCheck == 5) return true;
-    } else {
-      break;
-    }
+    } else break;
   }
   return false;
 }

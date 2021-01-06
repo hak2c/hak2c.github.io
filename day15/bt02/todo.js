@@ -22,7 +22,11 @@ function createCheckbox(id, title, checked = true) {
   }
   input.addEventListener("click", handleCheckbox);
   div.append(input);
-  div.append(title);
+  let span = document.createElement("span");
+  span.dataset.id = id;
+  span.append(title);
+  span.addEventListener("click", handleClickWork);
+  div.append(span);
   return div;
 }
 
@@ -31,9 +35,13 @@ function createTodoList() {
   doing.lastElementChild.innerHTML = "";
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].completed) {
-      complete.lastElementChild.append(createCheckbox(todos[i].id, todos[i].title));
+      complete.lastElementChild.append(
+        createCheckbox(todos[i].id, todos[i].title)
+      );
     } else {
-      doing.lastElementChild.append(createCheckbox(todos[i].id, todos[i].title, false));
+      doing.lastElementChild.append(
+        createCheckbox(todos[i].id, todos[i].title, false)
+      );
     }
   }
 }
@@ -49,19 +57,47 @@ function handleClick() {
     todos.push({
       id: todos.length + 1,
       title: this.previousElementSibling.value,
-      completed: false
+      completed: false,
     });
-    doing.lastElementChild.append(createCheckbox(todos.length, this.previousElementSibling.value, false));
+    doing.lastElementChild.append(
+      createCheckbox(todos.length, this.previousElementSibling.value, false)
+    );
   } else {
     alert("You have not entered a job to do");
   }
 }
 
 function handleCheckbox() {
-  todos.forEach(i => {
+  todos.forEach((i) => {
     if (this.id == i.id) {
       i.completed = true;
     }
   });
   createTodoList();
+}
+
+function handleClickWork() {
+  let work = todos.filter((i) => i.id == this.dataset.id)[0];
+  let index = todos.indexOf(work);
+
+  // Prompt
+  let newTitle = prompt("Edit work", work.title)
+  work.title = newTitle != "" && newTitle != null ? newTitle : work.title;
+  todos[index] = work;
+  createTodoList();
+  //Popup
+  // createPopup(work);
+}
+
+function createPopup(work) {
+  let popup = document.createElement("div");
+  popup.classList.add("popup");
+  let html = `
+    <div class="popup-content">
+      <input type="text" value="${work.title}">
+      <button type="submit">Submit</button>
+    </div>
+  `;
+  popup.innerHTML = html;
+  document.body.append(popup);
 }
