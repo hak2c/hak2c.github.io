@@ -52,7 +52,8 @@ add.addEventListener("click", handleClick);
 
 listDoing = Array.from(doing.getElementsByTagName("input"));
 
-function handleClick() {
+function handleClick(e) {
+  e.preventDefault();
   if (this.previousElementSibling.value != "") {
     todos.push({
       id: todos.length + 1,
@@ -67,7 +68,8 @@ function handleClick() {
   }
 }
 
-function handleCheckbox() {
+function handleCheckbox(e) {
+  e.preventDefault();
   todos.forEach((i) => {
     if (this.id == i.id) {
       i.completed = true;
@@ -76,12 +78,13 @@ function handleCheckbox() {
   createTodoList();
 }
 
-function handleClickWork() {
+function handleClickWork(e) {
+  e.preventDefault();
   let work = todos.filter((i) => i.id == this.dataset.id)[0];
   let index = todos.indexOf(work);
 
   // Prompt
-  let newTitle = prompt("Edit work", work.title)
+  let newTitle = prompt("Edit work", work.title);
   work.title = newTitle != "" && newTitle != null ? newTitle : work.title;
   todos[index] = work;
   createTodoList();
