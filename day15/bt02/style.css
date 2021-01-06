@@ -1,6 +1,15 @@
 * {
   box-sizing: border-box;
 }
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+h3 {
+  margin: 0;
+  margin-bottom: 10px;
+}
 img {
   max-width: 100%;
   vertical-align: middle;
@@ -19,8 +28,7 @@ body {
   margin: 20px auto;
   border-radius: 15px;
 }
-#doing span,
-#complete span {
+label {
   cursor: pointer;
 }
 #input {

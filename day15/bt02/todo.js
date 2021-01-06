@@ -11,37 +11,26 @@ let todos = [
 // Từ todolist trên render ra trang HTML theo mẫu trong ảnh
 
 function createCheckbox(id, title, checked = true) {
-  let div = document.createElement("div");
-  let input = document.createElement("input");
-  input.type = "checkbox";
-  input.name = id;
-  input.id = id;
-  if (checked) {
-    input.disabled = true;
-    input.checked = true;
-  }
-  input.addEventListener("click", handleCheckbox);
-  div.append(input);
-  let span = document.createElement("span");
-  span.dataset.id = id;
-  span.append(title);
-  span.addEventListener("click", handleClickWork);
-  div.append(span);
-  return div;
+  let check = checked ? "checked" : "";
+  let html = `
+    <li onclick="handleCheckbox()">
+      <input type="checkbox" name="${id}" id="${id}" ${check}>
+      <label onclick="handleClickWork()" data-id="$${id}">${title}</label>
+    </li>
+  `;
+  return html;
 }
 
 function createTodoList() {
-  complete.lastElementChild.innerHTML = "";
-  doing.lastElementChild.innerHTML = "";
+  let complete = document.getElementById("completed-list"),
+    doing = document.getElementById("doing-list");
+  complete.innerHTML = "";
+  doing.innerHTML = "";
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].completed) {
-      complete.lastElementChild.append(
-        createCheckbox(todos[i].id, todos[i].title)
-      );
+      complete.innerHTML += createCheckbox(todos[i].id, todos[i].title);
     } else {
-      doing.lastElementChild.append(
-        createCheckbox(todos[i].id, todos[i].title, false)
-      );
+      doing.innerHTML += createCheckbox(todos[i].id, todos[i].title, false);
     }
   }
 }
