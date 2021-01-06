@@ -23,7 +23,8 @@ let createBoard = (row) => {
   return fr;
 };
 
-function handleClick() {
+function handleClick(e) {
+  e.preventDefault();
   if (!end) {
     this.textContent = turn;
     let rowIndex = this.parentElement.rowIndex,
@@ -120,7 +121,7 @@ function diagonalRight(rowIndex, cellIndex, turn) {
       if (countCheck == 5) return true;
     } else break;
   }
-  for (let i = rowIndex + 1, j = cellIndex - 1; i < row && j >=0; i++, j--) {
+  for (let i = rowIndex + 1, j = cellIndex - 1; i < row && j >= 0; i++, j--) {
     if (board.rows[i].cells[j] == undefined) break;
     if (board.rows[i].cells[j].textContent == turn) {
       countCheck++;
@@ -132,7 +133,8 @@ function diagonalRight(rowIndex, cellIndex, turn) {
 
 board.append(createBoard(row));
 
-reset.addEventListener("click", () => {
+reset.addEventListener("click", (e) => {
+  e.preventDefault();
   board.innerHTML = "";
   board.append(createBoard(row));
   count = 0;
