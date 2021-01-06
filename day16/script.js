@@ -1,6 +1,5 @@
-// let row = +prompt("Input number of rows (minimum 10 rows)") >= 10;
-// if (row < 10) row = 10;
-let row = 10;
+let row = +prompt("Input number of rows (minimum 10 rows)");
+if (row < 10) row = 10;
 let turn = "X";
 let count = 0;
 let end = false;
@@ -94,74 +93,44 @@ function verticalCheck(rowIndex, cellIndex, turn) {
 
 function diagonalLeft(rowIndex, cellIndex, turn) {
   let countCheck = 1;
-  let descCellIndex = cellIndex;
-  let ascCellIndex = cellIndex;
-  if (cellIndex > 0 && rowIndex > 0) {
-    for (let i = rowIndex - 1; i >= 0; i--) {
-      descCellIndex--;
-      if (descCellIndex >= 0) {
-        if (board.rows[i].cells[descCellIndex].textContent == turn) {
-          countCheck++;
-          if (countCheck == 5) return true;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
+  for (let i = rowIndex - 1, j = cellIndex - 1; i >= 0;i--,j--){
+    if (board.rows[i].cells[j] == undefined) break;
+    if (board.rows[i].cells[j].textContent == turn) {
+      countCheck++;
+      if (countCheck == 5) return true;
+    } else {
+      break;
     }
   }
-  if (rowIndex < row - 2) {
-    ascCellIndex = cellIndex;
-    for (let i = rowIndex + 1; i < row - 1; i++) {
-      ascCellIndex++;
-      if (ascCellIndex <= row - 1) {
-        if (board.rows[i].cells[ascCellIndex].textContent == turn) {
-          countCheck++;
-          if (countCheck == 5) return true;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
+  for (let i = rowIndex + 1, j = cellIndex + 1; i <= row - 1; i++, j++) {
+    if (board.rows[i].cells[j] == undefined) break;
+    if (board.rows[i].cells[j].textContent == turn) {
+      countCheck++;
+      if (countCheck == 5) return true;
+    } else {
+      break;
     }
   }
   return false;
 }
 function diagonalRight(rowIndex, cellIndex, turn) {
   let countCheck = 1;
-  let descCellIndex = cellIndex;
-  let ascCellIndex = cellIndex;
-  if (rowIndex > 0 && cellIndex < row - 2) {
-    for (let i = rowIndex - 1; i >= 0; i--) {
-      ascCellIndex++;
-      if (ascCellIndex <= row - 1) {
-        if (board.rows[i].cells[ascCellIndex].textContent == turn) {
-          countCheck++;
-          if (countCheck == 5) return true;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
+  for (let i = rowIndex - 1, j= cellIndex+1; i >= 0;i--, j++) {
+    if (board.rows[i].cells[j] == undefined) break;
+    if (board.rows[i].cells[j].textContent == turn) {
+      countCheck++;
+      if (countCheck == 5) return true;
+    } else {
+      break;
     }
   }
-  if (cellIndex > 0 && rowIndex < row - 2) {
-    descCellIndex = cellIndex;
-    for (let i = rowIndex + 1; i < row - 1; i++) {
-      descCellIndex--;
-      if (descCellIndex >= 0) {
-        if (board.rows[i].cells[descCellIndex].textContent == turn) {
-          countCheck++;
-          if (countCheck == 5) return true;
-        } else {
-          break;
-        }
-      } else {
-        break;
-      }
+  for (let i = rowIndex + 1, j = cellIndex - 1; i <= row - 1;i++,j--){
+    if (board.rows[i].cells[j] == undefined) break;
+    if (board.rows[i].cells[j].textContent == turn) {
+      countCheck++;
+      if (countCheck == 5) return true;
+    } else {
+      break;
     }
   }
   return false;
