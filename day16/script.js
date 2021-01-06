@@ -1,6 +1,6 @@
-// let row = +prompt("Input number of rows (minimum 10 rows)");
-// if (row < 10) row = 10;
-let row = 10;
+let row = +prompt("Input number of rows (minimum 10 rows)");
+if (row < 10) row = 10;
+// let row = 10;
 let turn = "X";
 let count = 0;
 let end = false;
