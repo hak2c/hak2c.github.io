@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 2</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        header {
+            height: 30px;
+            background-color: rgb(235, 192, 175);
+        }
+        main {
+            background-color: rgb(235, 192, 175);
+        }
+        .container {
+            background-color: green;
+        }
+        .col {
+            width: calc(100% / 2);
+            padding: 7.5px;
+        }
+        .col-content {
+            background-color: blue;
+            height: 200px;
+        }
+        .right-bar .content {
+            background-color: blue;
+            height: 1000px;
+        }
+        .main-content {
+            width: 100%;
+            margin-bottom: 30px;
+            padding: 0 7.5px;
+        }
+        .right-bar {
+            width: 100%;
+            padding: 0 15px;
+        }
+        .row:first-child .col {
+            padding-top: 0;
+        }
+        .row:last-child .col {
+            padding-bottom: 0;
+        }
+        @media screen and (min-width: 768px) {
+            main {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+            .main-content {
+                width: calc(100% - 100% / 3);
+                padding: 0 15px;
+            }
+            .row {
+                margin-left: -7.5px;
+                margin-right: -7.5px;
+            }
+            .row:first-child .col {
+                padding-top: 0;
+            }
+            .row:last-child .col {
+                padding-bottom: 0;
+            }
+            .right-bar {
+                width: calc(100% / 3);
+                padding: 0 15px 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header></header>
+    <main class="flex wrap">
+        <section class="main-content">
+            <div class="row flex justify-between wrap">
+                <div class="col">
+                    <div class="col-content"></div>
+                </div>
+                <div class="col">
+                    <div class="col-content"></div>
+                </div>
+            </div>
+            <div class="row flex justify-between wrap">
+                <div class="col">
+                    <div class="col-content"></div>
+                </div>
+                <div class="col">
+                    <div class="col-content"></div>
+                </div>
+            </div>
+        </section>
+        <aside class="right-bar">
+            <div class="content"></div>
+        </aside>
+    </main>
+</body>
+</html>

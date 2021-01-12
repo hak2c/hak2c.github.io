@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <link rel="stylesheet" href="css/default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .col {
+            width: 100%;
+            padding: 15px;
+        }
+        .col-content {
+            background-color: blue;
+            height: 200px;
+        }
+        @media (min-width: 768px) {
+            .col {
+                width: calc(100% / 3);
+                padding: 15px;
+            }
+            .container {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row flex justify-between wrap">
+            <div class="col">
+                <div class="col-content"></div>
+            </div>
+            <div class="col">
+                <div class="col-content"></div>
+            </div>
+            <div class="col">
+                <div class="col-content"></div>
+            </div>
+            <div class="col">
+                <div class="col-content"></div>
+            </div>
+            <div class="col">
+                <div class="col-content"></div>
+            </div>
+            <div class="col">
+                <div class="col-content"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
