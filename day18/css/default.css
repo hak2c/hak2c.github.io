@@ -46,6 +46,9 @@
 .justify-between {
   justify-content: space-between;
 }
+.justify-around {
+  justify-content: space-around;
+}
 .col-1 {
   width: 4.16%;
 }
