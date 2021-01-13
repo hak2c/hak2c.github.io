@@ -43,6 +43,7 @@ p {
 ul,
 ol {
   list-style: none;
+  margin: 0;
 }
 a {
   color: inherit;
@@ -56,3 +57,5 @@ img {
   vertical-align: middle;
   height: auto;
 }
+
+
