@@ -10,3 +10,7 @@ img {
   height: auto;
   max-width: 100%;
 }
+
+#thumbnail {
+    display: flex;
+}
