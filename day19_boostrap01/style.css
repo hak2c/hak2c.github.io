@@ -1,0 +1,262 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  background: #fff;
+  font-weight: 400;
+  color: #6c6c6f;
+  margin: 0;
+  padding: 0;
+  font-weight: 300;
+  line-height: 27px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Rufina", serif;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+h1 {
+  font-size: 3.6rem;
+}
+h2 {
+  font-size: 2rem;
+}
+h3 {
+  font-size: 2.4rem;
+}
+p {
+  margin: 0 0 10px;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  margin-bottom: 0;
+}
+a {
+  color: inherit;
+}
+a,
+a:hover {
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+  height: auto;
+}
+
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* HEADER */
+header nav {
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+.mobile-menu {
+  color: #ff817e;
+  font-size: 18px;
+  right: calc(var(--bs-gutter-x) / 2);
+  top: -30px;
+}
+.mobile-menu:hover,
+.mobile-menu:focus {
+  color: #ff817e;
+}
+.primary-menu ul {
+  background-color: #fcf5ee;
+  text-align: center;
+  padding: 10px 0;
+}
+.primary-menu ul li a {
+  color: #263a41;
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 10px 15px;
+}
+
+@media (min-width: 768px) {
+  .primary-menu ul {
+    background-color: transparent;
+    text-align: left;
+    padding: 0;
+  }
+  .primary-menu ul li {
+    display: inline-block;
+  }
+  .primary-menu ul li a {
+    padding: 0 20px;
+  }
+  .banner-img {
+    display: block;
+  }
+}
+/* BANNER */
+.banner {
+  background: url("https://demo.themeies.com/leospa/images/leaf.png") no-repeat
+    left center/12.5%;
+  padding: 12% 0;
+  padding-top: 130px;
+}
+.banner-img {
+  top: 0;
+  right: 0;
+  width: 43%;
+}
+.banner span {
+  color: #ff817e;
+  display: block;
+  font-family: "Rufina", serif;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.banner h2 {
+  color: #1e2528;
+  font-size: 49px;
+  line-height: 60px;
+  margin-bottom: 25px;
+}
+.banner p {
+  color: #555;
+  margin-bottom: 50px;
+}
+.btn {
+  background-color: #ff817e;
+  border-radius: 0;
+  color: #fff;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 0.8;
+  text-transform: uppercase;
+  min-width: 170px;
+  padding: 20px 15px;
+}
+.video-btn {
+  color: #555;
+  font-size: 15px;
+  font-weight: 400;
+}
+.video-btn i {
+  border-radius: 50%;
+  background-color: #fcf5ee;
+  color: #ff817e;
+  display: inline-block;
+  line-height: 44px;
+  text-align: center;
+  margin-right: 10px;
+  height: 44px;
+  width: 44px;
+}
+
+@media (min-width: 1200px) {
+  .banner {
+    padding-top: 12%;
+  }
+}
+
+@media (min-width: 768px) {
+  .banner {
+    padding-top: 15%;
+  }
+  .banner h2 {
+    font-size: 60px;
+    line-height: 75px;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  .banner .video-btn {
+    margin-left: 15px;
+  }
+}
+
+/* SECTION CSS */
+section {
+  position: relative;
+  padding: 50px 0;
+}
+.sec-heading {
+  margin-bottom: 70px !important;
+}
+.sec-heading .tagline {
+  color: #888;
+  display: block;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 0.8;
+  text-transform: uppercase;
+  margin-bottom: 27px;
+}
+.sec-heading .sec-title {
+  color: #1e2528;
+  font-size: 42px;
+  margin-bottom: 32px;
+}
+.sec-heading p {
+  color: #888;
+  margin-bottom: 0;
+}
+
+/* ABOUT */
+.about .flower-1 {
+  left: 16%;
+  top: 0;
+  max-width: 160px;
+}
+.about .flower-2 {
+  right: 135px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  max-width: 88px;
+}
+.about-content img {
+  max-width: 84px;
+  margin-bottom: 40px !important;
+}
+.about .btn {
+  border-radius: 50px;
+}
