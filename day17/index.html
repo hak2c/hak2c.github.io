@@ -3,22 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slide</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/default.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="slider">
-      <div id="main">
-        <img src="images/banner1.jpg" alt="" />
+    <header>
+      <div class="container">
+        <div class="top-header row flex align-center">
+          <div class="logo">
+            <a href="#" class="block"
+              ><img
+                src="https://vuighe.net/assets/img/logo.png"
+                alt="VuiGhe.Net"
+            /></a>
+          </div>
+          <nav class="navbar">
+            <ul class="flex align-center">
+              <li class="navbar-item"><a class="block" href="#">Anime</a></li>
+              <li class="navbar-item"><a class="block" href="#">Video</a></li>
+              <li class="navbar-item"><a class="block" href="#">Tin tức</a></li>
+              <li class="navbar-item"><a class="block" href="#">Truyện</a></li>
+              <li class="navbar-item"><a class="block" href="#">BXH</a></li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <div id="thumbnail">
-        <div class="thumb"><img src="images/banner1.jpg" alt="" /></div>
-        <div class="thumb"><img src="images/banner2.jpg" alt="" /></div>
-        <div class="thumb"><img src="images/banner3.jpg" alt="" /></div>
-        <div class="thumb"><img src="images/banner4.jpg" alt="" /></div>
-        <div class="thumb"><img src="images/banner5.jpg" alt="" /></div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="row">
+          <section class="secondary-menu">
+            <select name="" id="select-menu" onchange="changeLink()">
+              <option value="https://hak2c.github.io/day17/index.html">Trang chủ</option>
+              <option value="https://vuighe.net/anime">Anime</option>
+              <option value="https://vuighe.net/video">Video</option>
+              <option value="https://vuighe.net/tin-tuc">Tin tức</option>
+              <option value="https://vuighe.net/truyen-tranh">Truyện</option>
+              <option value="https://vuighe.net/bang-xep-hang">BXH</option>
+            </select>
+          </section>
+          <section>
+            <div class="slider-content">
+              <div class="slide fade">
+                <img src="https://i.vdicdn.com/vg/2020/11/11/a973c3b2059b6a84_ed96f5ba61a6a9a5_81535160506847761.jpg" alt="">
+                <div class="caption">Caption Text</div>
+              </div>
+              <div class="slide fade">
+                <img src="https://i.vdicdn.com/vg/2020/11/11/044675828b64ba3d_a62cc315f22031f7_85417160506836391.jpg" alt="">
+                <div class="caption">Caption Two</div>
+              </div>
+              <div class="slide fade">
+                <img src="https://i.vdicdn.com/vg/2020/11/11/b1c029dfaa189baa_8ead7d6c57331703_110585160506855821.jpg" alt="">
+                <div class="caption">Caption Three</div>
+              </div>
+              <div class="slide fade">
+                <img src="https://i.vdicdn.com/vg/2020/11/11/cfc51670eaa51cc9_2a4d39760c1c466b_75453160506864011.jpg" alt="">
+                <div class="caption">Caption Four</div>
+              </div>
+              <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+              <a class="next" onclick="changeSlide(1)">&#10095;</a>
+            </div>
+          </section>
+        </div>
       </div>
-    </div>
-    <script src="script.js"></script>
+    </main>
+    <footer>
+      <div class="container">
+        <p>
+          Xem anime Vietsub online cùng phim 1080, phim Mỹ, phim Nhật Bản, và
+          phim Trung Quốc. Bên cạnh đó là các phim chiếu rạp, phim truyền hình.
+          Đọc báo thể thao, du lịch, giải trí, tin tức thời sự, thế giới với các
+          chuyên mục bóng đá, hậu trường, review phim, các điểm đến hấp dẫn
+        </p>
+      </div>
+    </footer>
+    <script src="script/script.js"></script>
   </body>
 </html>
