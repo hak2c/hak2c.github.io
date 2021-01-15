@@ -63,7 +63,7 @@ img {
   height: auto;
 }
 
-@media (min-width: 576px) {
+/*@media (min-width: 576px) {
   .container {
     max-width: 540px;
   }
@@ -82,7 +82,7 @@ img {
   .container {
     max-width: 1140px;
   }
-}
+}*/
 
 /* HEADER */
 header nav {
@@ -94,7 +94,8 @@ header nav {
 .mobile-menu {
   color: #ff817e;
   font-size: 18px;
-  right: calc(var(--bs-gutter-x) / 2);
+  /* right: calc(var(--bs-gutter-x) / 2); */
+  right: 0;
   top: -30px;
 }
 .mobile-menu:hover,
