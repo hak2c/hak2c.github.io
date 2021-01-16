@@ -64,6 +64,10 @@ img {
   width: 100%;
 }
 
+.btn-rounded {
+  border-radius: 50px !important;
+}
+
 /*@media (min-width: 576px) {
   .container {
     max-width: 540px;
@@ -98,8 +102,7 @@ header nav {
 .mobile-menu {
   color: #ff817e;
   font-size: 18px;
-  /* right: calc(var(--bs-gutter-x) / 2); */
-  right: 0;
+  right: 15px;
   top: -30px;
 }
 .mobile-menu:hover,
@@ -273,9 +276,6 @@ section {
   max-width: 84px;
   margin-bottom: 40px !important;
 }
-.about .btn {
-  border-radius: 50px;
-}
 
 /* SERVICE */
 .single-service.slick-active:focus {
@@ -349,7 +349,6 @@ section {
   background-color: #30383b;
   margin-bottom: 30px;
   padding: 15px;
-  border-radius: 50px;
 }
 .post:hover .btn {
   background-color: #ff817e;
@@ -460,9 +459,8 @@ section {
   background-color: #fff9f8;
 }
 .appointment .appointment-wrap .appointment-form {
-  -ms-flex-preferred-size: 60%;
-  flex-basis: 60%;
-  padding-left: 100px;
+  flex-basis: 100%;
+  padding: 30px 15px;
 }
 .appointment .appointment-wrap .appointment-form form {
   max-width: 650px;
@@ -476,7 +474,9 @@ section {
   position: relative;
   width: 100%;
 }
-.appointment-form .form-field input, .appointment-form .form-field textarea, .appointment-form .form-field select {
+.appointment-form .form-field input,
+.appointment-form .form-field textarea,
+.appointment-form .form-field select {
   background-color: transparent;
   border: none;
   border-bottom: 1px solid #d4d3d3;
@@ -487,11 +487,59 @@ section {
   padding: 10px 0;
   margin-bottom: 30px;
   width: 100%;
+  text-transform: uppercase;
 }
-@media screen and (min-width: 480px) {
-  .appointment-form .form-field.half-width input, .appointment-form .form-field.half-width .select-field {
+.appointment-form .form-field select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  text-transform: uppercase;
+}
+
+@media (min-width: 576px) {
+  .appointment-form .form-field.half-width input,
+  .appointment-form .form-field.half-width .select-field {
     width: 49%;
+  }
 }
+@media (min-width: 1200px) {
+  .appointment .appointment-wrap .appointment-form {
+    flex-basis: 60%;
+    padding-left: 100px;
+  }
+}
+
+/* CONTACT */
+.contact address {
+  color: #888;
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 80px;
+}
+.contact address span {
+  background-color: #ff817e;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 14px;
+  line-height: 50px;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+}
+.contact address a {
+  color: #888;
+  font-size: 14px;
+  font-weight: 400;
+  display: block;
+}
+.contact .contact-form input,
+.contact .contact-form textarea {
+  border: 1px solid #e3e6ea;
+  display: block;
+  padding: 10px 20px;
+  margin-bottom: 25px;
+  width: 100%;
 }
 
 /* FOOTER */

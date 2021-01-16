@@ -138,7 +138,7 @@
                 silence in the ears, the sky gets darker and darker
               </p>
             </div>
-            <a href="#" class="btn">Read more</a>
+            <a href="#" class="btn btn-rounded">Read more</a>
           </div>
         </div>
       </div>
@@ -196,7 +196,7 @@
               <img src="images/post/1.jpg" alt="">
               <h4><a href="services.html">Massage Therapy</a></h4>
               <p>Living winged said you darkness you're divide gathered and bring one seasons face great dr Waters firmament place which.</p>
-              <a href="services.html" class="btn">read more</a>
+              <a href="services.html" class="btn btn-rounded">read more</a>
             </article>
           </div>
           <div class="col-md-4">
@@ -204,7 +204,7 @@
               <img src="images/post/2.jpg" alt="">
               <h4><a href="services.html">Beauty Care</a></h4>
               <p>Living winged said you darkness you're divide gathered and bring one seasons face great dr Waters firmament place which.</p>
-              <a href="services.html" class="btn">read more</a>
+              <a href="services.html" class="btn btn-rounded">read more</a>
             </article>
           </div>
           <div class="col-md-4">
@@ -212,7 +212,7 @@
               <img src="images/post/3.jpg" alt="">
               <h4><a href="services.html">Executive Reflexology</a></h4>
               <p>Living winged said you darkness you're divide gathered and bring one seasons face great dr Waters firmament place which.</p>
-              <a href="services.html" class="btn">read more</a>
+              <a href="services.html" class="btn btn-rounded">read more</a>
             </article>
           </div>
         </div>
@@ -378,15 +378,33 @@
     </section>
     <section class="appointment">
       <div class="appointment-wrap d-flex">
-        <figure class="m-0">
+        <figure class="m-0 d-none d-xl-block">
           <img src="images/appointment-img.jpg" alt="">
         </figure>
         <div class="appointment-form">
           <form action="" class="contact-form" id="apoint-form">
-            <div class="form-field half-width d-flex d-sm-block flex-wrap justify-space-between">
+            <div class="form-field half-width d-block d-sm-flex flex-wrap justify-content-between">
               <input type="text" placeholder="NAME" name="name" required="" id="name">
               <input type="email" placeholder="EMAIL ADDRESS" name="email" required="" id="email">
             </div>
+            <div class="form-field half-width d-block d-sm-flex flex-wrap justify-content-between">
+              <div class="select-field">
+                <select id="service" name="service">
+                  <option value="">Select service</option>
+                  <option value="normal">Normal Service</option>
+                  <option value="vip">VIP Serevice</option>
+                </select>
+              </div>
+              <input type="tel" placeholder="Phone numer" name="number" id="number">
+            </div>
+            <div class="form-field half-width d-block d-sm-flex flex-wrap justify-content-between">
+              <input type="date" placeholder="date" name="date" id="date">
+              <input type="time" placeholder="time" name="time" id="time">
+            </div>
+            <div class="form-field">
+              <textarea name="notes" placeholder="Your notes" id="comments"></textarea>
+            </div>
+            <button class="btn btn-rounded" id="asubmit">Make an Appointment</button>
           </form>
         </div>
       </div>
@@ -407,7 +425,7 @@
               <img src="images/post/1.jpg" alt="">
               <h4><a href="services.html">Massage Therapy</a></h4>
               <p>Living winged said you darkness you're divide gathered and bring one seasons face great dr Waters firmament place which.</p>
-              <a href="services.html" class="btn">read more</a>
+              <a href="services.html" class="btn btn-rounded">read more</a>
             </article>
           </div>
           <div class="col-md-4">
@@ -415,7 +433,7 @@
               <img src="images/post/2.jpg" alt="">
               <h4><a href="services.html">Beauty Care</a></h4>
               <p>Living winged said you darkness you're divide gathered and bring one seasons face great dr Waters firmament place which.</p>
-              <a href="services.html" class="btn">read more</a>
+              <a href="services.html" class="btn btn-rounded">read more</a>
             </article>
           </div>
           <div class="col-md-4">
@@ -423,13 +441,55 @@
               <img src="images/post/3.jpg" alt="">
               <h4><a href="services.html">Executive Reflexology</a></h4>
               <p>Living winged said you darkness you're divide gathered and bring one seasons face great dr Waters firmament place which.</p>
-              <a href="services.html" class="btn">read more</a>
+              <a href="services.html" class="btn btn-rounded">read more</a>
             </article>
           </div>
         </div>
       </div>
     </section>
-
+    <section class="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 m-auto">
+            <div class="sec-heading text-center">
+              <h3 class="sec-title">Get In Touch</h3>
+              <p>To doesn't his appear replenish together called he of mad place won't wherein blessed second every wherein were meat kind wherein and martcin</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-10 col-md-12 m-auto">
+            <div class="row">
+              <div class="col-md-4">
+                <address class="position-relative">
+                  <span class="ti-map-alt d-block text-center position-absolute"></span>
+                  848 E 28th ST, BROOKLYN <br>
+                  NEW YORK, USa
+                </address>
+                <address class="position-relative">
+                  <span class="ti-email d-block text-center position-absolute"></span>
+                  <a href="mailto:example@leospa.com">example@leospa.com</a>
+                  <a href="mailto:example@leospa.com">example@leospa.com</a>
+                </address>
+                <address class="position-relative">
+                  <span class="ti-tablet d-block text-center position-absolute"></span>
+                  <a href="tel:+0236523653265(02)">tel:+02 365 2365 3265 (02)</a>
+                  <a href="tel:+0136523653265(04)">+01 365 2365 3265 (04)</a>
+                </address>
+              </div>
+              <div class="col-md-7 offset-md-1">
+                <form class="contact-form mt-5 mt-md-0" name="contactform" method="post" id="contact-form">
+                  <input type="text" placeholder="Name" name="name" id="name">
+                  <input type="text" placeholder="Email Address" name="email" id="email">
+                  <textarea placeholder="Write Comment" name="comments" id="comments"></textarea>
+                  <button type="submit" class="btn btn-rounded" id="submit">Submit now</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <footer class="footer">
       <div class="container">
         <div class="row">
