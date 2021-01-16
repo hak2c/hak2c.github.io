@@ -1,0 +1,16 @@
+* {
+  box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+img {
+  vertical-align: middle;
+  height: auto;
+  max-width: 100%;
+}
+
+#thumbnail {
+    display: flex;
+}

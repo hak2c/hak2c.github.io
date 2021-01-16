@@ -1,0 +1,235 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  background-color: #fff;
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #000000;
+  font-weight: 400;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+.container {
+  width: 1170px;
+  margin: 0 auto;
+}
+.wrapper {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.main__menu {
+  height: 60px;
+  text-align: center;
+  background: #0d0000;
+  border-bottom: solid 1px #b86417;
+}
+.main__menu ul li {
+  float: left;
+}
+.main__menu ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  display: block;
+  height: 59px;
+  line-height: 60px;
+  padding: 0 19px;
+  color: #ffc528;
+  border: solid 1px transparent;
+}
+.main__menu ul li a.active,
+.main__menu ul li a:hover {
+  background-color: #ed7e1d;
+  color: #171717;
+  border-color: #f8c940;
+}
+
+.banner img,
+.second__banner img {
+  width: 100%;
+}
+
+.events__list {
+  background: url(https://img.zing.vn/products/omg3q/skin-2017/images/bg-info.jpg)
+    center top no-repeat;
+}
+.events__list__wrapper {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.events__hot {
+  padding: 18px 1% 14px 2%;
+  width: 54%;
+  float: left;
+}
+.events__list--title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0 0 20px;
+}
+.posts {
+  padding: 18px 1% 14px 2%;
+  width: 40%;
+  float: left;
+}
+
+.posts__list li {
+  padding: 10.5px 10px;
+  border-top: 1px solid #656565;
+}
+.post__page .posts__list li:first-child {
+  border-top: none;
+}
+.posts__list li p {
+  margin: 0;
+}
+.posts__category {
+  color: #444;
+  font-size: 11px;
+  margin-right: 5px;
+  text-transform: uppercase;
+}
+.posts__time {
+  color: #444;
+  margin-left: 5px;
+  font-size: 12px;
+}
+.posts__list li h3 {
+  font-size: 16px;
+  color: #000;
+  margin: 0;
+}
+
+.images__list {
+  background: #272727 url(../image/bg-library.jpg) center top no-repeat;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 28px;
+  padding-bottom: 28px;
+}
+.images__list--wrapper {
+  width: 900px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.images__list h3 {
+  margin: 0;
+  color: #ffe87a;
+  font-size: 16px;
+  display: block;
+  text-transform: uppercase;
+  border-bottom: 1px solid #ffe87a;
+  text-align: left;
+}
+.images__list ul {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -4px;
+  margin-right: -4px;
+  text-align: center;
+}
+.images__list ul .images__list--item {
+  width: 25%;
+  padding: 4px;
+}
+.images__list ul .images__list--item a {
+  overflow: hidden;
+  display: block;
+}
+.images__list .images__list--item img {
+  transition: all 0.7s;
+}
+.images__list .images__list--item img:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  text-align: center;
+  padding: 20px 0 70px;
+  background: #000;
+  color: #fff;
+}
+
+.post__page main .wrapper {
+  padding-top: 10px;
+  padding-bottom: 30px;
+}
+.post__page .post {
+  width: 65%;
+  margin-right: 2%;
+  float: left;
+}
+.post__page--title {
+  font-size: 20px;
+  color: #ff4700;
+  text-align: left;
+  padding: 0 0 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #c5c7cc;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+/* SIDEBAR */
+.post__page .right__sidebar {
+  width: 32%;
+  margin: 0;
+  float: left;
+  padding-top: 9px;
+}
+.post__page .right__sidebar .right__sidebar--title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #ff4700;
+  text-align: left;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+.post__page .right__sidebar .hotevents__list li {
+  padding-bottom: 20px;
+}
+.post__page .right__sidebar .hotevents__list li a {
+  display: block;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background-color: #fff;
+  border: 1px solid #ffd3c6;
+}
+.post__page .right__sidebar .hotevents__list li a:hover {
+  background-color: #fff3e4;
+}
+.post__page .right__sidebar .hotevents__list li a > div {
+  padding: 15px;
+}
+.post__page .right__sidebar .hotevents__list li a time {
+  color: #444;
+}
+.post__page .right__sidebar .hotevents__list li a h3 {
+  color: #da740f;
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+}
