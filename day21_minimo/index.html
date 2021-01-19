@@ -11,6 +11,10 @@
     />
     <link
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
@@ -33,29 +37,27 @@
     ></script>
   </head>
   <body>
-    <header>
+    <header class="position-relative">
       <div class="container">
-        <div class="row">
-          <div class="header d-flex justify-content-between align-items-end">
-            <div class="logo text-uppercase">
-              <a href="index.html"><img src="images/logo.png" alt="" /></a>
-            </div>
-            <div class="primary-menu">
-              <a
-                class="position-absolute d-md-none mobile-menu"
-                data-toggle="collapse"
-                href="#menuCollapse"
-                aria-expanded="false"
-                aria-controls="menuCollapse"
-                ><i class="ti-menu"></i
-              ></a>
-              <ul class="nav flex-column flex-md-row" id="menuCollapse">
-                <li><a href="#">Lifestyle</a></li>
-                <li><a href="#">Photodiary</a></li>
-                <li><a href="#">Music</a></li>
-                <li><a href="#">Travel</a></li>
-              </ul>
-            </div>
+        <div class="row justify-content-between align-items-end px-md-0">
+          <div class="col-md-3 logo text-uppercase">
+            <a href="index.html">minimø</a>
+          </div>
+          <div class="col-md-9 primary-menu position-relative">
+            <a
+              class="position-absolute d-md-none mobile-menu"
+              data-toggle="collapse"
+              href="#menuCollapse"
+              aria-expanded="false"
+              aria-controls="menuCollapse"
+              ><i class="ti-menu"></i
+            ></a>
+            <ul class="nav flex-column flex-md-row justify-content-end" id="menuCollapse">
+              <li><a href="#">Lifestyle</a></li>
+              <li><a href="#">Photodiary</a></li>
+              <li><a href="#">Music</a></li>
+              <li><a href="#">Travel</a></li>
+            </ul>
           </div>
         </div>
       </div>
@@ -63,24 +65,26 @@
     <section class="banner">
       <div class="container">
         <div class="row">
-          <img src="images/banner.png" alt="" />
+          <div class="col-12 px-0 px-md-4">
+            <img src="images/banner.png" alt="" />
+          </div>
         </div>
       </div>
     </section>
     <main class="main-content">
       <div class="container">
         <div class="row">
-          <div class="wrapper mx-auto">
+          <div class="col-12 wrapper mx-auto">
             <section class="latest-post">
               <div class="post">
-                <div class="category text-uppercase mb-5">
+                <div class="category text-uppercase mb-3 mb-md-5">
                   <a href="#">Photodiary</a>
                 </div>
                 <div class="post-content">
-                  <div class="post-title mb-5">
-                    <a href="#">The perfect weekend getaway</a>
+                  <div class="post-title mb-3 mb-md-5">
+                    <a href="posts/the-perfect-weekend-getaway.html">The perfect weekend getaway</a>
                   </div>
-                  <p class="mb-5">
+                  <p class="mb-3 mb-md-5">
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna
                     aliqua. Ut enim ad minim veniam, quis nostrud exercitation
@@ -107,13 +111,13 @@
               </div>
             </section>
             <section class="list-post d-flex flex-wrap">
-              <div class="col-md-6 post px-5">
+              <div class="col-md-6 post">
                 <img src="images/post/post-1.png" alt="" />
-                <div class="category text-uppercase my-5">
+                <div class="category text-uppercase my-3 my-md-5">
                   <a href="#">Lifestyle</a>
                 </div>
                 <div class="post-content">
-                  <div class="post-title mb-5">
+                  <div class="post-title mb-3 mb-md-5">
                     <a href="#">More than just a music festival </a>
                   </div>
                   <p>
@@ -124,13 +128,13 @@
                   </p>
                 </div>
               </div>
-              <div class="col-md-6 post px-5">
+              <div class="col-md-6 post">
                 <img src="images/post/post-2.png" alt="" />
-                <div class="category text-uppercase my-5">
+                <div class="category text-uppercase my-3 my-md-5">
                   <a href="#">Lifestyle</a>
                 </div>
                 <div class="post-content">
-                  <div class="post-title mb-5">
+                  <div class="post-title mb-3 mb-md-5">
                     <a href="#">Life tastes better with coffee</a>
                   </div>
                   <p>
@@ -141,13 +145,13 @@
                   </p>
                 </div>
               </div>
-              <div class="col-md-6 post px-5">
+              <div class="col-md-6 post">
                 <img src="images/post/post-3.png" alt="" />
-                <div class="category text-uppercase my-5">
+                <div class="category text-uppercase my-3 my-md-5">
                   <a href="#">Photodiary</a>
                 </div>
                 <div class="post-content">
-                  <div class="post-title mb-5">
+                  <div class="post-title mb-3 mb-md-5">
                     <a href="#">American dream</a>
                   </div>
                   <p>
@@ -158,13 +162,13 @@
                   </p>
                 </div>
               </div>
-              <div class="col-md-6 post px-5">
+              <div class="col-md-6 post">
                 <img src="images/post/post-4.png" alt="" />
-                <div class="category text-uppercase my-5">
+                <div class="category text-uppercase my-3 my-md-5">
                   <a href="#">Photodiary</a>
                 </div>
                 <div class="post-content">
-                  <div class="post-title mb-5">
+                  <div class="post-title mb-3 mb-md-5">
                     <a href="#">A day exploring the Alps</a>
                   </div>
                   <p>
@@ -183,9 +187,15 @@
     <section class="signup text-center">
       <div class="container">
         <div class="row">
-          <div class="wrapper mx-auto">
+          <div class="col-12 wrapper mx-auto">
             <div class="col-md-6 mx-auto">
               <h3 class="signup-heading">Sign up for our newsletter!</h3>
+              <div class="signup-form position-relative mx-auto">
+                <form action="" name="form-signup" id="form-signup">
+                  <input type="email" placeholder="Enter a valid email address" name="email" required="" id="email">
+                  <button class="position-absolute" type="submit"><img src="images/send.png" alt=""></button>
+                </form>
+              </div>
             </div>
           </div>
         </div>
@@ -194,15 +204,15 @@
     <main class="main-content">
       <div class="container">
         <div class="row">
-          <div class="wrapper mx-auto">
+          <div class="col-12 wrapper mx-auto">
             <section class="list-post d-flex flex-wrap">
-              <div class="col-md-6 post px-5">
+              <div class="col-md-6 post">
                 <img src="images/post/post-5.png" alt="" />
-                <div class="category text-uppercase my-5">
+                <div class="category text-uppercase my-3 my-md-5">
                   <a href="#">Lifestyle</a>
                 </div>
                 <div class="post-content">
-                  <div class="post-title mb-5">
+                  <div class="post-title mb-3 mb-md-5">
                     <a href="#">Top 10 song for running</a>
                   </div>
                   <p>
@@ -213,13 +223,13 @@
                   </p>
                 </div>
               </div>
-              <div class="col-md-6 post px-5">
+              <div class="col-md-6 post">
                 <img src="images/post/post-6.png" alt="" />
-                <div class="category text-uppercase my-5">
+                <div class="category text-uppercase my-3 my-md-5">
                   <a href="#">Lifestyle</a>
                 </div>
                 <div class="post-content">
-                  <div class="post-title mb-5">
+                  <div class="post-title mb-3 mb-md-5">
                     <a href="#">Cold winter days</a>
                   </div>
                   <p>
@@ -232,7 +242,7 @@
               </div>
             </section>
             <div class="loadmore text-center">
-              <a href="" class="btn d-inline-block">Load more</a>
+              <a href="" class="btn d-inline-block px-4 px-md-5 py-3 py-md-4">Load more</a>
             </div>
           </div>
         </div>
@@ -241,7 +251,7 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div class="wrapper mx-auto d-flex justify-content-between">
+          <div class="col-12 wrapper mx-auto d-flex justify-content-between">
             <div class="foo-menu">
               <ul class="d-flex">
                 <li class="mr-4"><a href="#">Terms and conditions</a></li>
