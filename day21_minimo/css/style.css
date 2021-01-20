@@ -13,7 +13,7 @@ body {
   font-size: 1.4rem;
   background: #fff;
   font-weight: 400;
-  color: #333333;
+  color: #626262;
   margin: 0;
   padding: 0;
   line-height: 1;
@@ -27,6 +27,7 @@ h6 {
   margin: 0;
   padding: 0;
   font-family: "Playfair Display";
+  line-height: 1;
 }
 h1 {
   font-size: 3.6rem;
@@ -170,14 +171,12 @@ header {
   .main-content {
     padding-top: 10rem;
   }
-  .latest-post {
-    margin-bottom: 0;
-  }
+
   .wrapper {
     max-width: calc(100% - 160px);
   }
   .main-content section {
-    margin-bottom: 60px;
+    margin-bottom: 120px;
   }
   .list-post .post {
     width: calc(50% - 30px);
@@ -225,12 +224,129 @@ header {
   top: 7.5px;
   right: 0;
 }
+
+/* POST PAGE */
+.post-page .post-content .category-name a {
+  font-family: "Ubuntu";
+  font-size: 1.4rem;
+  color: #b4ad9e;
+}
+.post-page .post-content .post-title {
+  font-size: 3rem;
+}
+.post-page .post-content p {
+  line-height: 2.4rem;
+}
+.post-page .post-content .share-post {
+  color: #b4ad9e;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin-top: 30px;
+}
+.post-page .related-posts {
+  background-color: #f5f5f5;
+  padding: 40px 0;
+}
+.post-page .related-posts .related-post .title {
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+.post-comments .profile-image {
+  width: 70px;
+}
+.post-comments .profile-image .user-noimage {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 34px;
+  color: #fff;
+  background-color: #cae5e0;
+}
+.post-comments .profile-image .user-noimage.discuss {
+  background-color: #ededea;
+}
+.post-comments .comment-details {
+  width: calc(100% - 105px);
+}
+.post-comments .comment-details textarea {
+  text-transform: uppercase;
+  width: 100%;
+  padding: 23px 33px 15px 33px;
+  border: 1px solid #c8c8c8;
+  color: #c8c8c8;
+  font-family: "Ubuntu";
+  font-weight: 300;
+  font-size: 14px;
+}
+.post-comments .comment-details .comment-connect {
+  margin-top: 30px;
+}
+.right-sidebar .module {
+  margin-bottom: 30px;
+}
+.right-sidebar .module .module-title h3,
+.post-page .related-posts h3,
+.post-comments .total-comments,
+.post-comments .comment-details .reply-button {
+  font-family: "Ubuntu";
+  font-size: 1.4rem;
+  color: #b4ad9e;
+  margin-bottom: 35px;
+}
+.right-sidebar .module .module-content h3 {
+  font-size: 2.4rem;
+}
+.right-sidebar .module .module-content p {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.right-sidebar .module.latest-posts ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+.right-sidebar .module.latest-posts ul li a {
+  font-size: 1.6rem;
+}
+.right-sidebar .module.latest-posts ul li .count-comment {
+  font-family: "Ubuntu";
+  font-size: 1.2rem;
+  color: #b4ad9e;
+}
+
+@media (min-width: 768px) {
+  .post-page.side-bar .post-content {
+    width: calc(100% - 300px);
+  }
+  .post-page .post-content .share-post {
+    margin-top: 70px;
+  }
+  .post-page .related-posts {
+    padding: 70px 0;
+  }
+  .post-page .related-posts .related-post {
+    width: calc((100% - 80px) / 3);
+  }
+  .comment-connect {
+    margin-top: 40px;
+  }
+  .post-page.side-bar .right-sidebar {
+    width: 250px;
+  }
+  .right-sidebar .module {
+    margin-bottom: 70px;
+  }
+  .right-sidebar .module .module-title h3 {
+    margin-bottom: 30px;
+  }
+}
+
 /* FOOTER */
 footer {
   background-color: #f0f0f0;
   padding-top: 42px;
   padding-bottom: 32px;
 }
-.socials img {
+.social-link img {
   width: auto;
 }
