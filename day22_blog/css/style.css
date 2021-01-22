@@ -361,6 +361,15 @@ section .sect-heading {
     width: 44px;
   }
 }
+@media (max-width: 576px) {
+  .subcribe-form input[type="email"] {
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+  .subcribe-form .right-icon {
+    width: 40px;
+  }
+}
 /* FOOTER */
 footer {
   font-size: 18px;
