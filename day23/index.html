@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DreamCars</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="row header">
+          <div class="col-3 logo">
+            <a href="index.html">DreamCars</a>
+          </div>
+          <div class="col-9 primary-menu position-relative">
+            <a
+              class="position-absolute d-md-none mobile-menu"
+              data-toggle="collapse"
+              href="#menuCollapse"
+              aria-expanded="false"
+              aria-controls="menuCollapse"
+              ><i class="ti-menu"></i
+            ></a>
+            <ul
+              class="nav flex-column flex-md-row justify-content-end align-items-center"
+              id="menuCollapse"
+            >
+              <li><a href="#">Search Cars</a></li>
+              <li><a href="#">Buyer Tips</a></li>
+              <li><a href="#">Finance</a></li>
+              <li><a href="#">Sign In</a></li>
+              <li><a href="#">Sign Up</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="row find-car">
+          <div class="col-12 col-md-6 mx-auto text-center">
+            <h1>Find Your Dream Car</h1>
+            <p>
+              Search over 20,000 pre-approved used cars and find your perfect
+              vehicle today
+            </p>
+            <div class="search-form mx-auto mt-4">
+              <form action="" name="search-car" id="search-car">
+                <div class="d-flex group-input">
+                  <input
+                    placeholder="Search make or model"
+                    type="text"
+                    name="name"
+                    id="name"
+                  />
+                  <select name="type" id="type-search">
+                    <option value="postcode">Postcode</option>
+                  </select>
+                  <button type="submit">Find my car</button>
+                </div>
+              </form>
+            </div>
+            <div><img src="images/banner/Mercedes-Benz.png" alt="" /></div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hotest-deals">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="sect-heading">Today’s Hottests Deals</h2>
+              <p class="sect-subtext">
+                Check out the most popular cars in stock today
+              </p>
+              <div
+                class="section-content hotdeals-list d-flex flex-wrap justify-content-between"
+              >
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/ford-focus.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">Ford Focus</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£7,599</div>
+                </div>
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/skoda-fabia.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">Skoda Fabia</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£6,500</div>
+                </div>
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/honda-civic.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">Honda Civic</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£10,400</div>
+                </div>
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/vauxhall-corsa.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">Vauxhall Corsa</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£3,999</div>
+                </div>
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/renault-clio.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">Renault Clio</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£4,999</div>
+                </div>
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/volkswagen-polo.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">Volkswagen Polo</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£1,999</div>
+                </div>
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/skoda-fabia.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">Seat Ibiza</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£6,850</div>
+                </div>
+                <div class="hotdeal-item position-relative">
+                  <div class="item-info">
+                    <a href="#">
+                      <div class="car-image">
+                        <img src="images/cars/BMW-i5.png" alt="" />
+                      </div>
+                      <h3 class="mt-1 item-name">BMW i5</h3>
+                    </a>
+                  </div>
+                  <div class="price-tag position-absolute">£8,850</div>
+                </div>
+              </div>
+              <div class="sect-loadmore-btn text-center text-uppercase">
+                <a class="d-inline-block my-4 mx-auto" href=""
+                  >View all today's deals</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="buying-tips">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <h2 class="sect-heading">Our Top Buying Tips</h2>
+              <p class="sect-subtext">
+                Make sure you make the right choice picking a car
+              </p>
+              <div class="tips-list d-flex flex-column justify-content-between">
+                <div class="tip-item my-4 position-relative">
+                  <a href="#">
+                    <img src="images/tips/1.png" alt="" />
+                    <h3 class="tip-title position-absolute">
+                      Our Buyers Check List
+                    </h3>
+                  </a>
+                </div>
+                <div class="tip-item my-4 position-relative">
+                  <a href="#">
+                    <img src="images/tips/2.png" alt="" />
+                    <h3 class="tip-title position-absolute">How To Spot Fraud</h3>
+                  </a>
+                </div>
+                <div class="tip-item my-4 position-relative">
+                  <a href="#">
+                    <img src="images/tips/1.png" alt="" />
+                    <h3 class="tip-title position-absolute">
+                      Best Used Cars 2018
+                    </h3>
+                  </a>
+                </div>
+              </div>
+              <div class="sect-loadmore-btn text-center text-uppercase">
+                <a class="d-inline-block my-4 mx-auto" href=""
+                  >See all our guides</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="signup">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 text-center">
+              <div class="sect-heading">Never Miss A Message</div>
+              <p class="sect-subtext">
+                Join our exclusive list for one off deals and more
+              </p>
+              <div class="signup-form mx-auto">
+                <form action="" name="signup-form" id="signup-form">
+                  <div class="d-flex group-input">
+                    <input
+                      placeholder="Enter your email address."
+                      type="email"
+                      name="email"
+                      id="email"
+                    />
+                    <button type="submit">Sign me up</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-xs-12">
+            <a href="index.html">DreamCars</a>
+          </div>
+          <div class="col-md-9 col-xs-12 foo-menu">
+            <ul class="d-flex justify-content-start justify-content-md-end">
+              <li><a href="#">Search Cars</a></li>
+              <li><a href="#">Buyer Tips</a></li>
+              <li><a href="#">Finance</a></li>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- <script src="script.js"></script> -->
+  </body>
+</html>
