@@ -80,7 +80,17 @@ header {
   font-size: 24px;
   line-height: 28px;
 }
-
+.primary-menu ul {
+  background-color: #b4ad9e;
+  text-align: center;
+  padding: 0;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 15px;
+  right: 15px;
+  z-index: 10;
+}
 .primary-menu ul > li > a,
 .foo-menu ul > li > a {
   display: block;
@@ -91,27 +101,42 @@ header {
   line-height: 24px;
   letter-spacing: 0.0509971px;
 }
-.primary-menu ul > li:last-child > a {
-  margin-left: 25px;
-  padding: 13px 30px;
-  color: #757575;
-  font-size: 13px;
-  line-height: 19px;
-  background: #deff06;
-  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.127264);
-}
 
+.mobile-menu {
+  color: #333333;
+  font-size: 18px;
+  right: 15px;
+  top: -20px;
+}
+.mobile-menu:hover,
+.mobile-menu:focus {
+  color: #333333;
+}
 @media (min-width: 768px) {
   .row.header {
     margin-left: -50px;
     margin-right: -50px;
+  }
+  .primary-menu ul {
+    background-color: transparent;
+    text-align: left;
+    display: flex;
+    position: unset;
+  }
+  .primary-menu ul > li:last-child > a {
+    margin-left: 25px;
+    padding: 13px 30px;
+    color: #757575;
+    font-size: 13px;
+    line-height: 19px;
+    background: #deff06;
+    box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.127264);
   }
 }
 
 /* FIND CAR SECTION */
 .find-car {
   margin-bottom: -170px;
-  margin-top: 120px;
 }
 .find-car h1 {
   font-weight: 600;
@@ -155,6 +180,10 @@ form#search-car button[type="submit"] {
 }
 
 @media (min-width: 768px) {
+  .find-car {
+    margin-bottom: -170px;
+    margin-top: 120px;
+  }
   .find-car h1 {
     font-size: 54px;
     line-height: 81px;
@@ -317,59 +346,3 @@ footer {
 .foo-menu ul > li:first-child > a {
   margin-left: 0;
 }
-/*
-.primary-menu ul {
-  background-color: #b4ad9e;
-  text-align: center;
-  padding: 0;
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 15px;
-  right: 15px;
-  z-index: 10;
-}
-.primary-menu ul > li > a {
-  display: block;
-  color: #fff;
-  padding: 10px 0;
-  border-bottom: 1px solid #333333;
-  font-size: 20px;
-}
-.primary-menu ul > li:last-child > a {
-  padding-right: 0;
-  border-bottom: none;
-}
-
-.mobile-menu {
-  color: #333333;
-  font-size: 18px;
-  right: 15px;
-  top: -20px;
-}
-.mobile-menu:hover,
-.mobile-menu:focus {
-  color: #333333;
-}
-
-@media (min-width: 768px) {
-  .header {
-    padding-top: 45px;
-    padding-bottom: 45px;
-  }
-  .primary-menu ul {
-    background-color: transparent;
-    text-align: left;
-    display: flex;
-    position: unset;
-  }
-  .primary-menu ul > li > a {
-    margin-left: 54px;
-    color: inherit;
-    border: none;
-  }
-  .primary-menu ul > li:first-child > a {
-    margin-left: 0;
-  }
-}
-*/
