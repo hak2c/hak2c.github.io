@@ -10,17 +10,15 @@ bangCuuChuong();
 
 // VCT in ra màn hình nếu số chia hết cho 3 thì in “Fizz”, chia hết cho 5 thì in “Buzz”, chia hết cho cả 3 và 5 thì in “FizzBuzz”, không chiahết cho cả 3 và 5 thì in “BizzFuzz”. Số trong khoảng 0 -> 100
 function fizzBuzz(num) {
-  let result = "";
   if (num % 15 == 0) {
-    result = "FizzBuzz";
+    return "FizzBuzz";
   } else if (num % 3 == 0) {
-    result = "Fizz";
+    return "Fizz";
   } else if (num % 5 == 0) {
-    result = "Buzz";
+    return "Buzz";
   } else {
-    result = "BizzFuzz";
+    return "BizzFuzz";
   }
-  return result;
 }
 function printFizzBuzz() {
   let result = "";
@@ -47,11 +45,11 @@ printBoiChung();
 function checkSoNguyenTo(num) {
   let result = false;
   if (num < 2) {
-    result = false;
+    return false;
   } else if (num == 2) {
-    result = true;
+    return true;
   } else if (num % 2 == 0) {
-    result = false;
+    return false;
   } else {
     result = true;
     for (let i = 3; i < Math.sqrt(num); i += 2) {
