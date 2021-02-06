@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OT Bamboo Cycle</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/themify-icons/0.1.2/css/themify-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/tooltipster.css" type="text/css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="scripts/jquery.tooltipster.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="borderBlock">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3 logo my-3">
+              <a href="index.html"><img src="images/logo.png" alt="" /></a>
+            </div>
+            <div class="col-lg-7 col-sm-9 primary-menu position-relative">
+              <a
+                class="position-absolute d-md-none mobile-menu"
+                data-toggle="collapse"
+                href="#menuCollapse"
+                aria-expanded="false"
+                aria-controls="menuCollapse"
+                ><i class="ti-menu"></i
+              ></a>
+              <ul
+                class="ot-menu nav flex-column flex-md-row align-items-end"
+                id="menuCollapse"
+              >
+                <li class="active position-relative">
+                  <a href="index.html">_Home</a>
+                </li>
+                <li class="position-relative">
+                  <a href="#">_Feature</a>
+                  <ul class="sub-menu nav flex-column position-absolute">
+                    <li><a href="#">Login Form</a></li>
+                    <li><a href="#">Registraton Form</a></li>
+                  </ul>
+                </li>
+                <li class="position-relative">
+                  <a href="#">_Shop</a>
+                  <ul class="sub-menu nav flex-column position-absolute">
+                    <li><a href="#">All Products</a></li>
+                    <li><a href="#">Drift Wood Cruiser</a></li>
+                    <li><a href="#">Erban Commuter</a></li>
+                    <li><a href="#">Erban Speedster</a></li>
+                  </ul>
+                </li>
+                <li class="position-relative"><a href="#">_About</a></li>
+                <li class="position-relative"><a href="#">_Blog</a></li>
+                <li class="position-relative"><a href="#">_Contact</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-2 col-sm-3 ot-top position-relative text-right">
+              <div class="ot-search position-relative">
+                <button
+                  class="btn btn-search"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  <i class="glyphicon glyphicon-search"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <section class="banner d-none d-md-block">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12 d-none d-md-block px-0">
+              <div
+                id="ot-slideshow"
+                class="carousel slide productslide"
+                data-interval="2000"
+                data-ride="carousel"
+              >
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="product-content d-flex">
+                      <div
+                        class="product-bg position-relative"
+                        style="background-image: url('images/slide/slide2.jpg')"
+                      >
+                        <div class="spacer position-absolute">
+                          <h3 class="product_name">
+                            <a href="#">Basic PATTERN</a>
+                          </h3>
+                          <div class="product-desc mb-4">
+                            Showcase for pattern usage.
+                          </div>
+                          <div class="price-value mx-2 d-inline-block">
+                            <span class="PricesalesPrice">$39.6</span>
+                          </div>
+                          <div class="addtocart-area d-inline-block">
+                            <div class="addtocart-area">
+                              <div class="product js-recalculate">
+                                <div class="addtocart-bar">
+                                  <a
+                                    class="button add_to_cart_button addtocart-button"
+                                    >Add to cart</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-img position-relative">
+                        <a href="#" title="Basic PATTERN">
+                          <img src="images/slide/image_3-1200x800.jpg" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="product-content d-flex">
+                      <div
+                        class="product-bg position-relative"
+                        style="background-image: url('images/slide/slide1.jpg')"
+                      >
+                        <div class="spacer position-absolute">
+                          <h3 class="product_name">
+                            <a href="#">Advanced PATTERN</a>
+                          </h3>
+                          <div class="product-desc mb-4">
+                            Showcase for pattern usage.
+                          </div>
+                          <div class="price-value mx-2 d-inline-block">
+                            <span class="PricesalesPrice">$30</span>
+                          </div>
+                          <div class="addtocart-area d-inline-block">
+                            <div class="addtocart-area">
+                              <div class="product js-recalculate">
+                                <div class="addtocart-bar">
+                                  <a
+                                    class="button add_to_cart_button addtocart-button"
+                                    >Add to cart</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-img position-relative">
+                        <a href="#" title="Advanced PATTERN">
+                          <img src="images/slide/image_7-1200x800.jpg" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="product-content d-flex">
+                      <div
+                        class="product-bg position-relative"
+                        style="background-image: url('images/slide/slide5.jpg')"
+                      >
+                        <div class="spacer position-absolute">
+                          <h3 class="product_name">
+                            <a href="#">Cowboy Hat</a>
+                          </h3>
+                          <div class="product-desc mb-4">
+                            Classic pattern, durable stiff brim resists sun...
+                          </div>
+                          <div class="price-value mx-2 d-inline-block">
+                            <span class="PricesalesPrice">$19</span>
+                          </div>
+                          <div class="addtocart-area d-inline-block">
+                            <div class="addtocart-area">
+                              <div class="product js-recalculate">
+                                <div class="addtocart-bar">
+                                  <a
+                                    class="button add_to_cart_button addtocart-button"
+                                    >Add to cart</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-img position-relative">
+                        <a href="#" title="Cowboy Hat">
+                          <img src="images/slide/image_14-1200x800.jpg" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="product-content d-flex">
+                      <div
+                        class="product-bg position-relative"
+                        style="background-image: url('images/slide/slide4.jpg')"
+                      >
+                        <div class="spacer position-absolute">
+                          <h3 class="product_name">
+                            <a href="#">Cap “Baseball”</a>
+                          </h3>
+                          <div class="product-desc mb-4">
+                            Need something genuine for your freetime?
+                          </div>
+                          <div class="price-value mx-2 d-inline-block">
+                            <span class="PricesalesPrice">$19</span>
+                          </div>
+                          <div class="addtocart-area d-inline-block">
+                            <div class="addtocart-area">
+                              <div class="product js-recalculate">
+                                <div class="addtocart-bar">
+                                  <a
+                                    class="button add_to_cart_button addtocart-button"
+                                    >Add to cart</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-img position-relative">
+                        <a href="#" title="Cap “Baseball”">
+                          <img src="images/slide/image_13-1200x800.jpg" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="product-content d-flex">
+                      <div
+                        class="product-bg position-relative"
+                        style="background-image: url('images/slide/slide3.jpg')"
+                      >
+                        <div class="spacer position-absolute">
+                          <h3 class="product_name">
+                            <a href="#">Safety Helmet</a>
+                          </h3>
+                          <div class="product-desc mb-4">
+                            Masterclass protection, your everyday safety.
+                          </div>
+                          <div class="price-value mx-2 d-inline-block">
+                            <span class="PricesalesPrice">$49</span>
+                          </div>
+                          <div class="addtocart-area d-inline-block">
+                            <div class="addtocart-area">
+                              <div class="product js-recalculate">
+                                <div class="addtocart-bar">
+                                  <a
+                                    class="button add_to_cart_button addtocart-button"
+                                    >Add to cart</a
+                                  >
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="product-img position-relative">
+                        <a href="#" title="Safety Helmet">
+                          <img src="images/slide/image_12-1200x800.jpg" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-nav">
+                  <a
+                    class="carousel-control control-box left"
+                    href="#ot-slideshow"
+                    data-slide="prev"
+                    ><i class="ti-angle-left"></i
+                  ></a>
+                  <ol class="carousel-indicators">
+                    <li
+                      data-target="#ot-slideshow"
+                      data-slide-to="0"
+                      class="li_img active"
+                    >
+                      <img src="images/slide/image_3-1200x800.jpg" />
+                    </li>
+                    <li
+                      data-target="#ot-slideshow"
+                      data-slide-to="1"
+                      class="li_img"
+                    >
+                      <img src="images/slide/image_7-1200x800.jpg" />
+                    </li>
+                    <li
+                      data-target="#ot-slideshow"
+                      data-slide-to="2"
+                      class="li_img"
+                    >
+                      <img src="images/slide/image_14-1200x800.jpg" />
+                    </li>
+                    <li
+                      data-target="#ot-slideshow"
+                      data-slide-to="3"
+                      class="li_img"
+                    >
+                      <img src="images/slide/image_13-1200x800.jpg" />
+                    </li>
+                    <li
+                      data-target="#ot-slideshow"
+                      data-slide-to="4"
+                      class="li_img"
+                    >
+                      <img src="images/slide/image_12-1200x800.jpg" />
+                    </li>
+                  </ol>
+                  <a
+                    class="carousel-control control-box right"
+                    href="#ot-slideshow"
+                    data-slide="next"
+                    ><i class="ti-angle-right"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </header>
+    <main>
+      <section class="top-block custom-about text-right">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="text-uppercase" style="color: #444444">History//</h4>
+              <h2
+                class="text-uppercase bold mt-0"
+                style="color: #252525"
+              >
+                The Bamboo Cycles
+              </h2>
+              <div style="clear: both">
+                <div style="clear: both; height: 20px"></div>
+              </div>
+              <div style="font-size: 16px">
+                <p style="color: #444444">
+                  <em
+                    >Integer a pellentesque purus, vitae consectetur urna. Cras
+                    commodo suscipit magna in porttitor. Cras quis venenatis
+                    dolor.</em
+                  >
+                </p>
+                <div class="sc-wrapper" style="clear: both">
+                  <div style="clear: both; height: 20px"></div>
+                </div>
+                <p>
+                  One of the most flexible features of Symmetry is the ability
+                  to switch of the full width mode. If you would like to fix the
+                  width of your site and not have the slider edge to edge with
+                  the browser and would.
+                </p>
+                <div class="sc-wrapper" style="clear: both">
+                  <div style="clear: both; height: 20px"></div>
+                </div>
+                <p>
+                  The Baboo Cycles theme boasts spacious layouts, block colors,
+                  bold typography with a minimal user interface that
+                  endures trends with simplicity and style. Content is divided
+                  into large customizable blocks giving you the freedom
+                </p>
+                <p>
+                  Adjust layout, color, typography and UI elements to represent
+                  your brand with boldness and clarity.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <span class="ot-image-border ot-effect ot-scroll-disappear"
+                ><img src="images/about_1.jpg" alt="" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="top-block full-width intelligent">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="custom-intelligent">
+                <h2
+                  class="text-uppercase bold"
+                  style="color: #252525"
+                >
+                  Intelligent Bamboo Cycles
+                </h2>
+                <p style="color: #444444">
+                  <em
+                    >What really makes us stand out from the crowd is our
+                    commitment to our community. We develop powerful plugins
+                    that add a ton of features and control.</em
+                  >
+                </p>
+                <p>
+                  Purchase a theme with us and you'll get to use it on as many
+                  websites as you like, with access to any updates we release
+                  and technical support whenever you need it; no artificial
+                  limits here.
+                </p>
+                <p>
+                  Go further with our All Theme package, which get you access to
+                  everything we've received and will ever release for a fraction
+                  of the cost. Enjoy creative freedom with Omega Theme!
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6 ot_moreinfo position-relative">
+              <div class="ot_image">
+                <img src="images/image_Intelligent.jpg" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="main-block">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-12">
+              <div class="sect-heading text-uppercase bold text-center"><h2>Bamboo Cycles</h2></div>
+            
+              <div class="featured-products">
+                <ul class="products d-flex flex-wrap justify-content-between">
+                  <li class="product">
+                    <div class="spacer">
+                      <div class="product-price">
+                          <span class="currencySymbol">$</span>39.60</span></span>
+                      </div>
+                      <h3 class="product-name bold text-uppercase">
+                        <a href="#">Basic PATTERN</a>
+                      </h3>
+                      <div class="product-image mb-3">
+                        <a href="#">
+                          <img src="images/products/image_3-1200x800.jpg" alt="" />
+                        </a>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 col-lg-7">
+                          <div class="product-s-desc">
+                            Showcase for pattern usage.
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-5">
+                          <div class="addtocart-area mt-3 text-right text-uppercase">
+                            <a>Add to cart</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="product">
+                    <div class="spacer">
+                      <div class="product-price">
+                          <span class="currencySymbol">$</span>30.00</span></span>
+                      </div>
+                      <h3 class="product-name bold text-uppercase">
+                        <a href="#">Advanced PATTERN</a>
+                      </h3>
+                      <div class="product-image mb-3">
+                        <a href="#">
+                          <img src="images/products/image_7-1200x800.jpg" alt="" />
+                        </a>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 col-lg-7">
+                          <div class="product-s-desc">
+                            Showcase for pattern usage.
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-5">
+                          <div class="addtocart-area mt-3 text-right text-uppercase">
+                            <a>Add to cart</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="product">
+                    <div class="spacer">
+                      <div class="product-price">
+                          <span class="currencySymbol">$</span>96.00</span></span>
+                      </div>
+                      <h3 class="product-name bold text-uppercase">
+                        <a href="#">FAC #0 20</a>
+                      </h3>
+                      <div class="product-image mb-3">
+                        <a href="#">
+                          <img src="images/products/image_4-1200x800.jpg" alt="" />
+                        </a>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 col-lg-7">
+                          <div class="product-s-desc">
+                            Showcase for pattern usage.
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-5">
+                          <div class="addtocart-area mt-3 text-right text-uppercase">
+                            <a>Add to cart</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="product">
+                    <div class="spacer">
+                      <div class="product-price">
+                          <span class="currencySymbol">$</span>12.00</span></span>
+                      </div>
+                      <h3 class="product-name bold text-uppercase">
+                        <a href="#">CEG #0 03</a>
+                      </h3>
+                      <div class="product-image mb-3">
+                        <a href="#">
+                          <img src="images/products/image_12-1200x800.jpg" alt="" />
+                        </a>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-6 col-lg-7">
+                          <div class="product-s-desc">
+                            Showcase for pattern usage.
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-5">
+                          <div class="addtocart-area mt-3 text-right text-uppercase">
+                            <a>Add to cart</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="bottom-block upcoming">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <div class="sect-heading text-uppercase bold">
+                <h2>Upcoming Blog</h2>
+              </div>
+              <div class="latest-news row">
+                <div class="col-md-6 post-detail">
+                  <div class="d-flex">
+                    <span class="post-info-published">
+                      <span class="ot-month">Nov</span>
+                      <span class="ot-date">30</span>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-6 post-detail">
+                  <div class="d-flex"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
