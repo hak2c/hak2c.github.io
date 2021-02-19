@@ -52,23 +52,25 @@ let tooltipsImages = [
 ];
 function intelligentTooltip() {
   let moreinfo = document.querySelector(".ot_moreinfo");
-  for (let i = 0; i < tooltipsImages.length; i++) {
-    moreinfo.append(
-      createImageInfor(i, tooltipsImages[i].top, tooltipsImages[i].left)
-    );
-    $(`#ot_icon_${i}`).tooltipster({
-      content: $(
-        `<img src="${tooltipsImages[i]["img"]}" /><div class="ot_info"><h4 class="ot_infoname">${tooltipsImages[i]["name"]}</h4><p>${tooltipsImages[i]["title"]}</p></div>`
-      ),
-      // setting a same value to minWidth and maxWidth will result in a fixed width
-      minWidth: 120,
-      maxWidth: 220,
-      position: "top-left",
-    });
-    $(`#ot_icon_${i}`).hover(function () {
-      $(".ot_icon").css("z-index", "1");
-      $(this).css("z-index", "10");
-    });
+  if (moreinfo != null) {
+    for (let i = 0; i < tooltipsImages.length; i++) {
+      moreinfo.append(
+        createImageInfor(i, tooltipsImages[i].top, tooltipsImages[i].left)
+      );
+      $(`#ot_icon_${i}`).tooltipster({
+        content: $(
+          `<img src="${tooltipsImages[i]["img"]}" /><div class="ot_info"><h4 class="ot_infoname">${tooltipsImages[i]["name"]}</h4><p>${tooltipsImages[i]["title"]}</p></div>`
+        ),
+        // setting a same value to minWidth and maxWidth will result in a fixed width
+        minWidth: 120,
+        maxWidth: 220,
+        position: "top-left",
+      });
+      $(`#ot_icon_${i}`).hover(function () {
+        $(".ot_icon").css("z-index", "1");
+        $(this).css("z-index", "10");
+      });
+    }
   }
 }
 

@@ -15,6 +15,14 @@
     />
     <link
       rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
@@ -83,21 +91,17 @@
                     <li><a href="#">Erban Speedster</a></li>
                   </ul>
                 </li>
-                <li class="position-relative"><a href="#">_About</a></li>
+                <li class="position-relative"><a href="about.html">_About</a></li>
                 <li class="position-relative"><a href="#">_Blog</a></li>
-                <li class="position-relative"><a href="#">_Contact</a></li>
+                <li class="position-relative"><a href="contact.html">_Contact</a></li>
               </ul>
             </div>
-            <div class="col-lg-2 col-sm-3 ot-top position-relative text-right">
-              <div class="ot-search position-relative">
-                <button
-                  class="btn btn-search"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                  <i class="glyphicon glyphicon-search"></i>
-                </button>
+            <div class="col-lg-2 col-sm-3 ot-top">
+              <div class="row align-items-end" style="height: 100%;">
+                <div class="col-6 ot-search text-right">111</div>
+                <div class="col-6 custom_cart">
+                  <a class="ot-cart" href="#">Cart (<span class="total_products_top">0</span>)</a>
+                </div>
               </div>
             </div>
           </div>
@@ -110,7 +114,7 @@
               <div
                 id="ot-slideshow"
                 class="carousel slide productslide"
-                data-interval="2000"
+                data-interval="3000"
                 data-ride="carousel"
               >
                 <div class="carousel-inner">
@@ -583,22 +587,119 @@
               <div class="latest-news row">
                 <div class="col-md-6 post-detail">
                   <div class="d-flex">
-                    <span class="post-info-published">
-                      <span class="ot-month">Nov</span>
-                      <span class="ot-date">30</span>
-                    </span>
+                    <div class="post-info-published mr-4 mr-md-5 text-uppercase text-center">
+                      <div class="ot-month">Nov</div>
+                      <div class="ot-date p-5">30</div>
+                    </div>
+                    <div class="post-content">
+                      <h4><a class="post-title text-uppercase" href="#">Your Template</a></h4>
+                      <div class="post-infos">
+                        <span class="post-info category-name font-italic">
+                          <a href="#" rel="category tag">OT Blog</a>															</span>
+                      </div>
+                      <div class="post-introtext">
+                        <p>Templates control the look and feel of your website. This blog is installed with the Protostar template. You can edit the options by clicking on the Working on Your Site, Template Settings link in the top menu (visible when you login). For example you can change the site background color, highlights color, site title, site […]</p>
+                      </div>
+                      <p class="readmore">
+                        <a href="#" itemprop="url">Read more ...	<i class="ti-angle-right"></i></a>
+                      </p>
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-6 post-detail">
-                  <div class="d-flex"></div>
+                  <div class="d-flex">
+                    <div class="post-info-published mr-4 mr-md-5 text-uppercase text-center">
+                      <div class="ot-month">Nov</div>
+                      <div class="ot-date p-5">30</div>
+                    </div>
+                    <div class="post-content">
+                      <h4><a class="post-title text-uppercase" href="#">Your Modules</a></h4>
+                      <div class="post-infos">
+                        <span class="post-info category-name font-italic">
+                          <a href="#" rel="category tag">OT Blog</a>															</span>
+                      </div>
+                      <div class="post-introtext">
+                        <p>Templates control the look and feel of your website. This blog is installed with the Protostar template. You can edit the options by clicking on the Working on Your Site, Template Settings link in the top menu (visible when you login). For example you can change the site background color, highlights color, site title, site […]</p>
+                      </div>
+                      <p class="readmore">
+                        <a href="#" itemprop="url">Read more ...	<i class="ti-angle-right"></i></a>
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <section class="bottom-block signup">
+        <div class="container py-5">
+          <div class="row">
+            <div class="col-12">
+              <form class="form-inline custom-form d-flex flex-column flex-md-row justify-content-center align-items-center py-5">
+                <div class="form-group text-center">
+                  <label class="text-uppercase" for="cs-email">Signup To Get The Latest News</label>
+                  <input id="cs-email" class="form-control" type="email" placeholder="Email...">
+                </div>
+                <button class="btn ot-btn" type="submit">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
-
+    <footer>
+      <section class="ot-effect effect-up">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="row">
+                <div class="col-lg-8 col-md-9 col-sm-10">
+                  <div class="custom-socials">
+                    <a class="custom-social" href="#"><i class="fa fa-facebook"></i></a>
+                    <a class="custom-social" href="#"><i class="fa fa-twitter"></i></a>
+                    <a class="custom-social" href="#"><i class="fa fa-google-plus"></i></a>
+                    <a class="custom-social" href="#"><i class="fa fa-pinterest"></i></a>
+                    <a class="custom-social" href="#"><i class="fa fa-skype"></i></a>
+                  </div>
+                  <p>Copyright © 2016 <a title="Omegatheme.com" href="http://www.omegatheme.com/joomla-templates">OmegaTheme</a>. Designed by <a title="Omegatheme.com" href="http://www.omegatheme.com/joomla-templates">OmegaTheme</a>.<br>All rights Reserved</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="module">
+                <h4 class="mod-title text-uppercase">
+                  <span>More Info</span>
+                </h4>
+                <div class="mod-content">
+                  <ul class="menu list-unstyled">
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Theme Features</a></li>
+                    <li><a href="#">Theme Settings</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>								
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="module">
+                <h4 class="mod-title text-uppercase">
+                  <span>More Info</span>
+                </h4>
+                <div class="mod-content">
+                  <ul class="menu list-unstyled">
+                    <li><a href="#">Search</a></li>
+                    <li><a href="#">Theme Features</a></li>
+                    <li><a href="#">Theme Settings</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+                </div>								
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </footer>
     <script src="scripts/script.js"></script>
   </body>
 </html>
