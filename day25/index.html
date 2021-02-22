@@ -53,60 +53,7 @@
   </head>
   <body>
     <header>
-      <nav class="borderBlock">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-3 logo my-3">
-              <a href="index.html"><img src="images/logo.png" alt="" /></a>
-            </div>
-            <div class="col-lg-7 col-sm-9 primary-menu position-relative">
-              <a
-                class="position-absolute d-md-none mobile-menu"
-                data-toggle="collapse"
-                href="#menuCollapse"
-                aria-expanded="false"
-                aria-controls="menuCollapse"
-                ><i class="ti-menu"></i
-              ></a>
-              <ul
-                class="ot-menu nav flex-column flex-md-row align-items-end"
-                id="menuCollapse"
-              >
-                <li class="active position-relative">
-                  <a href="index.html">_Home</a>
-                </li>
-                <li class="position-relative">
-                  <a href="#">_Feature</a>
-                  <ul class="sub-menu nav flex-column position-absolute">
-                    <li><a href="#">Login Form</a></li>
-                    <li><a href="#">Registraton Form</a></li>
-                  </ul>
-                </li>
-                <li class="position-relative">
-                  <a href="#">_Shop</a>
-                  <ul class="sub-menu nav flex-column position-absolute">
-                    <li><a href="#">All Products</a></li>
-                    <li><a href="#">Drift Wood Cruiser</a></li>
-                    <li><a href="#">Erban Commuter</a></li>
-                    <li><a href="#">Erban Speedster</a></li>
-                  </ul>
-                </li>
-                <li class="position-relative"><a href="about.html">_About</a></li>
-                <li class="position-relative"><a href="#">_Blog</a></li>
-                <li class="position-relative"><a href="contact.html">_Contact</a></li>
-              </ul>
-            </div>
-            <div class="col-lg-2 col-sm-3 ot-top">
-              <div class="row align-items-end" style="height: 100%;">
-                <div class="col-6 ot-search text-right">111</div>
-                <div class="col-6 custom_cart">
-                  <a class="ot-cart" href="#">Cart (<span class="total_products_top">0</span>)</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <nav class="borderBlock" include-html="nav.html"></nav>
       <section class="banner d-none d-md-block">
         <div class="container-fluid">
           <div class="row">
@@ -632,74 +579,8 @@
           </div>
         </div>
       </section>
-      <section class="bottom-block signup">
-        <div class="container py-5">
-          <div class="row">
-            <div class="col-12">
-              <form class="form-inline custom-form d-flex flex-column flex-md-row justify-content-center align-items-center py-5">
-                <div class="form-group text-center">
-                  <label class="text-uppercase" for="cs-email">Signup To Get The Latest News</label>
-                  <input id="cs-email" class="form-control" type="email" placeholder="Email...">
-                </div>
-                <button class="btn ot-btn" type="submit">Submit</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
-    <footer>
-      <section class="ot-effect effect-up">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="row">
-                <div class="col-lg-8 col-md-9 col-sm-10">
-                  <div class="custom-socials">
-                    <a class="custom-social" href="#"><i class="fa fa-facebook"></i></a>
-                    <a class="custom-social" href="#"><i class="fa fa-twitter"></i></a>
-                    <a class="custom-social" href="#"><i class="fa fa-google-plus"></i></a>
-                    <a class="custom-social" href="#"><i class="fa fa-pinterest"></i></a>
-                    <a class="custom-social" href="#"><i class="fa fa-skype"></i></a>
-                  </div>
-                  <p>Copyright © 2016 <a title="Omegatheme.com" href="http://www.omegatheme.com/joomla-templates">OmegaTheme</a>. Designed by <a title="Omegatheme.com" href="http://www.omegatheme.com/joomla-templates">OmegaTheme</a>.<br>All rights Reserved</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="module">
-                <h4 class="mod-title text-uppercase">
-                  <span>More Info</span>
-                </h4>
-                <div class="mod-content">
-                  <ul class="menu list-unstyled">
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Theme Features</a></li>
-                    <li><a href="#">Theme Settings</a></li>
-                    <li><a href="#">Contact</a></li>
-                  </ul>
-                </div>								
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="module">
-                <h4 class="mod-title text-uppercase">
-                  <span>More Info</span>
-                </h4>
-                <div class="mod-content">
-                  <ul class="menu list-unstyled">
-                    <li><a href="#">Search</a></li>
-                    <li><a href="#">Theme Features</a></li>
-                    <li><a href="#">Theme Settings</a></li>
-                    <li><a href="#">Contact</a></li>
-                  </ul>
-                </div>								
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </footer>
+    <footer include-html="footer.html"></footer>
     <script src="scripts/script.js"></script>
   </body>
 </html>
