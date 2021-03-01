@@ -1,8 +1,10 @@
 export default class Clock {
-  constructor(selector, lapSelector, startButton) {
+  constructor(selector, lapSelector, startButton, stopButton, resetButton) {
     this.el = document.querySelector(selector);
     this.lap = document.querySelector(lapSelector);
     this.startButton = document.querySelector(startButton);
+    this.stopButton = document.querySelector(stopButton);
+    this.resetButton = document.querySelector(resetButton);
     this.hour = 0;
     this.minute = 0;
     this.second = 0;
@@ -28,6 +30,8 @@ export default class Clock {
 
   start() {
     this.startButton.setAttribute("disabled", true);
+    this.stopButton.removeAttribute("disabled");
+    this.resetButton.setAttribute("disabled", true);
     this.timer = setInterval(() => {
       this.checkTime();
       this.render();
@@ -44,6 +48,8 @@ export default class Clock {
       "0"
     )}:${String(this.milisecond).padStart(2, "0")}</p>`;
     this.startButton.removeAttribute("disabled");
+    this.stopButton.setAttribute("disabled", true);
+    this.resetButton.removeAttribute("disabled");
     clearInterval(this.timer);
   }
 
@@ -56,6 +62,8 @@ export default class Clock {
     this.lap.textContent = "";
     this.count = 0;
     this.startButton.removeAttribute("disabled");
+    this.stopButton.setAttribute("disabled", true);
+    this.resetButton.removeAttribute("disabled");
     this.render();
   }
 

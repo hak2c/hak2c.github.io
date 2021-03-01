@@ -1,6 +1,6 @@
 import Clock from "./clockClass.js";
 
-let clock = new Clock(".clock", ".lap-list", "#buttonStart");
+let clock = new Clock(".clock", ".lap-list", "#buttonStart", "#buttonStop", "#buttonReset");
 
 document.getElementById("buttonStart").addEventListener("click", function (e) {
   e.preventDefault();
