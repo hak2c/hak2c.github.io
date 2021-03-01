@@ -16,11 +16,17 @@ if (logged) {
     });
 } else {
   greeting.innerHTML = `<p>You are not logged in</p>
-    <p><button id="loginButton">Log in</button></p>`;
+    <p><button id="loginButton">Log in</button>&nbsp;or&nbsp;<button id="signupButton">Sign up</button></p>`;
   document
     .getElementById("loginButton")
     .addEventListener("click", function (e) {
       e.preventDefault();
       redirectLink("login.html");
+    });
+  document
+    .getElementById("signupButton")
+    .addEventListener("click", function (e) {
+      e.preventDefault();
+      redirectLink("signup.html");
     });
 }
