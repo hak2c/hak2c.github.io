@@ -1,13 +1,10 @@
 // 1. Viết hàm chuyển đổi một chuỗi thành dạng capitalize. VD: “hello world” => “Hello World”
-let changeCapitalize = (str) => {
-  let result = str[0].toUpperCase();
-  for (let i = 1; i < str.length; i++) {
-    if (str[i - 1] == " ") result += str[i].toUpperCase();
-    else result += str[i];
-  }
-  return result;
-};
+let changeCapitalize = (str) => str
+.split(" ")
+.map((i) => i[0].toUpperCase() + i.slice(1).toLowerCase())
+.join(" ");
 changeCapitalize("hello world");
+
 
 // 2. Viết hàm chuyển đổi một chuỗi thành dạng paramaterize. VD “Hello World” => “hello-world”
 let changeParamaterize = (str) => {
