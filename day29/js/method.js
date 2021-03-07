@@ -45,6 +45,16 @@ export function renderSinglePostContent(post, user) {
   `;
 }
 
+export function createCommentsList(comment) {
+  return `
+        <div class="comment">
+            <h4 class="comment-name">${comment.name}</h4>
+            <p class="comment-email">${comment.email}</p>
+            <p class="comment-body">${comment.body}</p>
+        </div>
+      `;
+}
+
 export function createPagination(total, current) {
   let html = "";
   for (let i = 1; i <= total; i++) {

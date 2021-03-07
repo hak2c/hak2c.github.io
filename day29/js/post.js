@@ -2,6 +2,7 @@ import getJson, {
   loadOverlay,
   getPostUser,
   renderSinglePostContent,
+  createCommentsList
 } from "./method.js";
 
 const postContent = document.querySelector(".post-content");
@@ -47,5 +48,8 @@ if (postId != null) {
       "beforeend",
       renderSinglePostContent(post, user)
     );
+    comments.forEach((comment) => {
+      postComments.insertAdjacentHTML("beforeend", createCommentsList(comment));
+    });
   });
 }
