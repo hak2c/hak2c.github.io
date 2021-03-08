@@ -1,5 +1,7 @@
+export const ITEMS_PER_PAGE = 10;
 export default function (options) {
   const { method, url } = options;
+  let result = {};
 
   return new Promise((resolve, reject) => {
     let xhr = new XMLHttpRequest();
@@ -8,29 +10,21 @@ export default function (options) {
     xhr.send();
     xhr.onload = () => {
       if (xhr.status == 200) {
-        resolve(xhr.response);
+        result.posts = xhr.response;
+        result.headers = xhr
+                    .getAllResponseHeaders()
+                    .split("\r\n")
+                    .reduce((obj, item) => {
+                        let [key, value] = item.split(": ");
+                        obj[key] = value;
+                        return obj;
+                    }, {});
+        resolve(result);
       } else {
         reject(xhr.status + ":" + xhr.statusText);
       }
     };
     xhr.onerror = () => reject("Something happen!");
-  });
-}
-
-export function getTotalPage(method, url, limit) {
-  return new Promise((resolve, reject) => {
-    let xhr = new XMLHttpRequest();
-    xhr.responseType = "json";
-    xhr.open(method, url);
-    xhr.send();
-    xhr.onload = () => {
-      if (xhr.status == 200) {
-        resolve(Math.ceil(xhr.response.length / limit));
-      } else {
-        reject(null);
-      }
-    };
-    xhr.onerror = () => reject(null);
   });
 }
 
@@ -42,7 +36,7 @@ export function createPost(post, user) {
           <h4><a href="post.html?id=${post.id}" target="_blank">${post.title}</a></h4>
         </div>
         <ul class="post-info">
-          <li class="createdby">Written by ${user.name}</li>
+          <li class="createdby">Written by <a href="postsbyuser.html?id=${user.id}">${user.name}</a></li>
         </ul>
         <p>${post.body}</p>
       </div>
@@ -73,12 +67,32 @@ export function createCommentsList(comment) {
 }
 
 export function createPagination(total, current) {
-  let html = "";
-  for (let i = 1; i <= total; i++) {
-    let active = i == current ? " active" : "";
-    html += `<li class="page-item${active}"><a class="page-link" href="index.html?page=${i}">${i}</a></li>`;
+  let frag = document.createDocumentFragment();
+  if (total > 1) {
+    for (let i = 1; i <= total; i++) {
+      if (i == 1 || i == total || (i > current - 2 && i < current + 2)) {
+        let a = document.createElement("a");
+        a.classList.add("pagination-item");
+
+        if (i != current) {
+            a.href = link + i;
+        } else {
+            a.classList.add("current");
+        }
+
+        a.textContent = i == 1 ? "First" : i == total ? "Last" : i;
+
+        frag.appendChild(a);
+    }
+    }
+      if (i > 1 && i < total) {
+        html += current == 1 ? `<li class="page-item${previous}"><a class="page-link" href="index.html?page=${i - 1}">Previous</a></li>` : "";
+        html += current == total ? `<li class="page-item${previous}"><a class="page-link" href="index.html?page=${i+1}">Previous</a></li>` : "";
+      } else 
+      html += `<li class="page-item${active}"><a class="page-link" href="index.html?page=${i}">${i}</a></li>`;
+    }
   }
-  return html;
+  return frag;
 }
 
 export function loadOverlay() {
@@ -95,3 +109,17 @@ export function getPostUser(users, id) {
   }
   return null;
 }
+
+export function checkPostsPerPage() {
+  let url = new URL(window.location.href);
+  let limit = url.searchParams.get("limit") || ITEMS_PER_PAGE;
+  let select = document.getElementById("posts-per-page");
+  select.value = limit;
+
+  select.onchange = function (e) {
+    e.preventDefault();
+    url.searchParams.set("limit", select.value);
+    window.location.href = url;
+  }
+}
+

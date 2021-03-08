@@ -1,57 +1,48 @@
 import getJson, {
+  ITEMS_PER_PAGE,
   loadOverlay,
+  checkPostsPerPage,
   getPostUser,
   createPost,
   createPagination,
-  getTotalPage
 } from "./method.js";
+
+checkPostsPerPage();
 
 const listPosts = document.querySelector(".posts-list");
 const pagination = document.querySelector(".pagination");
 let postsUrl = new URL("https://jsonplaceholder.typicode.com/posts");
-let userUrl = "https://jsonplaceholder.typicode.com/users";
 let url = new URL(window.location.href);
-let page = url.searchParams.get("page") != null ? url.searchParams.get("page") : 1;
-const post_per_page = 10;
-
-
-async function getListPosts() {
-  const loading = loadOverlay();
-  listPosts.appendChild(loading);
-  let total_page = await getTotalPage("GET", postsUrl, post_per_page);
-  if (total_page != null && total_page > 0) {
-    pagination.insertAdjacentHTML(
-      "beforeend",
-      createPagination(total_page, page)
-    );
-    loading.remove();
-    
-    postsUrl.searchParams.set("_limit", post_per_page);
-    postsUrl.searchParams.set("_page", page);
-
-    let request = Promise.all([
-      getJson({
-        method: "GET",
-        url: postsUrl,
-      }),
-      getJson({
-        method: "GET",
-        url: userUrl,
-      }),
-    ]);
-    
-    request.then((data) => {
-      let [posts, users] = data;
-      posts.forEach((post) => {
-        let user = getPostUser(users, post.userId);
-    
-        listPosts.insertAdjacentHTML("beforeend", createPost(post, user));
-      });
-    });
-  } else {
-    loading.remove();
-    listPosts.textContent = "No post."
-  }
-}
+let page = url.searchParams.get("page") || 1;
+let post_per_page = url.searchParams.get("limit") || ITEMS_PER_PAGE;
 
 getListPosts();
+
+function getListPosts() {
+  const loading = loadOverlay();
+  listPosts.appendChild(loading);
+  
+  postsUrl.searchParams.set("_limit", post_per_page);
+  postsUrl.searchParams.set("_page", page);
+  postsUrl.searchParams.set("_expand", "user");
+
+  let request = getJson({
+      method: "GET",
+      url: postsUrl,
+    });
+  
+  request.then((data) => {
+    let { posts, headers } = data; console.log(headers);
+    let total_page = Math.ceil(Number(headers["x-total-count"]) / post_per_page);
+    loading.remove();
+    if (total_page > 0) {
+      posts.forEach((post) => {
+        listPosts.insertAdjacentHTML("beforeend", createPost(post, post.user));
+      });
+      pagination.insertAdjacentHTML("beforeend", createPagination(total_page, page));
+    } else {
+      listPosts.textContent = "No posts found."
+    }
+  });
+}
+

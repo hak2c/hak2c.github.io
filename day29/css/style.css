@@ -63,14 +63,11 @@ ol {
   list-style: none;
   margin-bottom: 0;
 }
-a {
-  color: #179bd7;
-  cursor: pointer;
-}
 a,
 a:hover {
+  cursor: pointer;
   text-decoration: none;
-  color: #f07c23;
+  color: #179bd7;
 }
 img {
   max-width: 100%;
