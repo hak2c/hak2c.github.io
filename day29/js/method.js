@@ -17,6 +17,23 @@ export default function (options) {
   });
 }
 
+export function getTotalPage(method, url, limit) {
+  return new Promise((resolve, reject) => {
+    let xhr = new XMLHttpRequest();
+    xhr.responseType = "json";
+    xhr.open(method, url);
+    xhr.send();
+    xhr.onload = () => {
+      if (xhr.status == 200) {
+        resolve(Math.ceil(xhr.response.length / limit));
+      } else {
+        reject(null);
+      }
+    };
+    xhr.onerror = () => reject(null);
+  });
+}
+
 export function createPost(post, user) {
   return `
     <div class="post">
