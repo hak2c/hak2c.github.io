@@ -2,6 +2,7 @@ import getJson, {
   ITEMS_PER_PAGE,
   loadOverlay,
   checkPostsPerPage,
+  checkSearchInput,
   createPost,
   createPagination,
 } from "./method.js";
@@ -15,6 +16,7 @@ let page = url.searchParams.get("page") || 1;
 let posts_per_page = url.searchParams.get("limit") || ITEMS_PER_PAGE;
 
 checkPostsPerPage();
+checkSearchInput(userId);
 
 url = new URL("https://jsonplaceholder.typicode.com/posts/");
 url.searchParams.set("userId", userId);

@@ -120,3 +120,21 @@ export function checkPostsPerPage(userId = null) {
     window.location.href = url;
   };
 }
+
+export function checkSearchInput(userId = null) {
+  let url = new URL(redirectLink("search.html"));
+  let searchInput = document.getElementById("search");
+  let searchBtn = document.getElementById("search-btn");
+  searchBtn.onclick = function (e) {
+    e.preventDefault();
+    url.searchParams.set("s", searchInput.value);
+    if (userId != null) url.searchParams.set("userId", userId);
+    window.location.href = url;
+  };
+}
+
+function redirectLink(pageName) {
+  let url = document.location.pathname.split("/");
+  url[url.length - 1] = pageName;
+  return document.location.origin + url.join("/");
+}

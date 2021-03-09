@@ -75,6 +75,10 @@ img {
   height: auto;
 }
 
+.form-control {
+  font-size: 14px;
+  height: 34px;
+}
 /* BREADCRUMB */
 .ot-breadcrumb {
   background-color: #f9f9f9;
@@ -148,6 +152,16 @@ main .container {
   .posts-list .post {
     width: calc((100% - 30px) / 2);
   }
+}
+
+.ot-btn,
+.ot-btn:hover {
+  color: #ffffff;
+  padding: 7px 20px;
+  border: 0px none;
+  background-color: #179bd7;
+  font-size: 14px;
+  height: 34px;
 }
 
 .loading {

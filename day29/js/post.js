@@ -1,5 +1,6 @@
 import getJson, {
   loadOverlay,
+  checkSearchInput,
   renderSinglePostContent,
   createCommentsList,
 } from "./method.js";
@@ -16,6 +17,7 @@ postUrl.searchParams.set("_expand", "user");
 postUrl.searchParams.set("_embed", "comments");
 
 getPostContent();
+checkSearchInput();
 
 function getPostContent() {
   const spinner = loadOverlay();
