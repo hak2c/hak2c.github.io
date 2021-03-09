@@ -41,11 +41,24 @@
   </head>
   <body>
     <header>
+      <nav>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2">
+              <a href="index.html">
+                <img src="logo.png" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
       <section class="ot-breadcrumb">
         <div class="container">
           <div class="row">
             <div class="col-12">
-              <h3 class="ot-breadcrumb-heading"><span>Blog</span></h3>
+              <h3 class="ot-breadcrumb-heading">
+                <span id="breadcrumb-title">Blog</span>
+              </h3>
             </div>
           </div>
         </div>
@@ -54,6 +67,17 @@
     <main>
       <div class="container">
         <div class="row">
+          <div class="col-12 text-right">
+            <p>Select post per page</p>
+            <div>
+              <select name="posts-per-page" id="posts-per-page">
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+              </select>
+            </div>
+          </div>
           <div class="col-12">
             <div
               class="posts-list d-flex flex-wrap justify-content-between"
@@ -66,6 +90,6 @@
       </div>
     </main>
     <div class="posts"></div>
-    <script src="js/postUser.js" type="module"></script>
+    <script src="js/postsbyuser.js" type="module"></script>
   </body>
 </html>

@@ -12,13 +12,13 @@ export default function (options) {
       if (xhr.status == 200) {
         result.posts = xhr.response;
         result.headers = xhr
-                    .getAllResponseHeaders()
-                    .split("\r\n")
-                    .reduce((obj, item) => {
-                        let [key, value] = item.split(": ");
-                        obj[key] = value;
-                        return obj;
-                    }, {});
+          .getAllResponseHeaders()
+          .split("\r\n")
+          .reduce((obj, item) => {
+            let [key, value] = item.split(": ");
+            obj[key] = value;
+            return obj;
+          }, {});
         resolve(result);
       } else {
         reject(xhr.status + ":" + xhr.statusText);
@@ -72,14 +72,14 @@ export function createPagination(total, current, link) {
     for (let i = 1; i <= total; i++) {
       if (i == 1 || i == total || (i > current - 2 && i < current + 2)) {
         let li = document.createElement("li");
-        li.classList.add("page-item")
+        li.classList.add("page-item");
         let a = document.createElement("a");
         a.classList.add("page-link");
 
         if (i != current) {
           a.href = link + i;
         } else {
-          if(i == 1 || i == total) li.classList.add("disabled");
+          if (i == 1 || i == total) li.classList.add("disabled");
           else li.classList.add("active");
         }
         a.textContent = i == 1 ? "First" : i == total ? "Last" : i;
@@ -94,7 +94,7 @@ export function createPagination(total, current, link) {
 
 export function loadOverlay() {
   let div = document.createElement("div");
-  div.className = "loading";
+  div.id = "spinner";
   return div;
 }
 
@@ -107,7 +107,7 @@ export function getPostUser(users, id) {
   return null;
 }
 
-export function checkPostsPerPage() {
+export function checkPostsPerPage(userId = null) {
   let url = new URL(window.location.href);
   let limit = url.searchParams.get("limit") || ITEMS_PER_PAGE;
   let select = document.getElementById("posts-per-page");
@@ -116,7 +116,7 @@ export function checkPostsPerPage() {
   select.onchange = function (e) {
     e.preventDefault();
     url.searchParams.set("limit", select.value);
+    if (userId != null) url.searchParams.set("userId", userId);
     window.location.href = url;
-  }
+  };
 }
-

@@ -2,7 +2,6 @@ import getJson, {
   ITEMS_PER_PAGE,
   loadOverlay,
   checkPostsPerPage,
-  getPostUser,
   createPost,
   createPagination,
 } from "./method.js";
@@ -19,30 +18,33 @@ let posts_per_page = url.searchParams.get("limit") || ITEMS_PER_PAGE;
 getListPosts();
 
 function getListPosts() {
-  const loading = loadOverlay();
-  listPosts.appendChild(loading);
-  
+  const spinner = loadOverlay();
+  listPosts.appendChild(spinner);
+
   postsUrl.searchParams.set("_limit", posts_per_page);
   postsUrl.searchParams.set("_page", page);
   postsUrl.searchParams.set("_expand", "user");
 
   let request = getJson({
-      method: "GET",
-      url: postsUrl,
-    });
-  
+    method: "GET",
+    url: postsUrl,
+  });
+
   request.then((data) => {
     let { posts, headers } = data;
-    let total_page = Math.ceil(Number(headers["x-total-count"]) / posts_per_page);
-    loading.remove();
+    let total_page = Math.ceil(
+      Number(headers["x-total-count"]) / posts_per_page
+    );
+    spinner.remove();
     if (total_page > 0) {
       posts.forEach((post) => {
         listPosts.insertAdjacentHTML("beforeend", createPost(post, post.user));
       });
-      pagination.appendChild(createPagination(total_page, page, `?limit=${posts_per_page}&page=`));
+      pagination.appendChild(
+        createPagination(total_page, page, `?limit=${posts_per_page}&page=`)
+      );
     } else {
-      listPosts.textContent = "No posts found."
+      listPosts.textContent = "No posts found.";
     }
   });
 }
-

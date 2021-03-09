@@ -1,46 +1,40 @@
 import getJson, {
   loadOverlay,
-  getPostUser,
   renderSinglePostContent,
-  createCommentsList
+  createCommentsList,
 } from "./method.js";
 
 const postContent = document.querySelector(".post-content");
 const postComments = document.querySelector(".post-comments");
-const breadcrumbText = document.querySelector(".ot-breadcrumb-heading").getElementsByTagName("span")[0];
-
-const loading = loadOverlay();
-postContent.appendChild(loading);
+let breadcrumb = document.getElementById("breadcrumb-title");
 
 let postUrl = new URL(window.location.href);
-let postId = postUrl.searchParams.get("id") != null ? postUrl.searchParams.get("id") : null;
+let postId = postUrl.searchParams.get("id");
 
-if (postId != null) {
-  postUrl = "https://jsonplaceholder.typicode.com/posts/" + postId;
-  let commentUrl = `https://jsonplaceholder.typicode.com/posts/${postId}/comments`;
-  let userUrl = "https://jsonplaceholder.typicode.com/users";
+postUrl = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
+postUrl.searchParams.set("_expand", "user");
+postUrl.searchParams.set("_embed", "comments");
 
-  let request = Promise.all([
-    getJson({
-      method: "GET",
-      url: postUrl,
-    }),
-    getJson({
-      method: "GET",
-      url: userUrl,
-    }),
-    getJson({
-      method: "GET",
-      url: commentUrl,
-    }),
-  ]);
-  request.then((data) => {
-    let [post, users, comments] = data;
-    loading.remove();
-    breadcrumbText.textContent = post.title;
-    let user = getPostUser(users, post.userId);
-    postContent.insertAdjacentHTML("beforeend", renderSinglePostContent(post, user));
-    comments.forEach((comment) => {
+getPostContent();
+
+function getPostContent() {
+  const spinner = loadOverlay();
+  postContent.appendChild(spinner);
+
+  let request = getJson({
+    method: "GET",
+    url: postUrl,
+  });
+
+  request.then((result) => {
+    let post = result.posts;
+    spinner.remove();
+    breadcrumb.textContent = post.title;
+    postContent.insertAdjacentHTML(
+      "beforeend",
+      renderSinglePostContent(post, post.user)
+    );
+    post.comments.forEach((comment) => {
       postComments.insertAdjacentHTML("beforeend", createCommentsList(comment));
     });
   });
