@@ -70,7 +70,7 @@ export function createPagination(total, current, link) {
   let frag = document.createDocumentFragment();
   if (total > 1) {
     for (let i = 1; i <= total; i++) {
-      if (i == 1 || i == total || (i > current - 2 && i < current + 2)) {
+      if (i == 1 || i == total || (i > current - 3 && i < current + 3)) {
         let li = document.createElement("li");
         li.classList.add("page-item");
         let a = document.createElement("a");

@@ -12,7 +12,7 @@ const listPosts = document.querySelector(".posts-list");
 const pagination = document.querySelector(".pagination");
 let postsUrl = new URL("https://jsonplaceholder.typicode.com/posts");
 let url = new URL(window.location.href);
-let page = url.searchParams.get("page") || 1;
+let page = Number(url.searchParams.get("page")) || 1;
 let posts_per_page = url.searchParams.get("limit") || ITEMS_PER_PAGE;
 
 getListPosts();
