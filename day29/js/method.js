@@ -66,30 +66,27 @@ export function createCommentsList(comment) {
       `;
 }
 
-export function createPagination(total, current) {
+export function createPagination(total, current, link) {
   let frag = document.createDocumentFragment();
   if (total > 1) {
     for (let i = 1; i <= total; i++) {
       if (i == 1 || i == total || (i > current - 2 && i < current + 2)) {
+        let li = document.createElement("li");
+        li.classList.add("page-item")
         let a = document.createElement("a");
-        a.classList.add("pagination-item");
+        a.classList.add("page-link");
 
         if (i != current) {
-            a.href = link + i;
+          a.href = link + i;
         } else {
-            a.classList.add("current");
+          if(i == 1 || i == total) li.classList.add("disabled");
+          else li.classList.add("active");
         }
-
         a.textContent = i == 1 ? "First" : i == total ? "Last" : i;
 
-        frag.appendChild(a);
-    }
-    }
-      if (i > 1 && i < total) {
-        html += current == 1 ? `<li class="page-item${previous}"><a class="page-link" href="index.html?page=${i - 1}">Previous</a></li>` : "";
-        html += current == total ? `<li class="page-item${previous}"><a class="page-link" href="index.html?page=${i+1}">Previous</a></li>` : "";
-      } else 
-      html += `<li class="page-item${active}"><a class="page-link" href="index.html?page=${i}">${i}</a></li>`;
+        li.appendChild(a);
+        frag.appendChild(li);
+      }
     }
   }
   return frag;
