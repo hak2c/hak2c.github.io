@@ -12,11 +12,14 @@ let pagination = document.querySelector(".pagination");
 
 let url = new URL(document.location.href);
 let limit = url.searchParams.get("limit") || ITEMS_PER_PAGE;
+let key = url.searchParams.get("key");
 let page = Number(url.searchParams.get("page")) || 1;
+
+checkPostsPerPage();
 
 xhr({
   method: "GET",
-  url: `/posts?_limit=${limit}&_page=${page}&_expand=user`,
+  url: `/posts?title_like=${key}&_limit=${limit}&_page=${page}&_expand=user`,
   responseType: "json",
   contentType: "application/json",
   body: null,
@@ -29,11 +32,14 @@ xhr({
       createPost(post, post.user, index)
     );
   });
-
   if (total > 1) {
     pagination.insertAdjacentHTML(
       "beforeend",
-      createPagination(total, page, `?limit=${limit}&_expand=user&page=`)
+      createPagination(
+        total,
+        page,
+        `?title_like=${key}&_expand=user&_limit=${limit}&_page=`
+      )
     );
   }
 });

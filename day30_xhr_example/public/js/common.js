@@ -160,3 +160,15 @@ export function createPagination(total, current, link) {
     `;
   return html;
 }
+
+document.forms.search.addEventListener("submit", function (e) {
+  e.preventDefault();
+  let value = document.forms.search.key.value.trim();
+  value = value.replace(/  +/g, " ");
+
+  let url = new URL(window.location.href);
+  url = new URL(url.origin);
+  url.pathname = "/search.html";
+  url.searchParams.set("key", value);
+  window.location.href = url.href;
+});

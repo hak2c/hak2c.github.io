@@ -28,6 +28,7 @@ xhr({
   let { data, headers } = result;
   let total = Math.ceil(Number(headers["x-total-count"]) / limit);
   breadcrumb.innerHTML = `Posts by: ${data.name}`;
+  document.title = `Posts by: ${data.name}`;
   let posts = data.posts;
   posts.forEach((post, index) => {
     postsContent.insertAdjacentHTML("beforeend", createPost(post, data, index));
@@ -35,7 +36,7 @@ xhr({
   if (total > 1) {
     pagination.insertAdjacentHTML(
       "beforeend",
-      createPagination(total, page, `?limit=${limit}&userId=${userId}&page=`)
+      createPagination(total, page, `?_embed=posts&_limit=${limit}&_page=`)
     );
   }
 });

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <title>Blog page</title>
+    <title>Search results</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Cabin&display=swap"
@@ -66,13 +66,14 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <form class="form-inline">
+            <form name="search" action="search.html" class="form-inline">
               <div class="form-group">
                 <input
                   class="form-control"
                   id="search"
                   type="text"
-                  placeholder="Type to search"
+                  aria-label="Search"
+                  name="key"
                 />
               </div>
               <button class="btn ot-btn ml-3" id="search-btn" type="submit">
@@ -89,13 +90,11 @@
               <option value="20">20</option>
             </select>
           </div>
-          <div class="col-12">
-            <div
-              class="posts-list d-flex flex-wrap justify-content-between"
-            ></div>
-            <nav class="posts-pagination">
+          <div class="row posts-list justify-content-between pt-5"></div>
+          <div class="row">
+            <div class="col-12 posts-pagination">
               <ul class="pagination"></ul>
-            </nav>
+            </div>
           </div>
         </div>
       </div>
