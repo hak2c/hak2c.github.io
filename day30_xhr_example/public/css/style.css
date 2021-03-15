@@ -89,6 +89,9 @@ img {
   font-size: 14px;
   height: 34px;
 }
+textarea.form-control {
+  min-height: 100px;
+}
 
 .page-link {
   min-width: 30px;
@@ -163,6 +166,10 @@ main .container {
 .post-content .post-info li + li::before {
   content: "/";
   margin: 0 10px 0 0;
+}
+#comment-form .form-control {
+  width: 100%;
+  max-width: 900px;
 }
 
 .ot-btn,

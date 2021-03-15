@@ -14,7 +14,7 @@ export default function xhr({ method, url, responseType, contentType, body }) {
     request.onerror = () => reject("Can not send the request");
 
     request.onload = () => {
-      if (request.status === 200) {
+      if (request.status >= 200 && request.status < 300) {
         result.data = request.response;
         result.headers = {};
         request
@@ -103,15 +103,6 @@ export function createSinglePostContent(post, user) {
     </ul>
     <p>${post.details[0].body}</p>
     `;
-}
-
-export function createCommentsList(comment) {
-  return `
-          <div class="comment">
-              <h4 class="comment-name">${comment.name}</h4>
-              <p class="comment-body">${comment.content}</p>
-          </div>
-        `;
 }
 
 export function createPagination(total, current, link) {

@@ -85,9 +85,30 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 pt-5">
-            <div class="post-content"></div>
+          <div class="col-12 pt-5 post-content"></div>
+          <div class="col-12">
             <div class="post-comments"></div>
+            <div class="post-form">
+              <h3>Got something to say? Go for it!</h3>
+              <hr />
+              <div class="comment-form">
+                <form name="comment-form" id="comment-form">
+                  <div class="form-group mb-3">
+                    <label for="name">Name</label>
+                    <input class="form-control" type="text" id="name" name="name" />
+                  </div>
+                  <div class="form-group mb-3">
+                    <label for="message">Message</label>
+                    <textarea name="message" id="message" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group mb-3">
+                    <button class="btn ot-btn" id="comment-btn" type="submit">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
       </div>
