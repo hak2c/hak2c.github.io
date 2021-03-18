@@ -1,0 +1,34 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Học XHR",
+      "status": false,
+      "created": "14:18:18, 17/3/2020"
+    },
+    {
+      "id": 2,
+      "title": "Làm app todo",
+      "status": true,
+      "created": "14:38:08, 17/3/2021"
+    },
+    {
+      "title": "Học jQuery test",
+      "status": false,
+      "created": "14:48:08, 17/3/2021",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "title": "Làm app cờ caro",
+      "status": true,
+      "created": "14:58:08, 17/3/2021"
+    },
+    {
+      "title": "test",
+      "status": true,
+      "created": "14:01:16, 18/3/2021",
+      "id": 6
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import xhr, { createSinglePostContent } from "./common.js";
+import xhr, { createSinglePostContent, textInputValidation } from "./common.js";
 
 let postContent = document.querySelector(".post-content");
 let commentsContent = document.querySelector(".post-comments");
@@ -34,10 +34,24 @@ const form = document.getElementById("comment-form");
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  let name = document.getElementById("name").value.trim();
-  let content = document.getElementById("message").value.trim();
-  if (name != "" && content != "") {
-    xhr({
+  document.querySelector(".spinner-border").classList.remove("d-none");
+  form.elements.submit.disabled = true;
+  let flag = true;
+  flag = textInputValidation(form.elements.name, flag);
+  flag = textInputValidation(form.elements.content, flag);
+  if (flag) {
+    let name = form.elements.name.value.trim();
+    let content = form.elements.content.value.trim();
+    fetch("/comments", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, content, postId }),
+    })
+      .then((result) => result.json())
+      .then((result) => {});
+    /*xhr({
       method: "POST",
       url: `/comments`,
       responseType: "json",
@@ -48,9 +62,11 @@ form.addEventListener("submit", function (e) {
         "beforeend",
         createCommentsList(result.data)
       );
-      document.getElementById("name").value = "";
-      document.getElementById("message").value = "";
-    });
+      form.elements.name.value = "";
+      form.elements.content.value = "";
+      document.querySelector(".spinner-border").classList.add("d-none");
+      form.elements.submit.removeAttribute("disabled");
+    });*/
   }
 });
 

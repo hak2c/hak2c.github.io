@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+    <title>Todo | XHR Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center mt-5">
+        <div class="col-lg-5 col-md-8 col-12">
+          <form id="add-job">
+            <div class="mb-1">
+              <label for="todo" class="form-label">NEW TASK</label>
+            </div>
+            <div class="d-flex position-relative align-items-center">
+              <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Add new job"
+                id="job-title"
+              />
+              <button type="submit" id="btn-add" class="btn btn-primary btn-sm btn-add">
+                ADD
+              </button>
+            </div>
+          </form>
+          <hr />
+
+          <!-- filter & sort -->
+          <div class="row justify-content-end">
+            <!-- filter -->
+            <div class="col-3 d-flex align-items-center">
+              <p>Filter</p>
+              <select
+                class="ms-1 form-select form-select-sm"
+                id="filter-jobs-status"
+              >
+                <option value="all" selected>All</option>
+                <option value="true">Completed</option>
+                <option value="false">Doing</option>
+              </select>
+            </div>
+            <!-- sort -->
+            <div class="col-3 d-flex align-items-center">
+              <p>Sort</p>
+              <select class="ms-1 form-select form-select-sm">
+                <option selected>Date</option>
+                <option value="1">Decrease</option>
+                <option value="2">Increase</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- list -->
+          <div id="doing-list" class="mt-4"></div>
+          <div id="completed-list" class="mt-4"></div>
+        </div>
+      </div>
+    </div>
+    <script src="js/index.js" type="module"></script>
+  </body>
+</html>

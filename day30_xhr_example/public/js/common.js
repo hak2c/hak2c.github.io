@@ -152,6 +152,19 @@ export function createPagination(total, current, link) {
   return html;
 }
 
+export function textInputValidation(input, flag) {
+  let inputContent = input.value;
+  if (inputContent != "") {
+    input.classList.add("is-valid");
+    input.classList.remove("is-invalid");
+  } else {
+    input.classList.remove("is-valid");
+    input.classList.add("is-invalid");
+    flag = false;
+  }
+  return flag;
+}
+
 document.forms.search.addEventListener("submit", function (e) {
   e.preventDefault();
   let value = document.forms.search.key.value.trim();
