@@ -1,0 +1,8 @@
+*.iml
+*.log
+*.swp
+.DS_Store
+.idea/
+.nuxt/
+.vscode/
+node_modules/

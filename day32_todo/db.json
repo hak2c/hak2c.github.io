@@ -1,16 +1,16 @@
 {
   "todos": [
     {
-      "id": 1,
       "title": "Học XHR",
-      "status": false,
-      "created": "14:18:18, 17/3/2020"
+      "status": true,
+      "created": "14:18:18, 17/4/2020",
+      "id": 1
     },
     {
-      "id": 2,
       "title": "Làm app todo",
       "status": true,
-      "created": "14:38:08, 17/3/2021"
+      "created": "14:38:08, 17/3/2021",
+      "id": 2
     },
     {
       "title": "Học jQuery",
@@ -19,15 +19,15 @@
       "id": 3
     },
     {
-      "id": 4,
       "title": "Làm app cờ caro",
-      "status": true,
-      "created": "14:58:08, 17/3/2021"
+      "status": false,
+      "created": "14:58:08, 17/3/2021",
+      "id": 4
     },
     {
-      "title": "test 1",
+      "title": "test 1222",
       "status": false,
-      "created": "10:09:33, 19/3/2021",
+      "created": "14:59:16, 19/3/2021",
       "id": 5
     }
   ]
