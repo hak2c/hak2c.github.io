@@ -34,7 +34,11 @@
                 placeholder="Add new job"
                 id="job-title"
               />
-              <button type="submit" id="btn-add" class="btn btn-primary btn-sm btn-add">
+              <button
+                type="submit"
+                id="btn-add"
+                class="btn btn-primary btn-sm btn-add"
+              >
                 ADD
               </button>
             </div>
@@ -56,12 +60,14 @@
               </select>
             </div>
             <!-- sort -->
-            <div class="col-3 d-flex align-items-center">
-              <p>Sort</p>
-              <select class="ms-1 form-select form-select-sm">
-                <option selected>Date</option>
-                <option value="1">Decrease</option>
-                <option value="2">Increase</option>
+            <div class="col-6 d-flex align-items-center">
+              <p>Sort by date</p>
+              <select
+                class="ms-1 form-select form-select-sm"
+                id="filter-jobs-date"
+              >
+                <option value="desc">Decrease</option>
+                <option value="inc">Increase</option>
               </select>
             </div>
           </div>
@@ -69,6 +75,7 @@
           <!-- list -->
           <div id="doing-list" class="mt-4"></div>
           <div id="completed-list" class="mt-4"></div>
+          <div id="todo-list" class="mt-4"></div>
         </div>
       </div>
     </div>

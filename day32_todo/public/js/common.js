@@ -1,4 +1,5 @@
 export const STATUS_OF_JOBS = "all";
+export const SORT_JOB_DATE = "desc";
 
 export default function xhr({ method, url, responseType, contentType, body }) {
   return new Promise((resolve, reject) => {
@@ -30,6 +31,20 @@ export function checkJobsStatusFilter() {
   filter.onchange = function (e) {
     e.preventDefault();
     url.searchParams.set("status", filter.value);
+    window.location.href = url;
+  };
+}
+
+export function checkJobsDateFilter() {
+  let url = new URL(window.location.href);
+  let sort = url.searchParams.get("sort") || SORT_JOB_DATE;
+
+  let filter = document.getElementById("filter-jobs-date");
+  filter.value = sort;
+
+  filter.onchange = function (e) {
+    e.preventDefault();
+    url.searchParams.set("sort", filter.value);
     window.location.href = url;
   };
 }

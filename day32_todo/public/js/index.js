@@ -1,16 +1,20 @@
 import xhr, {
   renderJobDetail,
   checkJobsStatusFilter,
+  checkJobsDateFilter,
   STATUS_OF_JOBS,
+  SORT_JOB_DATE,
 } from "./common.js";
 
 let doing = document.getElementById("doing-list");
 let completed = document.getElementById("completed-list");
-let jobsList = [];
+let jobsList = document.getElementById("todo-list");
 let url = new URL(document.location.href);
 let status = url.searchParams.get("status") || STATUS_OF_JOBS;
+let dateSort = url.searchParams.get("sort") || SORT_JOB_DATE;
 
 checkJobsStatusFilter();
+checkJobsDateFilter();
 
 getTodoList();
 
@@ -26,8 +30,9 @@ document.getElementById("add-job").addEventListener("submit", function (e) {
     contentType: "application/json",
     body: JSON.stringify({ title, status, created }),
   }).then((job) => {
-    doing.insertAdjacentHTML("beforeend", renderJobDetail(job));
-    singJobActions();
+    // doing.insertAdjacentHTML("beforeend", renderJobDetail(job));
+    jobsList.insertAdjacentHTML("beforeend", renderJobDetail(job));
+    singleJobActions();
   });
 });
 
@@ -45,29 +50,40 @@ function getTodoList() {
     contentType: "application/json",
     body: null,
   }).then((data) => {
-    jobsList = data;
-    jobsList.forEach((job) => {
+    // jobsList = data;
+    if (dateSort == "desc") {
+      data.sort().forEach((job) => {
+        jobsList.insertAdjacentHTML("beforeend", renderJobDetail(job));
+      });
+    } else {
+      data
+        .sort()
+        .reverse()
+        .forEach((job) => {
+          jobsList.insertAdjacentHTML("beforeend", renderJobDetail(job));
+        });
+    }
+    /*data.forEach((job) => {
       if (job.status)
         completed.insertAdjacentHTML("beforeend", renderJobDetail(job));
       else doing.insertAdjacentHTML("beforeend", renderJobDetail(job));
-    });
-    singJobActions();
+      jobsList.insertAdjacentHTML("beforeend", renderJobDetail(job));
+    });*/
+    singleJobActions();
   });
 }
 
-function singJobActions() {
-  Array.from(document.getElementsByClassName("job-details")).forEach(
-    (button) => {
-      let id = button.id;
-      let status = button.dataset.status;
-      let title = document.getElementById(`title-${id}`).value;
-      let created = button.dataset.created;
-      status = status == "true" ? true : false;
-      statusCheckbox(id, status, title, created);
-      editJobTitle(id, status, created);
-      deleteJob(id);
-    }
-  );
+function singleJobActions() {
+  Array.from(document.getElementsByClassName("job-details")).forEach((job) => {
+    let id = job.id;
+    let status = job.dataset.status;
+    let title = document.getElementById(`title-${id}`).value;
+    let created = job.dataset.created;
+    status = status == "true" ? true : false;
+    statusCheckbox(id, status, title, created);
+    editJobTitle(id, status, created);
+    deleteJob(id);
+  });
 }
 
 function statusCheckbox(id, status, title, created) {
@@ -84,7 +100,7 @@ function statusCheckbox(id, status, title, created) {
         body: JSON.stringify({ title, status: newStatus, created }),
       }).then((job) => {
         resetJobsList();
-        singJobActions();
+        singleJobActions();
       });
     });
 }
@@ -101,7 +117,7 @@ function editJobTitle(id, status, created) {
       body: JSON.stringify({ title: newTitle, status, created }),
     }).then((job) => {
       resetJobsList();
-      singJobActions();
+      singleJobActions();
     });
   });
 }
@@ -119,13 +135,14 @@ function deleteJob(id) {
         body: null,
       }).then((data) => {
         resetJobsList();
-        singJobActions();
+        singleJobActions();
       });
     });
 }
 
 function resetJobsList() {
-  doing.textContent = "";
-  completed.textContent = "";
+  /*doing.textContent = "";
+  completed.textContent = "";*/
+  jobsList.textContent = "";
   getTodoList();
 }
