@@ -1,0 +1,25 @@
+{
+    "collections": [
+        {
+            "id": 1,
+            "title": "Dresses",
+            "images": [
+               "images/collections/dresses1.jpg", "images/collections/dresses2.jpg" 
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Tops",
+            "images": [
+               "images/collections/tops1.jpg", "images/collections/tops2.jpg" 
+            ]
+        },
+        {
+            "id": 3,
+            "title": "Rompers & Playsuits",
+            "images": [
+               "images/collections/rompers-playsuits.jpg", "images/collections/rompers-playsuits2.jpg" 
+            ]
+        }
+    ]
+}
