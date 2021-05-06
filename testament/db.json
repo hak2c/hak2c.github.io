@@ -1,25 +1,149 @@
 {
-    "collections": [
+  "collections": [
+    {
+      "id": 1,
+      "title": "Dresses",
+      "images": [
+        "images/collections/dresses1.jpg",
+        "images/collections/dresses2.jpg"
+      ],
+      "thumb": "images/collections/dresses-thumb.jpg"
+    },
+    {
+      "id": 2,
+      "title": "Tops",
+      "images": [
+        "images/collections/tops1.jpg",
+        "images/collections/tops2.jpg"
+      ],
+      "thumb": "images/collections/tops-thumb.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Rompers & Playsuits",
+      "images": [
+        "images/collections/rompers-playsuits.jpg",
+        "images/collections/rompers-playsuits2.jpg"
+      ],
+      "thumb": "images/collections/rompers-playsuits-thumb.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "collectionId": 1,
+      "title": "Tara Dress",
+      "price": 64.99,
+      "size": ["6", "8", "10", "12"],
+      "color": [
         {
-            "id": 1,
-            "title": "Dresses",
-            "images": [
-               "images/collections/dresses1.jpg", "images/collections/dresses2.jpg" 
-            ]
+          "name": "Pink",
+          "thumb": "images/color/210225LiliStudio15402_100x.jpg"
         },
         {
-            "id": 2,
-            "title": "Tops",
-            "images": [
-               "images/collections/tops1.jpg", "images/collections/tops2.jpg" 
-            ]
-        },
-        {
-            "id": 3,
-            "title": "Rompers & Playsuits",
-            "images": [
-               "images/collections/rompers-playsuits.jpg", "images/collections/rompers-playsuits2.jpg" 
-            ]
+          "name": "Navy",
+          "thumb": "images/color/210225LiliStudio15380_100x.jpg"
         }
-    ]
+      ],
+      "images": [
+        "images/products/210225LiliStudio15402.jpg",
+        "images/products/210225LiliStudio15407.jpg",
+        "images/products/210225LiliStudio15414.jpg",
+        "images/products/210225LiliStudio15417.jpg",
+        "images/products/210225LiliStudio15420.jpg",
+        "images/products/210225LiliStudio15424.jpg",
+        "images/products/210225LiliStudio15371.jpg",
+        "images/products/210225LiliStudio15377.jpg",
+        "images/products/210225LiliStudio15380.jpg",
+        "images/products/210225LiliStudio15383.jpg",
+        "images/products/210225LiliStudio15384.jpg",
+        "images/products/210225LiliStudio15399.jpg"
+      ],
+      "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
+    },
+    {
+      "id": 2,
+      "collectionId": 1,
+      "title": "Noelle Dress",
+      "price": 79.99,
+      "size": ["6", "8", "10", "12", "14"],
+      "images": [
+        "images/products/210225LiliStudio14822.jpg",
+        "images/products/210225LiliStudio14829.jpg",
+        "images/products/210225LiliStudio14835.jpg",
+        "images/products/210225LiliStudio14837.jpg",
+        "images/products/210225LiliStudio14845.jpg",
+        "images/products/210225LiliStudio14848.jpg"
+      ],
+      "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
+    },
+    {
+      "id": 3,
+      "collectionId": 1,
+      "title": "Scarlett Dress",
+      "price": 79.99,
+      "size": ["6", "8", "10", "12", "14"],
+      "images": [
+        "images/products/210211ActualTaneishaStudio13223.jpg",
+        "images/products/210211ActualTaneishaStudio13227.jpg",
+        "images/products/210211ActualTaneishaStudio13230.jpg",
+        "images/products/210211ActualTaneishaStudio13232.jpg",
+        "images/products/210211ActualTaneishaStudio13234.jpg",
+        "images/products/210211ActualTaneishaStudio13235.jpg",
+        "images/products/210211ActualTaneishaStudio13241.jpg"
+      ],
+      "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
+    },
+    {
+      "id": 4,
+      "collectionId": 1,
+      "title": "Reese Dress",
+      "price": 69.99,
+      "size": ["6", "8", "10", "12", "14"],
+      "color": [
+        {
+          "name": "Pink",
+          "thumb": "images/color/20_12_03NatStudio1066_100x"
+        },
+        {
+          "name": "Gingham",
+          "thumb": "images/color/210218TaneishaStudio14684_100x.jpg"
+        }
+      ],
+      "images": [
+        "images/products/20_12_03NatStudio1066.jpg",
+        "images/products/20_12_03NatStudio1068.jpg",
+        "images/products/20_12_03NatStudio1069.jpg",
+        "images/products/20_12_03NatStudio1071.jpg",
+        "images/products/20_12_03NatStudio1075.jpg",
+        "images/products/20_12_03NatStudio1080.jpg",
+        "images/products/20_12_03NatStudio1081.jpg",
+        "images/products/20_12_03NatStudio1085.jpg",
+        "images/products/210218TaneishaStudio14684.jpg",
+        "images/products/210218TaneishaStudio14688.jpg",
+        "images/products/210218TaneishaStudio14689.jpg",
+        "images/products/210218TaneishaStudio14702.jpg",
+        "images/products/210218TaneishaStudio14705.jpg",
+        "images/products/210218TaneishaStudio14708.jpg"
+      ],
+      "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
+    },
+    {
+        "id": 5,
+        "collectionId": 1,
+        "title": "Melody Dress",
+        "price": 79.99,
+        "size": ["6", "8", "10", "12", "14"],
+        "images": [
+          "images/products/210211ActualTaneishaStudio13223.jpg",
+          "images/products/210211ActualTaneishaStudio13227.jpg",
+          "images/products/210211ActualTaneishaStudio13230.jpg",
+          "images/products/210211ActualTaneishaStudio13232.jpg",
+          "images/products/210211ActualTaneishaStudio13234.jpg",
+          "images/products/210211ActualTaneishaStudio13235.jpg",
+          "images/products/210211ActualTaneishaStudio13241.jpg"
+        ],
+        "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
+      }
+  ]
 }

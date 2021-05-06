@@ -12,8 +12,8 @@ html {
 body {
   font-family: "Karla", sans-serif;
   font-size: 1.6rem;
-  background: #fff;
   font-weight: 500;
+  background: #fff;
   color: #000000;
   margin: 0;
   padding: 0;
@@ -31,8 +31,17 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10px 0;
+  margin: 0;
   padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bold;
 }
 
 ul,
@@ -73,6 +82,98 @@ header .top-header {
 }
 header .logo {
   padding: 10px 0;
+}
+
+/* MAIN BANNER */
+.main-banner .carousel-caption {
+  top: 15%;
+  left: 10%;
+  right: auto;
+  bottom: auto;
+  color: #fff;
+  text-align: left;
+  max-width: 460px;
+}
+.main-banner .carousel-caption h1.caption-title {
+  font-size: 96px;
+  line-height: 85px;
+  letter-spacing: -2px;
+}
+.main-banner .carousel-caption p.caption-text {
+  font-size: 24px;
+  font-weight: 400;
+}
+.main-banner .carousel-caption a {
+  padding: 16px 32px;
+  border-radius: 100px;
+  border: 1px solid #fff;
+  background-color: #000;
+  color: #fff;
+}
+
+main section {
+  padding-bottom: 30px;
+}
+main section .section-title {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+main section .section-title h2 {
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.top-collections .item {
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.33) 100%);
+}
+.top-collections .item .item-title {
+  color: #fff;
+  font-size: 36px;
+  left: 15px;
+  bottom: 42px;
+  max-width: 200px;
+}
+
+.new-arrivals .product-content .product-info {
+  padding: 8px 10px;
+  border: 1px solid #e1e1e1;
+}
+.new-arrivals .product-content .product-info .product-title {
+  margin-bottom: 8px;
+}
+.new-arrivals .product-content .product-info .product-title a {
+  font-size: 22px;
+  font-weight: bold;
+}
+.new-arrivals .product-content .product-info .product-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.new-arrivals .product-content .product-info .product-color .color-item {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 50%;
+}
+.new-arrivals .product-content .product-info .product-color .color-item span {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 50%;
+  background-position: center center;
+  border: 1px solid #dddddd;
+}
+.new-arrivals .product-content .product-info .product-color .color-item + .color-item {
+  margin-left: 10px;
+}
+.new-arrivals .product-content .product-info .product-color .color-item.active {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #000;
+}
+.new-arrivals .product-content .product-info .product-color .color-item.active span {
+  border: none;
 }
 
 /*# sourceMappingURL=style.css.map */
