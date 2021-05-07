@@ -67,6 +67,8 @@ img {
   max-width: 100%;
   vertical-align: middle;
   height: auto;
+  object-fit: cover;
+  transition: transform 7s cubic-bezier(0.25, 0.5, 0.8, 0.65);
 }
 
 @media (min-width: 1200px) {
@@ -122,9 +124,13 @@ main section .section-title h2 {
   font-size: 24px;
   line-height: 24px;
 }
+main section .section-pretext {
+  max-width: 50%;
+}
 
 .top-collections .item {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.33) 100%);
+  overflow: hidden;
 }
 .top-collections .item .item-title {
   color: #fff;
@@ -132,6 +138,9 @@ main section .section-title h2 {
   left: 15px;
   bottom: 42px;
   max-width: 200px;
+}
+.top-collections .item:hover img {
+  transform: scale(1.2);
 }
 
 .new-arrivals .product-content .product-info {
@@ -149,6 +158,9 @@ main section .section-title h2 {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
+}
+.new-arrivals .product-content .product-info .product-color {
+  min-height: 40px;
 }
 .new-arrivals .product-content .product-info .product-color .color-item {
   width: 18px;
@@ -174,6 +186,28 @@ main section .section-title h2 {
 }
 .new-arrivals .product-content .product-info .product-color .color-item.active span {
   border: none;
+}
+
+@media screen and (min-width: 768px) {
+  .explore-collections .first-line {
+    width: 50%;
+  }
+}
+@media screen and (min-width: 768px) {
+  .explore-collections .second-line {
+    width: calc(100% / 3);
+  }
+}
+.explore-collections .second-line h3 {
+  font-size: 48px;
+}
+.explore-collections .second-line p {
+  color: #858585;
+  line-height: 24px;
+}
+.explore-collections .second-line a {
+  text-decoration: underline;
+  line-height: 24px;
 }
 
 /*# sourceMappingURL=style.css.map */

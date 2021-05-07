@@ -40,7 +40,13 @@ export function renderCollectionsListHtml(collection) {
 }
 
 export function renderNewArrivalsProductHtml(product) {
-  if(product.)
+  let color = "";
+  if (typeof product.color != "undefined" && product.color.length > 0) {
+    for (let i = 0; i < product.color.length; i++) {
+      if (i == 0) color += getProductColorIcon(product.color[i], true);
+      else color += getProductColorIcon(product.color[i]);
+    }
+  }
   return `
     <div class="product col-md-3 pb-5">
       <div class="product-content">
@@ -54,7 +60,7 @@ export function renderNewArrivalsProductHtml(product) {
           <div
             class="product-color pt-3 text-center d-flex justify-content-center align-items-center"
           >
-            
+            ${color}
           </div>
         </div>
       </div>
