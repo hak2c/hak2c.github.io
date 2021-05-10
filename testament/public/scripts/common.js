@@ -1,4 +1,4 @@
-export function includeHTML() {
+export let includeHTML = () => {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
   z = document.getElementsByTagName("*");
@@ -28,18 +28,17 @@ export function includeHTML() {
       return;
     }
   }
-}
+};
 
-export function renderCollectionsListHtml(collection) {
-  return `<div class="col-md-4 mb-5">
-            <div class="item position-relative">
-              <img src="${collection.thumb}" alt="${collection.title}" />
-              <h3 class="item-title position-absolute">${collection.title}</h3>
-            </div>
-          </div>`;
-}
+export let renderCollectionsListHtml = (collection) =>
+  `<div class="col-md-4 mb-5">
+    <div class="item position-relative">
+      <img src="${collection.thumb}" alt="${collection.title}" />
+      <h3 class="item-title position-absolute">${collection.title}</h3>
+    </div>
+  </div>`;
 
-export function renderNewArrivalsProductHtml(product) {
+export let renderNewArrivalsProductHtml = (product) => {
   let color = "";
   if (typeof product.color != "undefined" && product.color.length > 0) {
     for (let i = 0; i < product.color.length; i++) {
@@ -66,9 +65,9 @@ export function renderNewArrivalsProductHtml(product) {
       </div>
     </div>
   `;
-}
+};
 
-function getProductColorIcon(color, active = false) {
+let getProductColorIcon = (color, active = false) => {
   let checkActive =
     active == true
       ? "active d-flex justify-content-center align-items-center"
@@ -78,4 +77,18 @@ function getProductColorIcon(color, active = false) {
       <span style="background-image: url(/${color.thumb});"></span>
     </span>
   `;
-}
+};
+
+export let renderRecentPostHtml = (post) =>
+  `<div class="col-md-6 blog-item">
+    <img
+      class="blog-image w-100"
+      src="${post.image}"
+      alt="${post.title}"
+    />
+    <div class="blog-info">
+      <h3 class="blog-title">${post.title}</h3>
+      <p class="blog-created mb-3">Posted on ${post.created_at}</p>
+      <p class="introtext">${post.introtext}</p>
+    </div>
+  </div>`;

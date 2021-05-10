@@ -3,7 +3,18 @@ $text-size: 1.6rem;
 $text-weight: 500;
 $text-color: #000000;
 $link-color: #000000;
+
 $main-background: #b79e8c;
+
+$nav-color: #fff;
+$nav-hover-color: #000;
+$nav-background-color: #000000;
+$nav-hover-link-color: #ffffff;
+$nav-border-color: #000;
+$dropdown-background-color: #ffffff;
+$dropdown-link-color: #000000;
+$dropdown-link-hover-color: #796b62;
+$dropdown-min-width: 220px;
 
 * {
   box-sizing: border-box;
@@ -87,6 +98,36 @@ header {
   }
   .logo {
     padding: 10px 0;
+  }
+  .primary-menu {
+    background-color: $nav-background-color;
+    ul.nav {
+      & > li {
+        padding: 0 20px;
+        position: relative;
+        & > a {
+          color: $nav-color;
+          display: inline-block;
+          line-height: 60px;
+        }
+        & > img {
+          margin-left: 10px;
+        }
+        .sub-menu {
+          display: none;
+          position: absolute;
+          left: 0;
+          top: 60px;
+          min-width: $dropdown-min-width;
+          z-index: 10;
+          padding: 10px;
+          background-color: $dropdown-background-color;
+        }
+        &:hover .sub-menu {
+          display: block;
+        }
+      }
+    }
   }
 }
 
@@ -233,6 +274,23 @@ main {
     a {
       text-decoration: underline;
       line-height: 24px;
+    }
+  }
+}
+
+.latest-blogs {
+  .blog-item {
+    .blog-info {
+      margin-top: 50px;
+      margin-bottom: 25px;
+      .blog-title {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 20px;
+      }
+      p {
+        line-height: 24px;
+      }
     }
   }
 }

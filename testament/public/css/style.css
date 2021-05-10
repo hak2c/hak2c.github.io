@@ -85,6 +85,32 @@ header .top-header {
 header .logo {
   padding: 10px 0;
 }
+header .primary-menu {
+  background-color: #000;
+}
+header .primary-menu ul.nav > li {
+  padding: 0 20px;
+  position: relative;
+}
+header .primary-menu ul.nav > li > a {
+  color: #fff;
+  display: inline-block;
+  line-height: 60px;
+}
+header .primary-menu ul.nav > li > img {
+  margin-left: 10px;
+}
+header .primary-menu ul.nav > li .sub-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 200px;
+  z-index: 10;
+}
+header .primary-menu ul.nav > li:hover .sub-menu {
+  display: block;
+}
 
 /* MAIN BANNER */
 .main-banner .carousel-caption {
@@ -207,6 +233,19 @@ main section .section-pretext {
 }
 .explore-collections .second-line a {
   text-decoration: underline;
+  line-height: 24px;
+}
+
+.latest-blogs .blog-item .blog-info {
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+.latest-blogs .blog-item .blog-info .blog-title {
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+.latest-blogs .blog-item .blog-info p {
   line-height: 24px;
 }
 
