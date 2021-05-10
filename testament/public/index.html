@@ -13,8 +13,8 @@
     />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -40,7 +40,54 @@
     ></script>
   </head>
   <body>
-    <header include-html="template/header.html"></header>
+    <!-- <header include-html="template/header.html"></header> -->
+    <header>
+      <div class="top-header">
+        <div class="container">
+          <div class="row text-uppercase">
+            <div class="col-sm-4">
+              <div class="d-flex align-items-center top-socials">
+                <a href="#"><img src="images/icons/facebook.png" alt="" /></a>
+                <a href="#"><img src="images/icons/instagram.png" alt="" /></a>
+                <a href="#"><img src="images/icons/twitter.png" alt="" /></a>
+                <a href="#"><img src="images/icons/linkedin.png" alt="" /></a>
+              </div>
+            </div>
+            <div class="col-sm-4 text-center">
+              FREE SHIPPING ON ORDERS OVER $199
+            </div>
+            <div class="col-sm-4 text-right">11</div>
+          </div>
+        </div>
+      </div>
+      <div class="logo text-center">
+        <a href="../index.html">
+          <img src="../images/logo.jpg" alt="" />
+        </a>
+      </div>
+      <div class="primary-menu d-none d-md-block">
+        <ul class="nav justify-content-center">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="#">Shop</a><img src="images/icons/arrow-down.png" alt="" />
+            <div class="sub-menu">
+              <ul>
+                <li><a href="collections.html?id=1">Dresses</a></li>
+                <li><a href="collections.html?id=2">Tops</a></li>
+                <li>
+                  <a href="collections.html?id=3">Rompers & Playsuits</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+          <li>
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </header>
     <main>
       <section class="main-banner">
         <div
@@ -178,9 +225,83 @@
               </p>
             </div>
           </div>
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="subcribe-form">
+                <form action="">
+                  <div class="d-flex justify-content-center">
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email-subcribe"
+                      name="email"
+                      placeholder="Enter your email address"
+                    />
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      id="subcribe-email-button"
+                    >
+                      Join
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="d-flex justify-content-center align-items-center subcribe-socials mt-3"
+              >
+                <a href="#"
+                  ><img src="images/icons/facebook-subc.png" alt=""
+                /></a>
+                <a href="#"
+                  ><img src="images/icons/instagram-subc.png" alt=""
+                /></a>
+                <a href="#"
+                  ><img src="images/icons/twitter-subc.png" alt=""
+                /></a>
+                <a href="#"
+                  ><img src="images/icons/linkedin-subc.png" alt=""
+                /></a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
+    <footer>
+      <div class="container">
+        <div class="row top-footer">
+          <div class="col-md-4">
+            div.footer-title
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <div class="d-flex align-items-center bottom-socials">
+              <a href="#"><img src="images/icons/facebook.png" alt="" /></a>
+              <a href="#"><img src="images/icons/instagram.png" alt="" /></a>
+              <a href="#"><img src="images/icons/twitter.png" alt="" /></a>
+              <a href="#"><img src="images/icons/linkedin.png" alt="" /></a>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="copyright">Copyright @ 2021 Testament - Genesis</p>
+          </div>
+          <div class="col-md-6">
+            <div class="d-flex justify-content-end partners">
+              <img src="images/partners/visa.jpg" alt="" />
+              <img src="images/partners/mastercard.jpg" alt="" />
+              <img src="images/partners/american-express.jpg" alt="" />
+              <img src="images/partners/paypal.jpg" alt="" />
+              <img src="images/partners/diners-club.jpg" alt="" />
+              <img src="images/partners/discover.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="scripts/index.js" type="module"></script>
   </body>
 </html>

@@ -30,6 +30,36 @@ export let includeHTML = () => {
   }
 };
 
+export let checkScreenForFixedMenu = () => {
+  if ($(window).width() >= 768) {
+    fixedMainMenu();
+  }
+  $(window).resize(function () {
+    if ($(window).width() > 767) {
+      fixedMainMenu();
+    } else {
+      $(".primary-menu").removeClass("fixed-header");
+    }
+  });
+  $(window).scroll(function () {
+    if ($(window).width() > 767) {
+      fixedMainMenu();
+    } else {
+      $(".primary-menu").removeClass("fixed-header");
+    }
+  });
+};
+
+let fixedMainMenu = () => {
+  let chktop = 0;
+  chktop = $(".logo").offset().top + $(".logo").outerHeight();
+  if ($(window).scrollTop() > chktop) {
+    $(".primary-menu").addClass("fixed-header");
+  } else {
+    $(".primary-menu").removeClass("fixed-header");
+  }
+};
+
 export let renderCollectionsListHtml = (collection) =>
   `<div class="col-md-4 mb-5">
     <div class="item position-relative">

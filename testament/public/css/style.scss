@@ -16,6 +16,13 @@ $dropdown-link-color: #000000;
 $dropdown-link-hover-color: #796b62;
 $dropdown-min-width: 220px;
 
+$form-input-border: #cccccc;
+$form-button-background-color: #b79e8c;
+$form-button-color: #ffffff;
+
+$footer-background-color: #000;
+$footer-color: #ffffff;
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -84,6 +91,13 @@ img {
   transition: transform 7s cubic-bezier(0.25, 0.5, 0.8, 0.65);
 }
 
+.form-control {
+  height: 50px;
+  border: 1px solid $form-input-border;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
@@ -95,6 +109,10 @@ header {
     background-color: $main-background;
     color: #fff;
     line-height: 48px;
+    .top-socials {
+      // height: 48px;
+      gap: 10px;
+    }
   }
   .logo {
     padding: 10px 0;
@@ -122,16 +140,38 @@ header {
           z-index: 10;
           padding: 10px;
           background-color: $dropdown-background-color;
+          ul li {
+            a {
+              line-height: 34px;
+              display: block;
+              color: $dropdown-link-color;
+              &:hover {
+                color: $dropdown-link-hover-color;
+              }
+            }
+          }
         }
         &:hover .sub-menu {
           display: block;
         }
       }
     }
+    &.fixed-header {
+      position: fixed;
+      left: 0;
+      top: 0;
+      right: 0;
+      z-index: 10;
+    }
   }
 }
 
 /* MAIN BANNER */
+main {
+  @media screen and (min-width: 768px) {
+    padding-bottom: 50px;
+  }
+}
 .main-banner {
   .carousel-caption {
     top: 15%;
@@ -292,5 +332,51 @@ main {
         line-height: 24px;
       }
     }
+  }
+}
+
+.subcribe-email {
+  .subcribe-form {
+    #email-subcribe {
+      width: calc(100% - 180px);
+    }
+    #subcribe-email-button {
+      text-align: center;
+      width: 180px;
+      color: $form-button-color;
+      background-color: $form-button-background-color;
+      height: 50px;
+      border: none;
+      font-size: 16px;
+    }
+  }
+  .subcribe-socials {
+    gap: 26px;
+  }
+}
+
+/* FOOTER */
+footer {
+  background-color: $footer-background-color;
+  color: $footer-color;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  .top-footer {
+    @media screen and (min-width: 768px) {
+      margin-bottom: 50px;
+    }
+    @media screen and (min-width: 1200px) {
+      margin-bottom: 90px;
+    }
+  }
+  .bottom-socials {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .copyright {
+    line-height: 24px;
+  }
+  .partners {
+    gap: 5px;
   }
 }

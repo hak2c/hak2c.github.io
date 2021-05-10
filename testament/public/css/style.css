@@ -71,6 +71,13 @@ img {
   transition: transform 7s cubic-bezier(0.25, 0.5, 0.8, 0.65);
 }
 
+.form-control {
+  height: 50px;
+  border: 1px solid #cccccc;
+  padding-left: 15px;
+  font-size: 16px;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
@@ -82,11 +89,14 @@ header .top-header {
   color: #fff;
   line-height: 48px;
 }
+header .top-header .top-socials {
+  gap: 10px;
+}
 header .logo {
   padding: 10px 0;
 }
 header .primary-menu {
-  background-color: #000;
+  background-color: #000000;
 }
 header .primary-menu ul.nav > li {
   padding: 0 20px;
@@ -105,14 +115,37 @@ header .primary-menu ul.nav > li .sub-menu {
   position: absolute;
   left: 0;
   top: 60px;
-  width: 200px;
+  min-width: 220px;
   z-index: 10;
+  padding: 10px;
+  background-color: #ffffff;
+}
+header .primary-menu ul.nav > li .sub-menu ul li a {
+  line-height: 34px;
+  display: block;
+  color: #000000;
+}
+header .primary-menu ul.nav > li .sub-menu ul li a:hover {
+  color: #796b62;
 }
 header .primary-menu ul.nav > li:hover .sub-menu {
   display: block;
 }
+header .primary-menu.fixed-header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
 
 /* MAIN BANNER */
+@media screen and (min-width: 768px) {
+  main {
+    padding-bottom: 50px;
+  }
+}
+
 .main-banner .carousel-caption {
   top: 15%;
   left: 10%;
@@ -247,6 +280,50 @@ main section .section-pretext {
 }
 .latest-blogs .blog-item .blog-info p {
   line-height: 24px;
+}
+
+.subcribe-email .subcribe-form #email-subcribe {
+  width: calc(100% - 180px);
+}
+.subcribe-email .subcribe-form #subcribe-email-button {
+  text-align: center;
+  width: 180px;
+  color: #ffffff;
+  background-color: #b79e8c;
+  height: 50px;
+  border: none;
+  font-size: 16px;
+}
+.subcribe-email .subcribe-socials {
+  gap: 26px;
+}
+
+/* FOOTER */
+footer {
+  background-color: #000;
+  color: #ffffff;
+  padding-top: 60px;
+  padding-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  footer .top-footer {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  footer .top-footer {
+    margin-bottom: 90px;
+  }
+}
+footer .bottom-socials {
+  gap: 10px;
+  margin-bottom: 20px;
+}
+footer .copyright {
+  line-height: 24px;
+}
+footer .partners {
+  gap: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
