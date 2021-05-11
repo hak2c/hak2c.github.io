@@ -78,6 +78,10 @@ img {
   font-size: 16px;
 }
 
+.collapse.show {
+  display: block !important;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
@@ -198,36 +202,39 @@ main section .section-pretext {
   bottom: 42px;
   max-width: 200px;
 }
+.top-collections .item .item-title a {
+  color: #fff;
+}
 .top-collections .item:hover img {
   transform: scale(1.2);
 }
 
-.new-arrivals .product-content .product-info {
+.new-arrivals .product-content .product-info, .collection-products .products-list .product-content .product-info {
   padding: 8px 10px;
   border: 1px solid #e1e1e1;
 }
-.new-arrivals .product-content .product-info .product-title {
+.new-arrivals .product-content .product-info .product-title, .collection-products .products-list .product-content .product-info .product-title {
   margin-bottom: 8px;
 }
-.new-arrivals .product-content .product-info .product-title a {
+.new-arrivals .product-content .product-info .product-title a, .collection-products .products-list .product-content .product-info .product-title a {
   font-size: 22px;
   font-weight: bold;
 }
-.new-arrivals .product-content .product-info .product-price {
+.new-arrivals .product-content .product-info .product-price, .collection-products .products-list .product-content .product-info .product-price {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
 }
-.new-arrivals .product-content .product-info .product-color {
+.new-arrivals .product-content .product-info .product-color, .collection-products .products-list .product-content .product-info .product-color {
   min-height: 40px;
 }
-.new-arrivals .product-content .product-info .product-color .color-item {
+.new-arrivals .product-content .product-info .product-color .color-item, .collection-products .products-list .product-content .product-info .product-color .color-item {
   width: 18px;
   height: 18px;
   display: inline-block;
   border-radius: 50%;
 }
-.new-arrivals .product-content .product-info .product-color .color-item span {
+.new-arrivals .product-content .product-info .product-color .color-item span, .collection-products .products-list .product-content .product-info .product-color .color-item span {
   width: 18px;
   height: 18px;
   display: inline-block;
@@ -235,15 +242,15 @@ main section .section-pretext {
   background-position: center center;
   border: 1px solid #dddddd;
 }
-.new-arrivals .product-content .product-info .product-color .color-item + .color-item {
+.new-arrivals .product-content .product-info .product-color .color-item + .color-item, .collection-products .products-list .product-content .product-info .product-color .color-item + .color-item {
   margin-left: 10px;
 }
-.new-arrivals .product-content .product-info .product-color .color-item.active {
+.new-arrivals .product-content .product-info .product-color .color-item.active, .collection-products .products-list .product-content .product-info .product-color .color-item.active {
   width: 28px;
   height: 28px;
   border: 1px solid #000;
 }
-.new-arrivals .product-content .product-info .product-color .color-item.active span {
+.new-arrivals .product-content .product-info .product-color .color-item.active span, .collection-products .products-list .product-content .product-info .product-color .color-item.active span {
   border: none;
 }
 
@@ -305,6 +312,10 @@ footer {
   padding-top: 60px;
   padding-bottom: 30px;
 }
+footer .footer-title h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
 @media screen and (min-width: 768px) {
   footer .top-footer {
     margin-bottom: 50px;
@@ -315,6 +326,28 @@ footer {
     margin-bottom: 90px;
   }
 }
+footer .top-footer .footer-menu li a {
+  color: #ffffff;
+  line-height: 32px;
+}
+footer .top-footer .footer-menu li a:hover {
+  color: #796b62;
+}
+footer .top-footer .connect-form #email-connect {
+  width: calc(100% - 90px);
+}
+footer .top-footer .connect-form #connect-email-button {
+  text-align: center;
+  width: 90px;
+  color: #ffffff;
+  background-color: #000;
+  border: 1px solid transparent;
+  height: 50px;
+  font-size: 16px;
+}
+footer .top-footer .connect-form #connect-email-button:hover {
+  color: #b79e8c;
+}
 footer .bottom-socials {
   gap: 10px;
   margin-bottom: 20px;
@@ -324,6 +357,41 @@ footer .copyright {
 }
 footer .partners {
   gap: 5px;
+}
+
+.ot-breadcrumb {
+  background: none;
+  padding-top: 20px;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.page-title {
+  text-align: center;
+}
+.page-title h3 {
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 1200px) {
+  .page-title h3 {
+    margin-bottom: 60px;
+  }
+}
+
+.left-sidebar #left-sidebar-content {
+  display: none;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 768px) {
+  .left-sidebar #left-sidebar-content {
+    display: block;
+  }
+}
+.left-sidebar .mobile-refine {
+  padding: 8px 0;
+  border: 1px solid #cccccc;
+  margin-bottom: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

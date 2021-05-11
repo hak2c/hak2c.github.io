@@ -3,6 +3,7 @@ $text-size: 1.6rem;
 $text-weight: 500;
 $text-color: #000000;
 $link-color: #000000;
+$dotted-color: #cccccc;
 
 $main-background: #b79e8c;
 
@@ -22,6 +23,13 @@ $form-button-color: #ffffff;
 
 $footer-background-color: #000;
 $footer-color: #ffffff;
+$footer-title-size: 20px;
+$footer-link-hover-color: #796b62;
+$footer-form-button-background-color: #000;
+$footer-form-button-hover-border: #b79e8c;
+$footer-form-button-hover-color: #b79e8c;
+
+$page-title-size: 28px;
 
 * {
   box-sizing: border-box;
@@ -98,6 +106,10 @@ img {
   font-size: 16px;
 }
 
+.collapse.show {
+  display: block !important;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
@@ -151,8 +163,10 @@ header {
             }
           }
         }
-        &:hover .sub-menu {
-          display: block;
+        &:hover {
+          .sub-menu {
+            display: block;
+          }
         }
       }
     }
@@ -233,6 +247,9 @@ main {
       left: 15px;
       bottom: 42px;
       max-width: 200px;
+      a {
+        color: #fff;
+      }
     }
     // img {
     //   transition: transform 7s cubic-bezier(0.25, 0.5, 0.8, 0.65);
@@ -361,12 +378,45 @@ footer {
   color: $footer-color;
   padding-top: 60px;
   padding-bottom: 30px;
+  .footer-title h3 {
+    font-size: $footer-title-size;
+    margin-bottom: 10px;
+  }
   .top-footer {
     @media screen and (min-width: 768px) {
       margin-bottom: 50px;
     }
     @media screen and (min-width: 1200px) {
       margin-bottom: 90px;
+    }
+    .footer-menu {
+      li {
+        a {
+          color: $footer-color;
+          line-height: 32px;
+          &:hover {
+            color: $footer-link-hover-color;
+          }
+        }
+      }
+    }
+    .connect-form {
+      #email-connect {
+        width: calc(100% - 90px);
+      }
+      #connect-email-button {
+        text-align: center;
+        width: 90px;
+        color: $form-button-color;
+        background-color: $footer-form-button-background-color;
+        border: 1px solid transparent;
+        height: 50px;
+        font-size: 16px;
+        &:hover {
+          // border-color: $footer-form-button-hover-border;
+          color: $footer-form-button-hover-color;
+        }
+      }
     }
   }
   .bottom-socials {
@@ -378,5 +428,44 @@ footer {
   }
   .partners {
     gap: 5px;
+  }
+}
+
+.ot-breadcrumb {
+  background: none;
+  padding-top: 20px;
+  font-size: 18px;
+  margin-bottom: 0;
+}
+
+.page-title {
+  text-align: center;
+  h3 {
+    font-size: $page-title-size;
+    margin-bottom: 30px;
+    @media screen and (min-width: 1200px) {
+      margin-bottom: 60px;
+    }
+  }
+}
+
+.left-sidebar {
+  #left-sidebar-content {
+    display: none;
+    margin-bottom: 20px;
+    @media screen and (min-width: 768px) {
+      display: block;
+    }
+  }
+  .mobile-refine {
+    padding: 8px 0;
+    border: 1px solid $dotted-color;
+    margin-bottom: 20px;
+  }
+}
+
+.collection-products {
+  .products-list {
+    @extend .new-arrivals;
   }
 }

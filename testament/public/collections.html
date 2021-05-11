@@ -13,8 +13,8 @@
     />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="css/style.css" />
@@ -40,8 +40,91 @@
     ></script>
   </head>
   <body>
-    <header include-html="template/header.html"></header>
-    <main></main>
-    <script src="scripts/index.js" type="module"></script>
+    <!-- <header include-html="template/header.html"></header> -->
+    <header>
+      <div class="top-header">
+        <div class="container">
+          <div class="row text-uppercase">
+            <div class="col-sm-4">
+              <div class="d-flex align-items-center top-socials">
+                <a href="#"><img src="images/icons/facebook.png" alt="" /></a>
+                <a href="#"><img src="images/icons/instagram.png" alt="" /></a>
+                <a href="#"><img src="images/icons/twitter.png" alt="" /></a>
+                <a href="#"><img src="images/icons/linkedin.png" alt="" /></a>
+              </div>
+            </div>
+            <div class="col-sm-4 text-center">
+              FREE SHIPPING ON ORDERS OVER $199
+            </div>
+            <div class="col-sm-4 text-right">11</div>
+          </div>
+        </div>
+      </div>
+      <div class="logo text-center">
+        <a href="index.html">
+          <img src="images/logo.jpg" alt="" />
+        </a>
+      </div>
+      <div class="primary-menu d-none d-md-block">
+        <ul class="nav justify-content-center">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a href="#">Shop</a><img src="images/icons/arrow-down.png" alt="" />
+            <div class="sub-menu">
+              <ul>
+                <li><a href="collections.html?id=1">Dresses</a></li>
+                <li><a href="collections.html?id=2">Tops</a></li>
+                <li>
+                  <a href="collections.html?id=3">Rompers & Playsuits</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+          <li>
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </div>
+      <div class="collection-image">
+        <img src="" alt="" />
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <section class="ot-breadcrumb">
+          <div class="row">
+            <div class="col-12"></div>
+          </div>
+        </section>
+        <div class="page-title">
+          <h3></h3>
+        </div>
+        <div class="row">
+          <aside class="col-md-3 left-sidebar">
+            <div class="d-md-none">
+              <a
+                class="d-block text-center mobile-refine"
+                data-toggle="collapse"
+                href="#left-sidebar-content"
+                aria-expanded="false"
+                aria-controls="left-sidebar-content"
+              >
+                <img src="images/icons/bar.png" alt="" /> Refine
+              </a>
+            </div>
+            <div id="left-sidebar-content">
+              <div class="collection-second-image"><img src="" alt="" /></div>
+            </div>
+          </aside>
+          <aside class="col-md-9 collection-products">
+            <div class="row mx-md-0 products-list"></div>
+          </aside>
+        </div>
+      </div>
+    </main>
+    <footer include-html="template/footer.html"></footer>
+    <script src="scripts/collections.js" type="module"></script>
   </body>
 </html>

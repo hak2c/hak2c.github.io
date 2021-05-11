@@ -144,6 +144,58 @@
         "images/products/210225LiliStudio15006.jpg"
       ],
       "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
+    },
+    {
+      "id": 6,
+      "collectionId": 1,
+      "title": "Monika Dress",
+      "price": 79.99,
+      "size": ["XS", "S", "M", "L", "XL"],
+      "color": [
+        {
+          "name": "Black",
+          "thumb": "images/color/210225LiliStudio14901_100x.jpg"
+        },
+        {
+          "name": "Mocha",
+          "thumb": "images/color/210225LiliStudio14882_100x.jpg"
+        }
+      ],
+      "images": [
+        "images/products/210225LiliStudio14901.jpg",
+        "images/products/210225LiliStudio14907.jpg",
+        "images/products/210225LiliStudio14910.jpg",
+        "images/products/210225LiliStudio14921.jpg",
+        "images/products/210225LiliStudio14900.jpg",
+        "images/products/210225LiliStudio14913.jpg",
+        "images/products/210225LiliStudio14915.jpg",
+        "images/products/DSC8068.jpg",
+        "images/products/DSC8059.jpg",
+        "images/products/DSC8067_07280ef4-c9db-45b5-b00b-04ca48b7ae07.jpg",
+        "images/products/210225LiliStudio14882.jpg",
+        "images/products/210225LiliStudio14877.jpg",
+        "images/products/210225LiliStudio14878.jpg",
+        "images/products/210225LiliStudio14898.jpg",
+        "images/products/210225LiliStudio14890.jpg",
+        "images/products/210225LiliStudio14885.jpg",
+        "images/products/210225LiliStudio14891.jpg"
+      ],
+      "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
+    },
+    {
+      "id": 7,
+      "collectionId": 1,
+      "title": "Laurina Dress",
+      "price": 64.99,
+      "size": ["6", "8", "10", "12", "14"],
+      "images": [
+        "images/products/210211ActualTaneishaStudio13717.jpg",
+        "images/products/210211ActualTaneishaStudio13715.jpg",
+        "images/products/210211ActualTaneishaStudio13724.jpg",
+        "images/products/210211ActualTaneishaStudio13720.jpg",
+        "images/products/210211ActualTaneishaStudio13727.jpg"
+      ],
+      "description": "p>\r\n  This demo product for the Testament Shopify theme is not available for\r\n  purchase from this store.\r\n</p>\r\n<p><strong>Details</strong></p>\r\n<ul>\r\n  <li>Relaxed fit</li>\r\n  <li>Unlined, not sheer</li>\r\n</ul>\r\n<p><strong>Garment Care</strong></p>\r\n<ul>\r\n  <li>100% Cotton</li>\r\n  <li>Cold Hand Wash Separately</li>\r\n</ul>\r\n<p><strong>Sizing</strong></p>\r\n<ul>\r\n  <li>Model wears size S and is 174cm tall</li>\r\n  <li>Stats: Bust 77cm/ Waist 61cm/ Hips 93cm</li>\r\n</ul>\r\n<p>\r\n  This product can be purchased from\r\n  <a target=\"_blank\" href=\"https://runwayscout.com/\"\r\n    ><strong>Runway Scout</strong></a\r\n  >\r\n</p>\r\n"
     }
   ],
   "blogs": [

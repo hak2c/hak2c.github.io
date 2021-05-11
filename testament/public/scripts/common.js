@@ -64,7 +64,7 @@ export let renderCollectionsListHtml = (collection) =>
   `<div class="col-md-4 mb-5">
     <div class="item position-relative">
       <img src="${collection.thumb}" alt="${collection.title}" />
-      <h3 class="item-title position-absolute">${collection.title}</h3>
+      <h3 class="item-title position-absolute"><a href="collections.html?id=${collection.id}">${collection.title}</a></h3>
     </div>
   </div>`;
 
@@ -122,3 +122,102 @@ export let renderRecentPostHtml = (post) =>
       <p class="introtext">${post.introtext}</p>
     </div>
   </div>`;
+$(".main-banner img").css("max-height", $(window).innerHeight() - 164);
+
+export class Collections {
+  constructor() {
+    this.collectionId = 0;
+    this.collection = {};
+    this.products = [];
+
+    this.init();
+  }
+  init() {
+    this.getCollection()
+      .then(() => {
+        $(".collection-image img").attr("src", this.collection.images[0]);
+        $(".collection-second-image img").attr(
+          "src",
+          this.collection.images[1]
+        );
+        $(".ot-breadcrumb .col-12").html(
+          `<a href="index.html">Home</a> > ${this.collection.title}`
+        );
+        $(".page-title h3").text(this.collection.title);
+        document.title = this.collection.title;
+      })
+      .then(() => {
+        return this.getProductsOfCollection();
+      })
+      .then(() => {
+        this.products.forEach((product) => {
+          $(".products-list").append(this.renderPostHtml(product));
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+  getCollection() {
+    return new Promise((resolve) => {
+      let url = new URL(window.location.href);
+      this.collectionId = url.searchParams.get("id");
+      fetch("/collections?id=" + this.collectionId).then((response) => {
+        response.json().then((data) => {
+          this.collection = data[0];
+          resolve();
+        });
+      });
+    });
+  }
+  getProductsOfCollection() {
+    return new Promise((resolve) => {
+      fetch("/products?collectionId=" + this.collectionId).then((response) => {
+        response.json().then((data) => {
+          this.products = data;
+          resolve();
+        });
+      });
+    });
+  }
+  renderPostHtml(product) {
+    let color = "";
+    if (typeof product.color != "undefined" && product.color.length > 0) {
+      for (let i = 0; i < product.color.length; i++) {
+        if (i == 0) color += this.getProductColorIcon(product.color[i], true);
+        else color += this.getProductColorIcon(product.color[i]);
+      }
+    }
+    return `
+      <div class="product col-6 col-md-4 pb-5">
+        <div class="product-content">
+          <img
+            src="${product.images[0]}"
+            alt="${product.title}"
+          />
+          <div class="product-info text-center">
+            <div class="product-title"><a href="/product.html?id=${product.id}">${product.title}</a></div>
+            <div class="product-price">$${product.price}</div>
+            <div
+              class="product-color pt-3 text-center d-flex justify-content-center align-items-center"
+            >
+              ${color}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  getProductColorIcon(color, active = false) {
+    let checkActive =
+      active == true
+        ? "active d-flex justify-content-center align-items-center"
+        : "";
+    return `
+      <span class="color-item ${checkActive}">
+        <span style="background-image: url(/${color.thumb});"></span>
+      </span>
+    `;
+  }
+}
