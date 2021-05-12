@@ -1,12 +1,12 @@
 import {
   includeHTML,
-  checkScreenForFixedMenu,
+  checkMainBannerImageHeight,
   renderCollectionsListHtml,
   renderNewArrivalsProductHtml,
   renderRecentPostHtml,
 } from "./common.js";
-// includeHTML();
-checkScreenForFixedMenu();
+includeHTML();
+checkMainBannerImageHeight();
 
 // fetch("/test.html")
 //   .then((res) => res.text())

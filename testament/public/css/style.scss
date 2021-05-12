@@ -1,9 +1,11 @@
 $main-family: "Karla", sans-serif;
-$text-size: 1.6rem;
+$text-size: 16px;
 $text-weight: 500;
 $text-color: #000000;
 $link-color: #000000;
 $dotted-color: #cccccc;
+
+$h2-size: 24px;
 
 $main-background: #b79e8c;
 
@@ -30,6 +32,11 @@ $footer-form-button-hover-border: #b79e8c;
 $footer-form-button-hover-color: #b79e8c;
 
 $page-title-size: 28px;
+
+@media screen and (max-width: 767px) {
+  $text-size: calc(16px - (16px * 0.15));
+  $h2-size: calc(24px - (24px * 0.15));
+}
 
 * {
   box-sizing: border-box;
@@ -125,9 +132,21 @@ header {
       // height: 48px;
       gap: 10px;
     }
+    .cart-count {
+      font-size: 14px;
+    }
   }
   .logo {
     padding: 10px 0;
+  }
+  .mobile-logo {
+    padding: 10px 0;
+    height: 70px;
+    background: #ffffff;
+    .cart-count {
+      color: $main-background;
+      font-size: 14px;
+    }
   }
   .primary-menu {
     background-color: $nav-background-color;
@@ -170,19 +189,20 @@ header {
         }
       }
     }
-    &.fixed-header {
-      position: fixed;
-      left: 0;
-      top: 0;
-      right: 0;
-      z-index: 10;
-    }
+  }
+  .fixed-header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 10;
   }
 }
 
 /* MAIN BANNER */
 main {
-  @media screen and (min-width: 768px) {
+  padding-bottom: 30px;
+  @media screen and (min-width: 992px) {
     padding-bottom: 50px;
   }
 }
@@ -194,16 +214,30 @@ main {
     bottom: auto;
     color: #fff;
     text-align: left;
-    max-width: 460px;
+    max-width: 400px;
+    @media screen and (min-width: 992px) {
+      max-width: 460px;
+    }
     h1.caption-title {
-      font-size: 96px;
-      line-height: 85px;
+      font-size: 60px;
+      line-height: 60px;
       letter-spacing: -2px;
+      @media screen and (min-width: 992px) {
+        font-size: 75px;
+        line-height: 78px;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: 96px;
+        line-height: 85px;
+      }
     }
     p.caption-text {
       font: {
-        size: 24px;
+        size: 20px;
         weight: 400;
+      }
+      @media screen and (min-width: 992px) {
+        font-size: 24px;
       }
     }
     a {
@@ -223,8 +257,8 @@ main {
       margin-top: 25px;
       margin-bottom: 25px;
       h2 {
-        font-size: 24px;
-        line-height: 24px;
+        font-size: $h2-size;
+        line-height: $h2-size;
       }
     }
     .section-pretext {
@@ -243,17 +277,24 @@ main {
     overflow: hidden;
     .item-title {
       color: #fff;
-      font-size: 36px;
-      left: 15px;
-      bottom: 42px;
+      font-size: 24px;
+      left: 10px;
+      bottom: 15px;
       max-width: 200px;
+      @media screen and (min-width: 992px) {
+        font-size: 36px;
+        left: 15px;
+        bottom: 20px;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: 30px;
+        left: 15px;
+        bottom: 42px;
+      }
       a {
         color: #fff;
       }
     }
-    // img {
-    //   transition: transform 7s cubic-bezier(0.25, 0.5, 0.8, 0.65);
-    // }
     &:hover {
       img {
         transform: scale(1.2);
@@ -322,7 +363,13 @@ main {
       width: calc(100% / 3);
     }
     h3 {
-      font-size: 48px;
+      font-size: 18px;
+      @media screen and (min-width: 992px) {
+        font-size: 30px;
+      }
+      @media screen and (min-width: 1200px) {
+        font-size: 48px;
+      }
     }
     p {
       color: #858585;
@@ -359,12 +406,18 @@ main {
     }
     #subcribe-email-button {
       text-align: center;
-      width: 180px;
+      width: 120px;
       color: $form-button-color;
       background-color: $form-button-background-color;
       height: 50px;
       border: none;
       font-size: 16px;
+      @media screen and (min-width: 992px) {
+        width: 150px;
+      }
+      @media screen and (min-width: 1200px) {
+        width: 180px;
+      }
     }
   }
   .subcribe-socials {
@@ -406,12 +459,15 @@ footer {
       }
       #connect-email-button {
         text-align: center;
-        width: 90px;
+        width: 150px;
         color: $form-button-color;
         background-color: $footer-form-button-background-color;
         border: 1px solid transparent;
         height: 50px;
         font-size: 16px;
+        @media screen and (min-width: 992px) {
+          width: 90px;
+        }
         &:hover {
           // border-color: $footer-form-button-hover-border;
           color: $footer-form-button-hover-color;
@@ -453,7 +509,7 @@ footer {
   #left-sidebar-content {
     display: none;
     margin-bottom: 20px;
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: 992px) {
       display: block;
     }
   }
@@ -467,5 +523,15 @@ footer {
 .collection-products {
   .products-list {
     @extend .new-arrivals;
+  }
+}
+.list-collections {
+  @extend .top-collections;
+  background: #eddfd4;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  @media screen and (min-width: 768px) {
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }

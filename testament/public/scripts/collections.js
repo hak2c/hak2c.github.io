@@ -1,6 +1,9 @@
-import { includeHTML, checkScreenForFixedMenu, Collections } from "./common.js";
+import {
+  includeHTML,
+  Collections,
+  renderCollectionsListHtml,
+} from "./common.js";
 includeHTML();
-checkScreenForFixedMenu();
 
 let collection = new Collections();
 
@@ -8,19 +11,20 @@ let collection = new Collections();
 //   .then((res) => res.text())
 //   .then((html) => console.log(JSON.stringify(html)));
 
-/* let getListCollections = () => {
-    fetch("/collections").then((response) => {
-      response.json().then((data) => {
-        data.forEach((collection) => {
-          $(".top-collections .row").append(
-            renderCollectionsListHtml(collection)
-          );
-        });
+let getListCollections = () => {
+  fetch("/collections").then((response) => {
+    response.json().then((data) => {
+      data.forEach((collection) => {
+        $(".list-collections .row").append(
+          renderCollectionsListHtml(collection)
+        );
       });
     });
-  };
-  
-  let getNewArrivalProducts = () => {
+  });
+};
+
+getListCollections();
+/*  let getNewArrivalProducts = () => {
     fetch("/products?_limit=4&_sort=id&_order=desc").then((response) => {
       response.json().then((data) => {
         data.forEach((product) => {

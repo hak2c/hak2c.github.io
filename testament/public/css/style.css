@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: "Karla", sans-serif;
-  font-size: 1.6rem;
+  font-size: 16px;
   font-weight: 500;
   background: #fff;
   color: #000000;
@@ -96,8 +96,20 @@ header .top-header {
 header .top-header .top-socials {
   gap: 10px;
 }
+header .top-header .cart-count {
+  font-size: 14px;
+}
 header .logo {
   padding: 10px 0;
+}
+header .mobile-logo {
+  padding: 10px 0;
+  height: 70px;
+  background: #ffffff;
+}
+header .mobile-logo .cart-count {
+  color: #b79e8c;
+  font-size: 14px;
 }
 header .primary-menu {
   background-color: #000000;
@@ -135,7 +147,7 @@ header .primary-menu ul.nav > li .sub-menu ul li a:hover {
 header .primary-menu ul.nav > li:hover .sub-menu {
   display: block;
 }
-header .primary-menu.fixed-header {
+header .fixed-header {
   position: fixed;
   left: 0;
   top: 0;
@@ -144,7 +156,10 @@ header .primary-menu.fixed-header {
 }
 
 /* MAIN BANNER */
-@media screen and (min-width: 768px) {
+main {
+  padding-bottom: 30px;
+}
+@media screen and (min-width: 992px) {
   main {
     padding-bottom: 50px;
   }
@@ -157,16 +172,38 @@ header .primary-menu.fixed-header {
   bottom: auto;
   color: #fff;
   text-align: left;
-  max-width: 460px;
+  max-width: 400px;
+}
+@media screen and (min-width: 992px) {
+  .main-banner .carousel-caption {
+    max-width: 460px;
+  }
 }
 .main-banner .carousel-caption h1.caption-title {
-  font-size: 96px;
-  line-height: 85px;
+  font-size: 60px;
+  line-height: 60px;
   letter-spacing: -2px;
 }
+@media screen and (min-width: 992px) {
+  .main-banner .carousel-caption h1.caption-title {
+    font-size: 75px;
+    line-height: 78px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .main-banner .carousel-caption h1.caption-title {
+    font-size: 96px;
+    line-height: 85px;
+  }
+}
 .main-banner .carousel-caption p.caption-text {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 400;
+}
+@media screen and (min-width: 992px) {
+  .main-banner .carousel-caption p.caption-text {
+    font-size: 24px;
+  }
 }
 .main-banner .carousel-caption a {
   padding: 16px 32px;
@@ -191,21 +228,35 @@ main section .section-pretext {
   max-width: 50%;
 }
 
-.top-collections .item {
+.top-collections .item, .list-collections .item {
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.33) 100%);
   overflow: hidden;
 }
-.top-collections .item .item-title {
+.top-collections .item .item-title, .list-collections .item .item-title {
   color: #fff;
-  font-size: 36px;
-  left: 15px;
-  bottom: 42px;
+  font-size: 24px;
+  left: 10px;
+  bottom: 15px;
   max-width: 200px;
 }
-.top-collections .item .item-title a {
+@media screen and (min-width: 992px) {
+  .top-collections .item .item-title, .list-collections .item .item-title {
+    font-size: 36px;
+    left: 15px;
+    bottom: 20px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .top-collections .item .item-title, .list-collections .item .item-title {
+    font-size: 30px;
+    left: 15px;
+    bottom: 42px;
+  }
+}
+.top-collections .item .item-title a, .list-collections .item .item-title a {
   color: #fff;
 }
-.top-collections .item:hover img {
+.top-collections .item:hover img, .list-collections .item:hover img {
   transform: scale(1.2);
 }
 
@@ -265,7 +316,17 @@ main section .section-pretext {
   }
 }
 .explore-collections .second-line h3 {
-  font-size: 48px;
+  font-size: 18px;
+}
+@media screen and (min-width: 992px) {
+  .explore-collections .second-line h3 {
+    font-size: 30px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .explore-collections .second-line h3 {
+    font-size: 48px;
+  }
 }
 .explore-collections .second-line p {
   color: #858585;
@@ -294,12 +355,22 @@ main section .section-pretext {
 }
 .subcribe-email .subcribe-form #subcribe-email-button {
   text-align: center;
-  width: 180px;
+  width: 120px;
   color: #ffffff;
   background-color: #b79e8c;
   height: 50px;
   border: none;
   font-size: 16px;
+}
+@media screen and (min-width: 992px) {
+  .subcribe-email .subcribe-form #subcribe-email-button {
+    width: 150px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .subcribe-email .subcribe-form #subcribe-email-button {
+    width: 180px;
+  }
 }
 .subcribe-email .subcribe-socials {
   gap: 26px;
@@ -338,12 +409,17 @@ footer .top-footer .connect-form #email-connect {
 }
 footer .top-footer .connect-form #connect-email-button {
   text-align: center;
-  width: 90px;
+  width: 150px;
   color: #ffffff;
   background-color: #000;
   border: 1px solid transparent;
   height: 50px;
   font-size: 16px;
+}
+@media screen and (min-width: 992px) {
+  footer .top-footer .connect-form #connect-email-button {
+    width: 90px;
+  }
 }
 footer .top-footer .connect-form #connect-email-button:hover {
   color: #b79e8c;
@@ -383,7 +459,7 @@ footer .partners {
   display: none;
   margin-bottom: 20px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .left-sidebar #left-sidebar-content {
     display: block;
   }
@@ -392,6 +468,18 @@ footer .partners {
   padding: 8px 0;
   border: 1px solid #cccccc;
   margin-bottom: 20px;
+}
+
+.list-collections {
+  background: #eddfd4;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  .list-collections {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

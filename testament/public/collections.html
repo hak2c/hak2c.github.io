@@ -40,12 +40,11 @@
     ></script>
   </head>
   <body>
-    <!-- <header include-html="template/header.html"></header> -->
     <header>
       <div class="top-header">
         <div class="container">
           <div class="row text-uppercase">
-            <div class="col-sm-4">
+            <div class="d-none d-lg-block col-lg-4">
               <div class="d-flex align-items-center top-socials">
                 <a href="#"><img src="images/icons/facebook.png" alt="" /></a>
                 <a href="#"><img src="images/icons/instagram.png" alt="" /></a>
@@ -53,19 +52,58 @@
                 <a href="#"><img src="images/icons/linkedin.png" alt="" /></a>
               </div>
             </div>
-            <div class="col-sm-4 text-center">
+            <div class="col-lg-4 text-center">
               FREE SHIPPING ON ORDERS OVER $199
             </div>
-            <div class="col-sm-4 text-right">11</div>
+            <div class="d-none d-lg-block col-lg-4">
+              <div
+                class="d-flex justify-content-end align-items-center"
+                style="gap: 10px"
+              >
+                <span class="search-icon"
+                  ><img src="images/icons/search.png" alt=""
+                /></span>
+                <span class="cart">
+                  <img class="mr-1" src="images/icons/cart.png" alt="" />
+                  <span class="cart-count">0</span>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="logo text-center">
+      <div class="logo d-none d-lg-block text-center">
         <a href="index.html">
           <img src="images/logo.jpg" alt="" />
         </a>
       </div>
-      <div class="primary-menu d-none d-md-block">
+      <div class="d-block d-lg-none mobile-logo">
+        <div class="row align-items-center" style="height: 100%">
+          <div class="col-2 text-center">
+            <a
+              class="text-center mobile-icon"
+              data-toggle="collapse"
+              href="#mobile-menu-content"
+              aria-expanded="false"
+              aria-controls="mobile-menu-content"
+            >
+              <img src="images/icons/mobile-icon.png" alt="" />
+            </a>
+          </div>
+          <div class="col-8 text-center">
+            <a href="index.html">
+              <img src="images/logo.jpg" alt="" />
+            </a>
+          </div>
+          <div class="col-2">
+            <span class="cart">
+              <img class="mr-1" src="images/icons/cart-mobile.png" alt="" />
+              <span class="cart-count">0</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="primary-menu d-none d-lg-block">
         <ul class="nav justify-content-center">
           <li><a href="index.html">Home</a></li>
           <li>
@@ -102,8 +140,8 @@
           <h3></h3>
         </div>
         <div class="row">
-          <aside class="col-md-3 left-sidebar">
-            <div class="d-md-none">
+          <aside class="col-lg-3 left-sidebar">
+            <div class="d-lg-none">
               <a
                 class="d-block text-center mobile-refine"
                 data-toggle="collapse"
@@ -118,12 +156,17 @@
               <div class="collection-second-image"><img src="" alt="" /></div>
             </div>
           </aside>
-          <aside class="col-md-9 collection-products">
-            <div class="row mx-md-0 products-list"></div>
+          <aside class="col-lg-9 collection-products">
+            <div class="row mx-lg-0 products-list"></div>
           </aside>
         </div>
       </div>
     </main>
+    <section class="list-collections">
+      <div class="container">
+        <div class="row"></div>
+      </div>
+    </section>
     <footer include-html="template/footer.html"></footer>
     <script src="scripts/collections.js" type="module"></script>
   </body>

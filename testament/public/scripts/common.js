@@ -30,22 +30,26 @@ export let includeHTML = () => {
   }
 };
 
-export let checkScreenForFixedMenu = () => {
-  if ($(window).width() >= 768) {
+let checkScreenForFixedMenu = () => {
+  if ($(window).width() >= 992) {
     fixedMainMenu();
+  } else {
+    fixedHeaderMobile();
   }
   $(window).resize(function () {
-    if ($(window).width() > 767) {
+    if ($(window).width() >= 992) {
       fixedMainMenu();
     } else {
       $(".primary-menu").removeClass("fixed-header");
+      fixedHeaderMobile();
     }
   });
   $(window).scroll(function () {
-    if ($(window).width() > 767) {
+    if ($(window).width() >= 992) {
       fixedMainMenu();
     } else {
       $(".primary-menu").removeClass("fixed-header");
+      fixedHeaderMobile();
     }
   });
 };
@@ -58,6 +62,36 @@ let fixedMainMenu = () => {
   } else {
     $(".primary-menu").removeClass("fixed-header");
   }
+};
+
+let fixedHeaderMobile = () => {
+  if ($(window).scrollTop() > 0) {
+    $("header").addClass("fixed-header");
+  } else {
+    $("header").removeClass("fixed-header");
+  }
+};
+
+checkScreenForFixedMenu();
+
+export let checkMainBannerImageHeight = () => {
+  if ($(window).width() >= 1200) {
+    $(".main-banner img").css("max-height", $(window).innerHeight() - 164);
+  }
+  $(window).resize(function () {
+    if ($(window).width() >= 1200) {
+      $(".main-banner img").css("max-height", $(window).innerHeight() - 164);
+    } else {
+      $(".main-banner img").css("max-height", "100%");
+    }
+  });
+  $(window).scroll(function () {
+    if ($(window).width() >= 1200) {
+      $(".main-banner img").css("max-height", $(window).innerHeight() - 164);
+    } else {
+      $(".main-banner img").css("max-height", "100%");
+    }
+  });
 };
 
 export let renderCollectionsListHtml = (collection) =>
@@ -122,7 +156,6 @@ export let renderRecentPostHtml = (post) =>
       <p class="introtext">${post.introtext}</p>
     </div>
   </div>`;
-$(".main-banner img").css("max-height", $(window).innerHeight() - 164);
 
 export class Collections {
   constructor() {
