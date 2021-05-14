@@ -2,7 +2,7 @@ import {
   includeHTML,
   checkMainBannerImageHeight,
   renderCollectionsListHtml,
-  renderNewArrivalsProductHtml,
+  renderGridProductHtml,
   renderRecentPostHtml,
 } from "./common.js";
 includeHTML();
@@ -30,7 +30,7 @@ let getNewArrivalProducts = () => {
       response.json().then((data) => {
         data.forEach((product) => {
           $(".new-arrivals .list-arrivals").append(
-            renderNewArrivalsProductHtml(product)
+            renderGridProductHtml(product)
           );
         });
         let slickOpts = {

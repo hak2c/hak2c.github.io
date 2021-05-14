@@ -84,6 +84,9 @@ h5,
 h6 {
   font-weight: bold;
 }
+h4 {
+  font-size: calc(var($text-size) + 2px);
+}
 ul,
 ol {
   margin: 0;
@@ -108,11 +111,20 @@ img {
   transition: transform 7s cubic-bezier(0.25, 0.5, 0.8, 0.65);
 }
 
-.form-control {
+input.form-control {
   height: 50px;
   border: 1px solid $form-input-border;
   padding-left: 15px;
-  font-size: 16px;
+  font-size: $text-size;
+}
+
+select.form-control {
+  border: 1px solid #dddddd;
+  border-radius: 1px;
+  height: 48px !important;
+  line-height: 46px;
+  font-size: $text-size;
+  padding: 0 10px;
 }
 
 .stopScrolling {
@@ -705,6 +717,14 @@ footer {
     margin-bottom: 20px;
     @media screen and (min-width: 992px) {
       display: block;
+    }
+    .sidebar-module {
+      margin-bottom: 30px;
+      .module-title {
+        padding-bottom: 5px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $dotted-color;
+      }
     }
   }
   .mobile-refine {

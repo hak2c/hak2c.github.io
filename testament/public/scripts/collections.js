@@ -1,50 +1,129 @@
-import {
-  includeHTML,
-  Collections,
-  renderCollectionsListHtml,
-} from "./common.js";
+import { includeHTML } from "./common.js";
 includeHTML();
 
-let collection = new Collections();
+let DEFAULT_SORT_VALUE = "featured";
+checkSortProductCondition();
 
-// fetch("/test.html")
-//   .then((res) => res.text())
-//   .then((html) => console.log(JSON.stringify(html)));
+let url = new URL(window.location.href);
+let sortCondition = url.searchParams.get("sort") || DEFAULT_SORT_VALUE,
+  condition = "";
+switch (sortCondition) {
+  case "title-ascending":
+    condition = "&_sort=title&_order=asc";
+    break;
+  case "title-descending":
+    condition = "&_sort=title&_order=desc";
+    break;
+  case "price-ascending":
+    condition = "&_sort=title&_order=asc";
+    break;
+  case "price-descending":
+    condition = "&_sort=title&_order=desc";
+    break;
+  default:
+    condition = "";
+    break;
+}
 
-let getListCollections = () => {
-  fetch("/collections").then((response) => {
+let collectionId = url.searchParams.get("id");
+
+let renderCollectionPageHtml = (collectionId, condition) => {
+  fetch("/collections?id=" + collectionId).then((response) => {
     response.json().then((data) => {
-      data.forEach((collection) => {
-        $(".list-collections .row").append(
-          renderCollectionsListHtml(collection)
-        );
-      });
+      let collection = data[0];
+      $(".collection-image img").attr("src", collection.images[0]);
+      $(".collection-second-image img").attr("src", collection.images[1]);
+      $(".ot-breadcrumb .col-12").html(
+        `<a href="index.html">Home</a> > ${collection.title}`
+      );
+      $(".page-title h3").text(collection.title);
+      document.title = collection.title;
+      getProductHtml(collectionId, condition);
     });
   });
 };
 
-getListCollections();
-/*  let getNewArrivalProducts = () => {
-    fetch("/products?_limit=4&_sort=id&_order=desc").then((response) => {
-      response.json().then((data) => {
-        data.forEach((product) => {
-          $(".new-arrivals .row").append(renderNewArrivalsProductHtml(product));
+let getProductHtml = (collectionId, condition) => {
+  fetch("/products?collectionId=" + collectionId + condition).then(
+    (response) => {
+      response.json().then((products) => {
+        products.forEach((product) => {
+          $(".products-list").append(rederProductHtml(product));
         });
       });
-    });
+    }
+  );
+};
+
+let rederProductHtml = (product) => {
+  let color = "";
+  let soldOut = product.available
+    ? ""
+    : `<span class="icn sold-out-icn">Sold out</span>`;
+  let price = "",
+    sale = "";
+  if (typeof product.compare_price != "undefined") {
+    price = `<div class="product-price">
+              <span class="price-item price-item--sale">$${product.price}</span>
+              <span class="price-item price-item--compare">$${product.compare_price}</span>
+            </div>`;
+    sale = `<span class="icn sale-icn">Sale</span>`;
+  } else {
+    price = `<div class="product-price"><span class="price-item">$${product.price}</span></div>`;
+  }
+  if (typeof product.color != "undefined" && product.color.length > 0) {
+    for (let i = 0; i < product.color.length; i++) {
+      if (i == 0) color += getProductColorIcon(product.color[i], true);
+      else color += getProductColorIcon(product.color[i]);
+    }
+  }
+  return `
+      <div class="product col-6 col-md-4 pb-5">
+        <div class="product-content">
+          ${soldOut}
+          ${sale}
+          <img
+            src="${product.images[0]}"
+            alt="${product.title}"
+          />
+          <div class="product-info text-center">
+            <div class="product-title"><a href="/product.html?id=${product.id}">${product.title}</a></div>
+            ${price}
+            <div
+              class="product-color pt-3 text-center d-flex justify-content-center align-items-center"
+            >
+              ${color}
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+};
+
+let getProductColorIcon = (color, active = false) => {
+  let checkActive =
+    active == true
+      ? "active d-flex justify-content-center align-items-center"
+      : "";
+  return `
+      <span class="color-icn ${checkActive}">
+        <span style="background-image: url(/${color.thumb});"></span>
+      </span>
+    `;
+};
+
+renderCollectionPageHtml(collectionId, condition);
+
+function checkSortProductCondition() {
+  let url = new URL(window.location.href);
+  let condition = url.searchParams.get("sort") || DEFAULT_SORT_VALUE;
+
+  let select = document.getElementById("sort-select");
+  select.value = condition;
+
+  select.onchange = function (e) {
+    e.preventDefault();
+    url.searchParams.set("sort", select.value);
+    window.location.href = url;
   };
-  
-  let getRecentBlogPosts = () => {
-    fetch("/blogs?_limit=2&sort=id&_order=desc").then((response) => {
-      response.json().then((data) => {
-        data.forEach((post) => {
-          $(".latest-blogs .row").append(renderRecentPostHtml(post));
-        });
-      });
-    });
-  };
-  
-  getListCollections();
-  getNewArrivalProducts();
-  getRecentBlogPosts();
-  */
+}
