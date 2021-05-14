@@ -108,13 +108,17 @@ export let renderCollectionsListHtml = (collection) =>
 
 export let renderNewArrivalsProductHtml = (product) => {
   let color = "";
-  let price =
-    typeof product.compare_price != "undefined"
-      ? `<div class="product-price">
-            <span class="price-item price-item--sale">$${product.price}</span>
-            <span class="price-item price-item--compare">$${product.compare_price}</span>
-          </div>`
-      : `<div class="product-price"><span class="price-item">$${product.price}</span></div>`;
+  let price = "",
+    sale = "";
+  if (typeof product.compare_price != "undefined") {
+    price = `<div class="product-price">
+              <span class="price-item price-item--sale">$${product.price}</span>
+              <span class="price-item price-item--compare">$${product.compare_price}</span>
+            </div>`;
+    sale = `<span class="icn sale-icn">Sale</span>`;
+  } else {
+    price = `<div class="product-price"><span class="price-item">$${product.price}</span></div>`;
+  }
   let soldOut = product.available
     ? ""
     : `<span class="sold-out-label">Sold out</span>`;
@@ -128,6 +132,7 @@ export let renderNewArrivalsProductHtml = (product) => {
     <div class="product">
       <div class="product-content">
        ${soldOut}
+       ${sale}
         <img
           src="${product.images[0]}"
           alt="${product.title}"
@@ -152,7 +157,7 @@ let getProductColorIcon = (color, active = false) => {
       ? "active d-flex justify-content-center align-items-center"
       : "";
   return `
-    <span class="color-item ${checkActive}">
+    <span class="color-icn ${checkActive}">
       <span style="background-image: url(/${color.thumb});"></span>
     </span>
   `;
@@ -271,14 +276,18 @@ export class Collections {
     let color = "";
     let soldOut = product.available
       ? ""
-      : `<span class="sold-out-label">Sold out</span>`;
-    let price =
-      typeof product.compare_price != "undefined"
-        ? `<div class="product-price">
-            <span class="price-item price-item--sale">$${product.price}</span>
-            <span class="price-item price-item--compare">$${product.compare_price}</span>
-          </div>`
-        : `<div class="product-price"><span class="price-item">$${product.price}</span></div>`;
+      : `<span class="icn sold-out-icn">Sold out</span>`;
+    let price = "",
+      sale = "";
+    if (typeof product.compare_price != "undefined") {
+      price = `<div class="product-price">
+              <span class="price-item price-item--sale">$${product.price}</span>
+              <span class="price-item price-item--compare">$${product.compare_price}</span>
+            </div>`;
+      sale = `<span class="icn sale-icn">Sale</span>`;
+    } else {
+      price = `<div class="product-price"><span class="price-item">$${product.price}</span></div>`;
+    }
     if (typeof product.color != "undefined" && product.color.length > 0) {
       for (let i = 0; i < product.color.length; i++) {
         if (i == 0) color += this.getProductColorIcon(product.color[i], true);
@@ -289,6 +298,7 @@ export class Collections {
       <div class="product col-6 col-md-4 pb-5">
         <div class="product-content">
           ${soldOut}
+          ${sale}
           <img
             src="${product.images[0]}"
             alt="${product.title}"
@@ -313,7 +323,7 @@ export class Collections {
         ? "active d-flex justify-content-center align-items-center"
         : "";
     return `
-      <span class="color-item ${checkActive}">
+      <span class="color-icn ${checkActive}">
         <span style="background-image: url(/${color.thumb});"></span>
       </span>
     `;

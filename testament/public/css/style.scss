@@ -445,7 +445,7 @@ main {
     padding-bottom: 30px;
     .product-content {
       position: relative;
-      .sold-out-label {
+      .icn {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -456,11 +456,16 @@ main {
         -webkit-transition: opacity 1s ease-out;
         text-transform: uppercase;
         color: #ffffff;
-        background: #000000;
         text-align: center;
         display: flex;
         justify-content: center;
         align-items: center;
+        &.sold-out-icn {
+          background: #000000;
+        }
+        &.sale-icn {
+          background: $sale-color;
+        }
       }
       .product-info {
         padding: 8px 10px;
@@ -487,31 +492,6 @@ main {
         }
         .product-color {
           min-height: 40px;
-          .color-item {
-            width: 18px;
-            height: 18px;
-            display: inline-block;
-            border-radius: 50%;
-            span {
-              width: 18px;
-              height: 18px;
-              display: inline-block;
-              border-radius: 50%;
-              background-position: center center;
-              border: 1px solid #dddddd;
-            }
-          }
-          .color-item + .color-item {
-            margin-left: 10px;
-          }
-          .color-item.active {
-            width: 28px;
-            height: 28px;
-            border: 1px solid #000;
-            span {
-              border: none;
-            }
-          }
         }
       }
     }
@@ -734,11 +714,37 @@ footer {
   }
 }
 
+.color-icn {
+  width: 18px;
+  height: 18px;
+  display: inline-block;
+  border-radius: 50%;
+  span {
+    width: 18px;
+    height: 18px;
+    display: inline-block;
+    border-radius: 50%;
+    background-position: center center;
+    border: 1px solid #dddddd;
+  }
+}
+.color-icn + .color-icn {
+  margin-left: 10px;
+}
+.color-icn.active {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #000;
+  span {
+    border: none;
+  }
+}
+
 .collection-products {
   .products-list {
     .product-content {
       position: relative;
-      .sold-out-label {
+      .icn {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -749,11 +755,16 @@ footer {
         -webkit-transition: opacity 1s ease-out;
         text-transform: uppercase;
         color: #ffffff;
-        background: #000000;
         text-align: center;
         display: flex;
         justify-content: center;
         align-items: center;
+        &.sold-out-icn {
+          background: #000000;
+        }
+        &.sale-icn {
+          background: $sale-color;
+        }
       }
       .product-info {
         padding: 8px 10px;
@@ -780,36 +791,12 @@ footer {
         }
         .product-color {
           min-height: 40px;
-          .color-item {
-            width: 18px;
-            height: 18px;
-            display: inline-block;
-            border-radius: 50%;
-            span {
-              width: 18px;
-              height: 18px;
-              display: inline-block;
-              border-radius: 50%;
-              background-position: center center;
-              border: 1px solid #dddddd;
-            }
-          }
-          .color-item + .color-item {
-            margin-left: 10px;
-          }
-          .color-item.active {
-            width: 28px;
-            height: 28px;
-            border: 1px solid #000;
-            span {
-              border: none;
-            }
-          }
         }
       }
     }
   }
 }
+
 .list-collections {
   @extend .top-collections;
   background: #eddfd4;
