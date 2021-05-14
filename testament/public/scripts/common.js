@@ -33,12 +33,14 @@ export let includeHTML = () => {
 let checkScreenForFixedMenu = () => {
   if ($(window).width() >= 992) {
     fixedMainMenu();
+    $("header").removeClass("fixed-header");
   } else {
     fixedHeaderMobile();
   }
   $(window).resize(function () {
     if ($(window).width() >= 992) {
       fixedMainMenu();
+      $("header").removeClass("fixed-header");
     } else {
       $(".primary-menu").removeClass("fixed-header");
       fixedHeaderMobile();
@@ -47,6 +49,7 @@ let checkScreenForFixedMenu = () => {
   $(window).scroll(function () {
     if ($(window).width() >= 992) {
       fixedMainMenu();
+      $("header").removeClass("fixed-header");
     } else {
       $(".primary-menu").removeClass("fixed-header");
       fixedHeaderMobile();
@@ -97,6 +100,7 @@ export let checkMainBannerImageHeight = () => {
 export let renderCollectionsListHtml = (collection) =>
   `<div class="col-md-4 mb-5">
     <div class="item position-relative">
+      <div class="item-overlay"></div>
       <img src="${collection.thumb}" alt="${collection.title}" />
       <h3 class="item-title position-absolute"><a href="collections.html?id=${collection.id}">${collection.title}</a></h3>
     </div>
@@ -104,6 +108,16 @@ export let renderCollectionsListHtml = (collection) =>
 
 export let renderNewArrivalsProductHtml = (product) => {
   let color = "";
+  let price =
+    typeof product.compare_price != "undefined"
+      ? `<div class="product-price">
+            <span class="price-item price-item--sale">$${product.price}</span>
+            <span class="price-item price-item--compare">$${product.compare_price}</span>
+          </div>`
+      : `<div class="product-price"><span class="price-item">$${product.price}</span></div>`;
+  let soldOut = product.available
+    ? ""
+    : `<span class="sold-out-label">Sold out</span>`;
   if (typeof product.color != "undefined" && product.color.length > 0) {
     for (let i = 0; i < product.color.length; i++) {
       if (i == 0) color += getProductColorIcon(product.color[i], true);
@@ -111,15 +125,16 @@ export let renderNewArrivalsProductHtml = (product) => {
     }
   }
   return `
-    <div class="product col-md-3 pb-5">
+    <div class="product">
       <div class="product-content">
+       ${soldOut}
         <img
           src="${product.images[0]}"
           alt="${product.title}"
         />
         <div class="product-info text-center">
           <div class="product-title"><a href="/product.html?id=${product.id}">${product.title}</a></div>
-          <div class="product-price">$${product.price}</div>
+          ${price}
           <div
             class="product-color pt-3 text-center d-flex justify-content-center align-items-center"
           >
@@ -157,6 +172,45 @@ export let renderRecentPostHtml = (post) =>
     </div>
   </div>`;
 
+// Toggle mobile menu
+
+$(".mobile-icon").on("click", function () {
+  $("#slideout-mobile-navigation").show();
+  $("#slideout-mobile-navigation .mobile-menu")
+    .removeClass("animate__fadeOutLeft")
+    .addClass("animate__fadeInLeft");
+  $("body").addClass("stopScrolling");
+});
+$(".close-navigation .icon-close").on("click", function () {
+  $("#slideout-mobile-navigation .mobile-menu")
+    .removeClass("animate__fadeInLeft")
+    .addClass("animate__fadeOutLeft");
+  setTimeout(() => {
+    $("#slideout-mobile-navigation").hide();
+  }, 700);
+  $("body").removeClass("stopScrolling");
+});
+$("#slideout-mobile-navigation").mousedown(function (e) {
+  var clicked = $(e.target);
+  if (
+    clicked.is("#slideout-mobile-navigation .mobile-menu") ||
+    clicked.parents().is("#slideout-mobile-navigation .mobile-menu")
+  ) {
+    return;
+  } else {
+    $("#slideout-mobile-navigation .mobile-menu")
+      .removeClass("animate__fadeInLeft")
+      .addClass("animate__fadeOutLeft");
+    setTimeout(() => {
+      $("#slideout-mobile-navigation").hide();
+    }, 500);
+    $("body").removeClass("stopScrolling");
+  }
+});
+
+// End Toggle mobile menu
+
+// Collection class
 export class Collections {
   constructor() {
     this.collectionId = 0;
@@ -215,6 +269,16 @@ export class Collections {
   }
   renderPostHtml(product) {
     let color = "";
+    let soldOut = product.available
+      ? ""
+      : `<span class="sold-out-label">Sold out</span>`;
+    let price =
+      typeof product.compare_price != "undefined"
+        ? `<div class="product-price">
+            <span class="price-item price-item--sale">$${product.price}</span>
+            <span class="price-item price-item--compare">$${product.compare_price}</span>
+          </div>`
+        : `<div class="product-price"><span class="price-item">$${product.price}</span></div>`;
     if (typeof product.color != "undefined" && product.color.length > 0) {
       for (let i = 0; i < product.color.length; i++) {
         if (i == 0) color += this.getProductColorIcon(product.color[i], true);
@@ -224,13 +288,14 @@ export class Collections {
     return `
       <div class="product col-6 col-md-4 pb-5">
         <div class="product-content">
+          ${soldOut}
           <img
             src="${product.images[0]}"
             alt="${product.title}"
           />
           <div class="product-info text-center">
             <div class="product-title"><a href="/product.html?id=${product.id}">${product.title}</a></div>
-            <div class="product-price">$${product.price}</div>
+            ${price}
             <div
               class="product-color pt-3 text-center d-flex justify-content-center align-items-center"
             >

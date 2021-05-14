@@ -6,7 +6,7 @@ import {
   renderRecentPostHtml,
 } from "./common.js";
 includeHTML();
-checkMainBannerImageHeight();
+// checkMainBannerImageHeight();
 
 // fetch("/test.html")
 //   .then((res) => res.text())
@@ -25,13 +25,44 @@ let getListCollections = () => {
 };
 
 let getNewArrivalProducts = () => {
-  fetch("/products?_limit=4&_sort=id&_order=desc").then((response) => {
-    response.json().then((data) => {
-      data.forEach((product) => {
-        $(".new-arrivals .row").append(renderNewArrivalsProductHtml(product));
+  fetch("/products?_limit=8&_sort=id&_order=desc&available=true").then(
+    (response) => {
+      response.json().then((data) => {
+        data.forEach((product) => {
+          $(".new-arrivals .list-arrivals").append(
+            renderNewArrivalsProductHtml(product)
+          );
+        });
+        let slickOpts = {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          autoplay: false,
+          dots: false,
+          infinite: true,
+          arrows: true,
+          prevArrow: `<button type="button" class="slick-prev"><img src="images/icons/arrow-left.png" /></button>`,
+          nextArrow: `<button type="button" class="slick-next"><img src="images/icons/arrow-right.png" /></button>`,
+          responsive: [
+            {
+              breakpoint: 991,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 767,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+              },
+            },
+          ],
+        };
+        $(".new-arrivals .list-arrivals").slick(slickOpts);
       });
-    });
-  });
+    }
+  );
 };
 
 let getRecentBlogPosts = () => {

@@ -13,6 +13,15 @@
     />
     <link
       rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
@@ -37,6 +46,10 @@
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
       crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
   </head>
   <body>
@@ -80,13 +93,7 @@
       <div class="d-block d-lg-none mobile-logo">
         <div class="row align-items-center" style="height: 100%">
           <div class="col-2 text-center">
-            <a
-              class="text-center mobile-icon"
-              data-toggle="collapse"
-              href="#mobile-menu-content"
-              aria-expanded="false"
-              aria-controls="mobile-menu-content"
-            >
+            <a class="text-center mobile-icon">
               <img src="images/icons/mobile-icon.png" alt="" />
             </a>
           </div>
@@ -126,6 +133,39 @@
         </ul>
       </div>
     </header>
+    <aside class="animate__animated" id="slideout-mobile-navigation">
+      <div class="slideout-mobile-overlay"></div>
+      <div class="animate__animated slideout-mobile-content">
+        <div class="close-navigation">
+          <div class="icon-close"></div>
+        </div>
+        <div class="mobile-menu">
+          <ul class="nav flex-column justify-content-center">
+            <li><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Shop</a>
+              <div class="d-inline-block px-3 arrow-down">
+                <img src="images/icons/arrow-down-mobile.png" alt="">
+              </div>
+            </li>
+            <li class="sub-menu">
+              <ul>
+                <li><a href="collections.html?id=1">Dresses</a></li>
+                <li><a href="collections.html?id=2">Tops</a></li>
+                <li>
+                  <a href="collections.html?id=3">Rompers & Playsuits</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+            <li>
+              <a href="#">About</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </aside>
     <main>
       <section class="main-banner">
         <div
@@ -141,9 +181,11 @@
                 class="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block px-0">
-                <h1 class="caption-title pb-3">Fresh New Arrivals</h1>
-                <p class="caption-text pb-5">Explore the latest range</p>
+              <div class="carousel-caption">
+                <h1 class="caption-title pb-2 pb-md-3">Fresh New Arrivals</h1>
+                <p class="caption-text pb-3 pb-md-5">
+                  Explore the latest range
+                </p>
                 <a class="d-inline-block" href="#">Shop now!</a>
               </div>
             </div>
@@ -153,9 +195,9 @@
                 class="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block px-0">
-                <h1 class="caption-title pb-3">Bold New Styles</h1>
-                <p class="caption-text pb-5">
+              <div class="carousel-caption">
+                <h1 class="caption-title pb-2 pb-md-3">Bold New Styles</h1>
+                <p class="caption-text pb-3 pb-md-5">
                   Crushing on this seasons new colors
                 </p>
                 <a class="d-inline-block" href="#">Shop Rust</a>
@@ -173,10 +215,12 @@
       <section class="new-arrivals">
         <div class="container">
           <div class="section-title text-center"><h2>Newest Arrivals</h2></div>
-          <div class="row"></div>
+          <div class="row">
+            <div class="col-12 list-arrivals"></div>
+          </div>
         </div>
       </section>
-      <section class="main-banner">
+      <section class="content-banner">
         <div
           id="carouselSecondBanner"
           class="carousel slide"
@@ -189,9 +233,11 @@
                 class="d-block w-100"
                 alt="..."
               />
-              <div class="carousel-caption d-none d-md-block px-0">
-                <h1 class="caption-title pb-3">New Prints</h1>
-                <p class="caption-text pb-5">Shop our exclusive Dress Range</p>
+              <div class="carousel-caption px-0">
+                <h1 class="caption-title pb-2 pb-md-3">New Prints</h1>
+                <p class="caption-text pb-3 pb-md-5">
+                  Shop our exclusive Dress Range
+                </p>
                 <a class="d-inline-block" href="/collections?id=1">Explore</a>
               </div>
             </div>
@@ -211,7 +257,7 @@
             </div>
           </div>
           <div
-            class="d-flex flex-md-wrap justify-content-center align-items-center"
+            class="d-flex flex-md-wrap justify-content-md-center align-items-center explore-collections-content"
           >
             <img
               class="item first-line"
