@@ -35,6 +35,9 @@ $footer-form-button-hover-color: #b79e8c;
 $page-title-size: 28px;
 $sale-color: #c60808;
 
+$product-title-size: 24px;
+$product-price-size: 18px;
+
 @media screen and (max-width: 767px) {
   $text-size: calc(16px - (16px * 0.15));
   $h2-size: calc(24px - (24px * 0.15));
@@ -165,6 +168,15 @@ select.form-control {
     transform: rotate(45deg);
     left: 8px;
   }
+}
+
+.price-badge {
+  display: inline-block;
+  padding: 2px 5px;
+  border: 1px solid $text-color;
+  font-size: 9px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
 
 @media (min-width: 1200px) {
@@ -711,6 +723,8 @@ footer {
   }
 }
 
+/* COLLECTION PAGE */
+
 .left-sidebar {
   #left-sidebar-content {
     display: none;
@@ -825,5 +839,93 @@ footer {
   @media screen and (min-width: 768px) {
     padding-top: 60px;
     padding-bottom: 60px;
+  }
+}
+
+/* PRODUCT PAGE */
+
+.product-page {
+  .product-images {
+    .main-image {
+      width: 100%;
+      @media screen and (min-width: 768px) {
+        width: calc(100% - 88px);
+      }
+    }
+    .nav-image {
+      width: 80px;
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
+      .img-item {
+        max-height: 80px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .slick-arrow {
+        position: absolute;
+        top: 10px;
+        background: transparent;
+        width: 15px;
+        height: 24px;
+        border: none;
+        cursor: pointer;
+        z-index: 2;
+        &:focus {
+          outline: none;
+        }
+        &.slick-prev {
+          left: 10px;
+        }
+        &.slick-next {
+          left: 40px;
+        }
+      }
+      &.slick-slider {
+        position: unset;
+      }
+    }
+  }
+  .product-information {
+    .product-information-content {
+      background: #ffffff;
+      padding: 20px 0;
+      border: 7px double #ffffff;
+      .product-content-section {
+        margin-bottom: 10px;
+      }
+      .product-title {
+        font-size: $product-title-size;
+      }
+      .product-price {
+        padding-bottom: 17px;
+        border-bottom: 1px solid $dotted-color;
+        gap: 10px;
+        .price-item {
+          font-size: $product-price-size;
+          &.price-item--sale {
+            color: $sale-color;
+          }
+          &.price-item--compare {
+            text-decoration: line-through;
+          }
+        }
+        .price-badge--sale {
+          @extend .price-badge;
+          border-color: $sale-color;
+          color: $sale-color;
+        }
+      }
+
+      .product-description {
+        p {
+          margin-bottom: 10px;
+        }
+        ul {
+          list-style: disc inside;
+          margin-bottom: 20px;
+        }
+      }
+    }
   }
 }

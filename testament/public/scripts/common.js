@@ -1,3 +1,5 @@
+export const DEFAULT_SORT_VALUE = "featured";
+
 export let includeHTML = () => {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
@@ -131,12 +133,14 @@ export let renderGridProductHtml = (product) => {
   return `
     <div class="product">
       <div class="product-content">
-       ${soldOut}
-       ${sale}
-        <img
-          src="${product.images[0]}"
-          alt="${product.title}"
-        />
+        ${soldOut}
+        ${sale}
+        <a href="/product.html?id=${product.id}">
+          <img
+              src="${product.images[0]}"
+              alt="${product.title}"
+            />
+        </a>
         <div class="product-info text-center">
           <div class="product-title"><a href="/product.html?id=${product.id}">${product.title}</a></div>
           ${price}
@@ -214,3 +218,17 @@ $("#slideout-mobile-navigation").mousedown(function (e) {
 });
 
 // End Toggle mobile menu
+
+export let checkSortProductCondition = () => {
+  let url = new URL(window.location.href);
+  let condition = url.searchParams.get("sort") || DEFAULT_SORT_VALUE;
+
+  let select = document.getElementById("sort-select");
+  select.value = condition;
+
+  select.onchange = function (e) {
+    e.preventDefault();
+    url.searchParams.set("sort", select.value);
+    window.location.href = url;
+  };
+};

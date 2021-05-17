@@ -1,7 +1,11 @@
-import { includeHTML } from "./common.js";
+import {
+  includeHTML,
+  DEFAULT_SORT_VALUE,
+  renderCollectionsListHtml,
+  checkSortProductCondition,
+} from "./common.js";
 includeHTML();
 
-let DEFAULT_SORT_VALUE = "featured";
 checkSortProductCondition();
 
 let url = new URL(window.location.href);
@@ -48,14 +52,14 @@ let getProductHtml = (collectionId, condition) => {
     (response) => {
       response.json().then((products) => {
         products.forEach((product) => {
-          $(".products-list").append(rederProductHtml(product));
+          $(".products-list").append(renderProductHtml(product));
         });
       });
     }
   );
 };
 
-let rederProductHtml = (product) => {
+let renderProductHtml = (product) => {
   let color = "";
   let soldOut = product.available
     ? ""
@@ -82,10 +86,12 @@ let rederProductHtml = (product) => {
         <div class="product-content">
           ${soldOut}
           ${sale}
-          <img
-            src="${product.images[0]}"
-            alt="${product.title}"
-          />
+          <a href="/product.html?id=${product.id}">
+            <img
+                src="${product.images[0]}"
+                alt="${product.title}"
+            />
+            </a>
           <div class="product-info text-center">
             <div class="product-title"><a href="/product.html?id=${product.id}">${product.title}</a></div>
             ${price}
@@ -114,16 +120,16 @@ let getProductColorIcon = (color, active = false) => {
 
 renderCollectionPageHtml(collectionId, condition);
 
-function checkSortProductCondition() {
-  let url = new URL(window.location.href);
-  let condition = url.searchParams.get("sort") || DEFAULT_SORT_VALUE;
+let getListCollections = () => {
+  fetch("/collections").then((response) => {
+    response.json().then((data) => {
+      data.forEach((collection) => {
+        $(".list-collections .row").append(
+          renderCollectionsListHtml(collection)
+        );
+      });
+    });
+  });
+};
 
-  let select = document.getElementById("sort-select");
-  select.value = condition;
-
-  select.onchange = function (e) {
-    e.preventDefault();
-    url.searchParams.set("sort", select.value);
-    window.location.href = url;
-  };
-}
+getListCollections();
