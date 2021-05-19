@@ -12,7 +12,7 @@ let variant = {
 
 let productId = url.searchParams.get("id");
 
-let renderProductPageHtml = (productId) => {
+let renderProductPageHtml = (productId, variant) => {
   fetch("/products?id=" + productId + "&_expand=collection").then(
     (response) => {
       response.json().then((data) => {
@@ -23,7 +23,7 @@ let renderProductPageHtml = (productId) => {
         );
         document.title = product.title;
         renderProductImagesSlide(product.images);
-        renderProductInformation(product);
+        renderProductInformation(product, variant);
       });
     }
   );
@@ -61,11 +61,15 @@ let renderProductImagesSlide = (images) => {
   $(".product-images .nav-image").slick(navImgOps);
 };
 
-let renderProductInformation = (product) => {
-  let price = getProductPrice(product);
-  let content = `
+let renderProductInformation = (product, variant) => {
+  let price = getProductPrice(product),
+    variantHtml = getProductVariant(product, variant),
+    content = `
         <h1 class="product-content-section product-title">${product.title}</h1>
         ${price}
+        <form class="product-content-section add-product-form" id="add-product">
+            ${variantHtml}
+        </form>
         <div class="product-content-section product-description"></div>
     `;
   $(".product-information .product-information-content").append(content);
@@ -86,7 +90,17 @@ let getProductPrice = (product) => {
   }
 };
 
-renderProductPageHtml(productId);
+let getProductVariant = (product, variant) => {
+  if (product.size.length == 0) {
+    return `<div class="form-group">
+                <label>Size:</label>One size
+            </div>`;
+  } else {
+      
+  }
+};
+
+renderProductPageHtml(productId, variant);
 
 let getListCollections = () => {
   fetch("/collections").then((response) => {

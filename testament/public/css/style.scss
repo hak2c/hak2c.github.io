@@ -916,7 +916,14 @@ footer {
           color: $sale-color;
         }
       }
-
+      .add-product-form {
+        padding-bottom: 17px;
+        border-bottom: 1px solid $dotted-color;
+        label {
+          font-weight: bold;
+          margin-right: 10px;
+        }
+      }
       .product-description {
         p {
           margin-bottom: 10px;

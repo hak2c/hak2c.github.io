@@ -859,6 +859,14 @@ footer .bottom-footer .footer-right .partners {
   border-color: #c60808;
   color: #c60808;
 }
+.product-page .product-information .product-information-content .add-product-form {
+  padding-bottom: 17px;
+  border-bottom: 1px solid #cccccc;
+}
+.product-page .product-information .product-information-content .add-product-form label {
+  font-weight: bold;
+  margin-right: 10px;
+}
 .product-page .product-information .product-information-content .product-description p {
   margin-bottom: 10px;
 }
