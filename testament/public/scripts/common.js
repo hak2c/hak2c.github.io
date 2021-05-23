@@ -43,6 +43,7 @@ let checkScreenForFixedMenu = () => {
     if ($(window).width() >= 992) {
       fixedMainMenu();
       $("header").removeClass("fixed-header");
+      $("#slideout-mobile-navigation").hide();
     } else {
       $(".primary-menu").removeClass("fixed-header");
       fixedHeaderMobile();
@@ -184,36 +185,29 @@ export let renderRecentPostHtml = (post) =>
 // Toggle mobile menu
 
 $(".mobile-icon").on("click", function () {
-  $("#slideout-mobile-navigation").show();
-  $("#slideout-mobile-navigation .mobile-menu")
+  $("#slideout-mobile-navigation").fadeIn("slow");
+  $("#slideout-mobile-navigation .slideout-mobile-content")
     .removeClass("animate__fadeOutLeft")
     .addClass("animate__fadeInLeft");
-  $("body").addClass("stopScrolling");
 });
 $(".close-navigation .icon-close").on("click", function () {
-  $("#slideout-mobile-navigation .mobile-menu")
+  $("#slideout-mobile-navigation .slideout-mobile-content")
     .removeClass("animate__fadeInLeft")
     .addClass("animate__fadeOutLeft");
-  setTimeout(() => {
-    $("#slideout-mobile-navigation").hide();
-  }, 700);
-  $("body").removeClass("stopScrolling");
+  $("#slideout-mobile-navigation").fadeOut("slow");
 });
 $("#slideout-mobile-navigation").mousedown(function (e) {
   var clicked = $(e.target);
   if (
-    clicked.is("#slideout-mobile-navigation .mobile-menu") ||
-    clicked.parents().is("#slideout-mobile-navigation .mobile-menu")
+    clicked.is("#slideout-mobile-navigation .slideout-mobile-content") ||
+    clicked.parents().is("#slideout-mobile-navigation .slideout-mobile-content")
   ) {
     return;
   } else {
-    $("#slideout-mobile-navigation .mobile-menu")
+    $("#slideout-mobile-navigation .slideout-mobile-content")
       .removeClass("animate__fadeInLeft")
       .addClass("animate__fadeOutLeft");
-    setTimeout(() => {
-      $("#slideout-mobile-navigation").hide();
-    }, 500);
-    $("body").removeClass("stopScrolling");
+    $("#slideout-mobile-navigation").fadeOut("slow");
   }
 });
 

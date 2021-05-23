@@ -6,10 +6,9 @@ includeHTML();
 
 let url = new URL(window.location.href);
 let variant = {
-  size: url.searchParams.get("size") || DEFAULT_SIZE,
-  color: url.searchParams.get("color") || DEFAULT_COLOR,
+  size: url.searchParams.get("_size") || DEFAULT_SIZE,
+  color: url.searchParams.get("_color") || DEFAULT_COLOR,
 };
-
 let productId = url.searchParams.get("id");
 
 let renderProductPageHtml = (productId, variant) => {
@@ -17,9 +16,8 @@ let renderProductPageHtml = (productId, variant) => {
     (response) => {
       response.json().then((data) => {
         let product = data[0];
-        console.log(product.description);
         $(".ot-breadcrumb .col-12").html(
-          `<a href="index.html">Home</a> > <a href="collection.html?id=${product.collection.id}">${product.collection.title}</a> > ${product.title}`
+          `<a href="index.html">Home</a> > <a href="collections.html?id=${product.collection.id}">${product.collection.title}</a> > ${product.title}`
         );
         document.title = product.title;
         renderProductImagesSlide(product.images);
@@ -30,12 +28,14 @@ let renderProductPageHtml = (productId, variant) => {
 };
 
 let renderProductImagesSlide = (images) => {
-  let image = "";
+  let navImg = "",
+    mainImg = "";
   images.forEach((img) => {
-    image += `<div class="img-item"><img src="${img}" /></div>`;
+    navImg += `<div class="img-item" style="background-image: url('${img}')"></div>`;
+    mainImg += `<div class="img-item"><img src="${img}" /></div>`;
   });
-  $(".product-images .main-image").append(image);
-  $(".product-images .nav-image").append(image);
+  $(".product-images .main-image").append(mainImg);
+  $(".product-images .nav-image").append(navImg);
   let mainImgOps = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -76,6 +76,17 @@ let renderProductInformation = (product, variant) => {
   $(
     ".product-information .product-information-content .product-description"
   ).html(product.description);
+
+  $("input[type=radio][name=size-variant]").change(function () {
+    let url = new URL(window.location.href);
+    url.searchParams.set("_size", $(this).val());
+    window.location.href = url;
+  });
+  $("input[type=radio][name=color-variant]").change(function () {
+    let url = new URL(window.location.href);
+    url.searchParams.set("_color", $(this).val());
+    window.location.href = url;
+  });
 };
 
 let getProductPrice = (product) => {
@@ -92,12 +103,184 @@ let getProductPrice = (product) => {
 
 let getProductVariant = (product, variant) => {
   if (product.size.length == 0) {
-    return `<div class="form-group">
+    return `<div class="form-group variant-label">
                 <label>Size:</label>One size
             </div>`;
   } else {
-      
+    return (
+      renderSizeSelect(product, variant) + renderColorSelect(product, variant)
+    );
   }
+};
+
+let renderSizeSelect = (product, variant) => {
+  let sizeHtml = "",
+    sizeLabel = "";
+
+  sizeHtml = `<div class="size-select d-flex align-items-center">`;
+  let sizeFirstChecked = false;
+  if (variant.size == null) {
+    if (product.size[0].available) {
+      sizeLabel = `
+            <div class="form-group variant-label">
+                <label>Size:</label><span>${product.size[0].name}<span>
+            </div>
+            `;
+      sizeFirstChecked = true;
+      sizeHtml += `
+            <div class="form-group">
+                <input checked type="radio" name="size-variant" value="${product.size[0].name}" id="size${product.size[0].name}" />
+                <label class="" for="size${product.size[0].name}">${product.size[0].name}</label>
+            </div>
+          `;
+    } else {
+      sizeHtml += `
+            <div class="form-group">
+                <input type="radio" name="size-variant" value="${product.size[0].name}" id="size${product.size[0].name}" />
+                <label class="crossed" for="size${product.size[0].name}">${product.size[0].name}</label>
+            </div>
+        `;
+    }
+    for (let i = 1; i < product.size.length; i++) {
+      let soldOut = product.size[i].available ? "" : `crossed`;
+      if (!sizeFirstChecked) {
+        if (product.size[i].available) {
+          sizeLabel = `
+                <div class="form-group variant-label">
+                    <label>Size:</label><span>${product.size[i].name}<span>
+                </div>
+                `;
+          sizeFirstChecked = true;
+          sizeHtml += `
+                <div class="form-group">
+                    <input checked type="radio" name="size-variant" value="${product.size[i].name}" id="size${product.size[i].name}" />
+                    <label class="" for="size${product.size[i].name}">${product.size[i].name}</label>
+                </div>
+              `;
+        } else {
+          sizeHtml += `
+                <div class="form-group">
+                    <input type="radio" name="size-variant" value="${product.size[i].name}" id="size${product.size[i].name}" />
+                    <label class="crossed" for="size${product.size[i].name}">${product.size[i].name}</label>
+                </div>
+            `;
+        }
+      } else {
+        sizeHtml += `
+            <div class="form-group">
+                <input type="radio" name="size-variant" value="${product.size[i].name}" id="size${product.size[i].name}" />
+                <label class="${soldOut}" for="size${product.size[i].name}">${product.size[i].name}</label>
+            </div>
+          `;
+      }
+    }
+  } else {
+    for (let i = 0; i < product.size.length; i++) {
+      let soldOut = product.size[i].available ? "" : `crossed`,
+        checked = "";
+      if (product.size[i].name === variant.size) {
+        sizeLabel = `
+                <div class="form-group variant-label">
+                    <label>Size:</label><span>${product.size[i].name}<span>
+                </div>
+                `;
+        checked = "checked";
+      }
+      sizeHtml += `
+            <div class="form-group">
+                <input ${checked} type="radio" name="size-variant" value="${product.size[i].name}" id="size${product.size[i].name}" />
+                <label class="${soldOut}" for="size${product.size[i].name}">${product.size[i].name}</label>
+            </div>
+        `;
+    }
+  }
+  sizeHtml += "</div>";
+  return sizeLabel + sizeHtml;
+};
+
+let renderColorSelect = (product, variant) => {
+  let colorHtml = "",
+    colorLabel = "";
+
+  colorHtml = `<div class="color-select d-flex align-items-center">`;
+  let colorFirstChecked = false;
+  if (variant.color == null) {
+    if (product.color[0].available) {
+      colorLabel = `
+              <div class="form-group variant-label">
+                  <label>Color:</label><span>${product.color[0].name}<span>
+              </div>
+              `;
+      colorFirstChecked = true;
+      colorHtml += `
+              <div class="form-group">
+                  <input checked type="radio" name="color-variant" value="${product.color[0].name}" id="color${product.color[0].name}" />
+                  <label class="d-flex justify-content-center align-items-center" for="color${product.color[0].name}"><span style="background-image: url(/${product.color[0].thumb});"></span></label>
+              </div>
+            `;
+    } else {
+      colorHtml += `
+              <div class="form-group">
+                  <input type="radio" name="color-variant" value="${product.color[0].name}" id="color${product.color[0].name}" />
+                  <label class="crossed d-flex justify-content-center align-items-center" for="color${product.color[0].name}"><span style="background-image: url(/${product.color[0].thumb});"></span></label>
+              </div>
+          `;
+    }
+    for (let i = 1; i < product.color.length; i++) {
+      let soldOut = product.color[i].available ? "" : `crossed`;
+      if (!colorFirstChecked) {
+        if (product.color[i].available) {
+          colorLabel = `
+                  <div class="form-group variant-label">
+                      <label>Color:</label><span>${product.color[i].name}<span>
+                  </div>
+                  `;
+          colorFirstChecked = true;
+          colorHtml += `
+                  <div class="form-group">
+                      <input checked type="radio" name="color-variant" value="${product.color[i].name}" id="color${product.color[i].name}" />
+                      <label class="d-flex justify-content-center align-items-center" for="color${product.color[i].name}"><span style="background-image: url(/${product.color[i].thumb});"></span></label>
+                  </div>
+                `;
+        } else {
+          colorHtml += `
+                  <div class="form-group">
+                      <input type="radio" name="color-variant" value="${product.color[i].name}" id="color${product.color[i].name}" />
+                      <label class="crossed d-flex justify-content-center align-items-center" for="color${product.color[i].name}"><span style="background-image: url(/${product.color[i].thumb});"></span></label>
+                  </div>
+              `;
+        }
+      } else {
+        colorHtml += `
+              <div class="form-group">
+                  <input type="radio" name="color-variant" value="${product.color[i].name}" id="color${product.color[i].name}" />
+                  <label class="${soldOut} d-flex justify-content-center align-items-center" for="color${product.color[i].name}"><span style="background-image: url(/${product.color[i].thumb});"></span></label>
+              </div>
+            `;
+      }
+    }
+  } else {
+    for (let i = 0; i < product.color.length; i++) {
+      let soldOut = product.color[i].available ? "" : `crossed`,
+        checked = "";
+      if (product.color[i].name === variant.color) {
+        colorLabel = `
+                  <div class="form-group variant-label">
+                      <label>Color:</label><span>${product.color[i].name}<span>
+                  </div>
+                  `;
+        checked = "checked";
+      }
+      colorHtml += `
+              <div class="form-group">
+                  <input ${checked} type="radio" name="color-variant" value="${product.color[i].name}" id="color${product.color[i].name}" />
+                  <label class="${soldOut} d-flex justify-content-center align-items-center" for="color${product.color[i].name}"><span style="background-image: url(/${product.color[i].thumb});"></span></label>
+              </div>
+          `;
+    }
+  }
+  colorHtml += "</div>";
+  return colorLabel + colorHtml;
 };
 
 renderProductPageHtml(productId, variant);

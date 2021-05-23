@@ -208,14 +208,16 @@ header .primary-menu ul.nav > li:hover .sub-menu {
 
 #slideout-mobile-navigation {
   display: none;
-}
-#slideout-mobile-navigation .slideout-mobile-overlay {
   position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
   width: 100vw;
   z-index: 99;
+}
+#slideout-mobile-navigation .slideout-mobile-overlay {
+  height: 100vh;
+  width: 100vw;
   background: #1e1e1e;
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   opacity: 0.8;
@@ -229,6 +231,7 @@ header .primary-menu ul.nav > li:hover .sub-menu {
   background: #ffffff;
   padding: 0 10px;
   z-index: 100;
+  overflow-y: scroll;
 }
 @media screen and (min-width: 768px) {
   #slideout-mobile-navigation .slideout-mobile-content {
@@ -804,7 +807,10 @@ footer .bottom-footer .footer-right .partners {
   }
 }
 .product-page .product-images .nav-image .img-item {
-  max-height: 80px;
+  height: 80px;
+  background-position: top center;
+  background-size: cover;
+  margin-bottom: 10px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -863,7 +869,7 @@ footer .bottom-footer .footer-right .partners {
   padding-bottom: 17px;
   border-bottom: 1px solid #cccccc;
 }
-.product-page .product-information .product-information-content .add-product-form label {
+.product-page .product-information .product-information-content .add-product-form .variant-label label {
   font-weight: bold;
   margin-right: 10px;
 }
@@ -873,6 +879,65 @@ footer .bottom-footer .footer-right .partners {
 .product-page .product-information .product-information-content .product-description ul {
   list-style: disc inside;
   margin-bottom: 20px;
+}
+
+.size-select {
+  gap: 10px;
+}
+.size-select input[type=radio] {
+  display: none;
+  margin: 0;
+}
+.size-select input[type=radio] + label {
+  display: inline-block;
+  padding: 0 15px;
+  height: 38px;
+  line-height: 38px;
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #dddddd;
+  cursor: pointer;
+}
+.size-select input[type=radio]:checked + label {
+  color: #ffffff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.color-select {
+  gap: 10px;
+}
+.color-select input[type=radio] {
+  display: none;
+  margin: 0;
+}
+.color-select input[type=radio] + label {
+  display: inline-block;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+.color-select input[type=radio] + label span {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-position: center center;
+  border: 1px solid #dddddd;
+  border-radius: 50%;
+}
+.color-select input[type=radio]:checked + label {
+  border: 1px solid #000;
+  width: 42px;
+  height: 42px;
+}
+.color-select input[type=radio]:checked + label span {
+  border: none;
+}
+
+.crossed {
+  background: linear-gradient(to top left, rgba(213, 0, 0, 0) 0%, rgba(213, 0, 0, 0) calc(50% - 0.8px), #d50000 50%, rgba(213, 0, 0, 0) calc(50% + 0.8px), rgba(213, 0, 0, 0) 100%), linear-gradient(to top right, rgba(213, 0, 0, 0) 0%, rgba(213, 0, 0, 0) calc(50% - 0.8px), #d50000 50%, rgba(213, 0, 0, 0) calc(50% + 0.8px), rgba(213, 0, 0, 0) 100%);
 }
 
 /*# sourceMappingURL=style.css.map */

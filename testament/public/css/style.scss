@@ -255,13 +255,15 @@ header {
 }
 #slideout-mobile-navigation {
   display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 99;
   .slideout-mobile-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
     height: 100vh;
     width: 100vw;
-    z-index: 99;
     background: rgb(30, 30, 30);
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     opacity: 0.8;
@@ -275,6 +277,7 @@ header {
     background: #ffffff;
     padding: 0 10px;
     z-index: 100;
+    overflow-y: scroll;
     @media screen and (min-width: 768px) {
       width: 350px;
     }
@@ -858,7 +861,10 @@ footer {
         display: none;
       }
       .img-item {
-        max-height: 80px;
+        height: 80px;
+        background-position: top center;
+        background-size: cover;
+        margin-bottom: 10px;
         overflow: hidden;
         cursor: pointer;
       }
@@ -919,9 +925,11 @@ footer {
       .add-product-form {
         padding-bottom: 17px;
         border-bottom: 1px solid $dotted-color;
-        label {
-          font-weight: bold;
-          margin-right: 10px;
+        .variant-label {
+          label {
+            font-weight: bold;
+            margin-right: 10px;
+          }
         }
       }
       .product-description {
@@ -935,4 +943,78 @@ footer {
       }
     }
   }
+}
+
+.size-select {
+  gap: 10px;
+  input[type="radio"] {
+    display: none;
+    margin: 0;
+  }
+  input[type="radio"] + label {
+    display: inline-block;
+    padding: 0 15px;
+    height: 38px;
+    line-height: 38px;
+    margin: 0;
+    font-size: $text-size;
+    font-weight: bold;
+    border: 1px solid #dddddd;
+    cursor: pointer;
+  }
+  input[type="radio"]:checked + label {
+    color: #ffffff;
+    background-color: #000;
+    border-color: #000;
+  }
+}
+
+.color-select {
+  gap: 10px;
+  input[type="radio"] {
+    display: none;
+    margin: 0;
+  }
+  input[type="radio"] + label {
+    display: inline-block;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
+    span {
+      width: 32px;
+      height: 32px;
+      display: inline-block;
+      background-position: center center;
+      border: 1px solid #dddddd;
+      border-radius: 50%;
+    }
+  }
+  input[type="radio"]:checked + label {
+    border: 1px solid #000;
+    width: 42px;
+    height: 42px;
+    span {
+      border: none;
+    }
+  }
+}
+
+.crossed {
+  background: linear-gradient(
+      to top left,
+      rgba(213, 0, 0, 0) 0%,
+      rgba(213, 0, 0, 0) calc(50% - 0.8px),
+      rgba(213, 0, 0, 1) 50%,
+      rgba(213, 0, 0, 0) calc(50% + 0.8px),
+      rgba(213, 0, 0, 0) 100%
+    ),
+    linear-gradient(
+      to top right,
+      rgba(213, 0, 0, 0) 0%,
+      rgba(213, 0, 0, 0) calc(50% - 0.8px),
+      rgba(213, 0, 0, 1) 50%,
+      rgba(213, 0, 0, 0) calc(50% + 0.8px),
+      rgba(213, 0, 0, 0) 100%
+    );
 }
