@@ -873,6 +873,27 @@ footer .bottom-footer .footer-right .partners {
   font-weight: bold;
   margin-right: 10px;
 }
+.product-page .product-information .product-information-content .add-product-form .quantity-control {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 44px;
+  padding: 0;
+  width: 44px;
+  color: #000000;
+  border: 1px solid #cccccc;
+  text-align: center;
+  background: #fff;
+}
+.product-page .product-information .product-information-content .add-product-form input[type=text].quantity {
+  width: 50px;
+  height: 46px;
+  text-indent: 0;
+  border: 1px solid #cccccc;
+  text-align: center;
+}
+.product-page .product-information .product-information-content .add-product-form input[type=text].quantity:focus {
+  border-color: #cccccc;
+}
 .product-page .product-information .product-information-content .product-description p {
   margin-bottom: 10px;
 }

@@ -69,13 +69,21 @@ let renderProductInformation = (product, variant) => {
         ${price}
         <form class="product-content-section add-product-form" id="add-product">
             ${variantHtml}
+            <div class="form-group variant-label">
+                  <label>Quantity</label>
+            </div>
+            <div class="qty-selection">
+                <a class="quantity-control quantity-control-down" field="quantity">-</a>
+                <input min="1" type="text" name="quantity" class="quantity" value="1">
+                <a class="quantity-control quantity-control-up" field="quantity">+</a>
+            </div>
         </form>
-        <div class="product-content-section product-description"></div>
+        <div class="product-content-section product-description">${product.description}</div>
     `;
   $(".product-information .product-information-content").append(content);
-  $(
-    ".product-information .product-information-content .product-description"
-  ).html(product.description);
+  //   $(
+  //     ".product-information .product-information-content .product-description"
+  //   ).html(product.description);
 
   $("input[type=radio][name=size-variant]").change(function () {
     let url = new URL(window.location.href);
@@ -86,6 +94,11 @@ let renderProductInformation = (product, variant) => {
     let url = new URL(window.location.href);
     url.searchParams.set("_color", $(this).val());
     window.location.href = url;
+  });
+  $(".quantity-control-down,.quantity-control-up").click(function () {
+    var value = parseInt($(".quantity").val(), 10);
+    console.log(value);
+    $(".quantity").val(value + $(this).is(".quantity-control-down") ? -1 : 1);
   });
 };
 
@@ -123,7 +136,7 @@ let renderSizeSelect = (product, variant) => {
     if (product.size[0].available) {
       sizeLabel = `
             <div class="form-group variant-label">
-                <label>Size:</label><span>${product.size[0].name}<span>
+                <label>Size:</label><span>${product.size[0].name}</span>
             </div>
             `;
       sizeFirstChecked = true;
@@ -147,7 +160,7 @@ let renderSizeSelect = (product, variant) => {
         if (product.size[i].available) {
           sizeLabel = `
                 <div class="form-group variant-label">
-                    <label>Size:</label><span>${product.size[i].name}<span>
+                    <label>Size:</label><span>${product.size[i].name}</span>
                 </div>
                 `;
           sizeFirstChecked = true;
@@ -181,7 +194,7 @@ let renderSizeSelect = (product, variant) => {
       if (product.size[i].name === variant.size) {
         sizeLabel = `
                 <div class="form-group variant-label">
-                    <label>Size:</label><span>${product.size[i].name}<span>
+                    <label>Size:</label><span>${product.size[i].name}</span>
                 </div>
                 `;
         checked = "checked";
