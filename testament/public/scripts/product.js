@@ -77,6 +77,9 @@ let renderProductInformation = (product, variant) => {
                 <input min="1" type="text" name="quantity" class="quantity" value="1">
                 <a class="quantity-control quantity-control-up" field="quantity">+</a>
             </div>
+            <div class="adđ-to-cart">
+                <input id="addToCart" type="submit" name="button" class="AddtoCart" value="Add To Cart">
+            </div>
         </form>
         <div class="product-content-section product-description">${product.description}</div>
     `;
@@ -96,9 +99,12 @@ let renderProductInformation = (product, variant) => {
     window.location.href = url;
   });
   $(".quantity-control-down,.quantity-control-up").click(function () {
-    var value = parseInt($(".quantity").val(), 10);
-    console.log(value);
-    $(".quantity").val(value + $(this).is(".quantity-control-down") ? -1 : 1);
+    let value = parseInt($(".quantity").val(), 10) || 0;
+    if (value > 0 || $(this).is(".quantity-control-up")) {
+      $(".quantity").val(
+        $(this).is(".quantity-control-down") ? value - 1 : value + 1
+      );
+    }
   });
 };
 
@@ -121,7 +127,10 @@ let getProductVariant = (product, variant) => {
             </div>`;
   } else {
     return (
-      renderSizeSelect(product, variant) + renderColorSelect(product, variant)
+      renderSizeSelect(product, variant) +
+      (typeof product.color != "undefined"
+        ? renderColorSelect(product, variant)
+        : "")
     );
   }
 };
