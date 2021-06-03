@@ -21,69 +21,100 @@
     <script src="scripts/slick.min.js"></script>
   </head>
   <body>
-    <header>
-      <div class="top-header">
-        <div class="container">
-          <div class="row text-uppercase">
-            <div class="d-none d-lg-block col-lg-4">
-              <div class="d-flex align-items-center top-socials">
-                <a href="#"><img src="images/icons/facebook.png" alt="" /></a>
-                <a href="#"><img src="images/icons/instagram.png" alt="" /></a>
-                <a href="#"><img src="images/icons/twitter.png" alt="" /></a>
-                <a href="#"><img src="images/icons/linkedin.png" alt="" /></a>
-              </div>
+    <div class="top-header">
+      <div class="container">
+        <div class="row text-uppercase">
+          <div class="d-none d-lg-block col-lg-4">
+            <div class="d-flex align-items-center top-socials">
+              <a href="#"><img src="images/icons/facebook.png" alt="" /></a>
+              <a href="#"><img src="images/icons/instagram.png" alt="" /></a>
+              <a href="#"><img src="images/icons/twitter.png" alt="" /></a>
+              <a href="#"><img src="images/icons/linkedin.png" alt="" /></a>
             </div>
-            <div class="col-lg-4 text-center">
-              FREE SHIPPING ON ORDERS OVER $199
-            </div>
-            <div class="d-none d-lg-block col-lg-4">
-              <div
-                class="d-flex justify-content-end align-items-center"
-                style="gap: 10px"
-              >
-                <span class="search-icon"
-                  ><img src="images/icons/search.png" alt=""
-                /></span>
-                <span class="cart">
-                  <img class="mr-1" src="images/icons/cart.png" alt="" />
-                  <span class="cart-count">0</span>
-                </span>
-              </div>
+          </div>
+          <div class="col-lg-4 text-center">
+            FREE SHIPPING ON ORDERS OVER $199
+          </div>
+          <div class="d-none d-lg-block col-lg-4">
+            <div
+              class="d-flex justify-content-end align-items-center"
+              style="gap: 10px"
+            >
+              <span class="search-icon"
+                ><img src="images/icons/search.png" alt=""
+              /></span>
+              <span class="cart">
+                <img class="mr-1" src="images/icons/cart.png" alt="" />
+                <span class="cart-count">0</span>
+              </span>
             </div>
           </div>
         </div>
       </div>
-      <div class="logo d-none d-lg-block text-center">
-        <a href="index.html">
-          <img src="images/logo.jpg" alt="" />
-        </a>
-      </div>
-      <div class="d-block d-lg-none mobile-logo">
-        <div class="row align-items-center" style="height: 100%">
-          <div class="col-2 text-center">
-            <a class="text-center mobile-icon">
-              <img src="images/icons/mobile-icon.png" alt="" />
-            </a>
-          </div>
-          <div class="col-8 text-center">
-            <a href="index.html">
-              <img src="images/logo.jpg" alt="" />
-            </a>
-          </div>
-          <div class="col-2">
-            <span class="cart">
-              <img class="mr-1" src="images/icons/cart-mobile.png" alt="" />
-              <span class="cart-count">0</span>
-            </span>
-          </div>
+    </div>
+    <div class="logo d-none d-lg-block text-center">
+      <a href="index.html">
+        <img src="images/logo.jpg" alt="" />
+      </a>
+    </div>
+    <div class="d-block d-lg-none mobile-logo">
+      <div class="row align-items-center" style="height: 100%">
+        <div class="col-2 text-center">
+          <a class="text-center mobile-icon">
+            <img src="images/icons/mobile-icon.png" alt="" />
+          </a>
+        </div>
+        <div class="col-8 text-center">
+          <a href="index.html">
+            <img src="images/logo.jpg" alt="" />
+          </a>
+        </div>
+        <div class="col-2">
+          <span class="cart">
+            <img class="mr-1" src="images/icons/cart-mobile.png" alt="" />
+            <span class="cart-count">0</span>
+          </span>
         </div>
       </div>
-      <div class="primary-menu d-none d-lg-block">
-        <ul class="nav justify-content-center">
-          <li><a href="index.html">Home</a></li>
-          <li>
-            <a href="#">Shop</a><img src="images/icons/arrow-down.png" alt="" />
-            <div class="sub-menu">
+    </div>
+    <div class="primary-menu d-none d-lg-block">
+      <ul class="nav justify-content-center">
+        <li><a href="index.html">Home</a></li>
+        <li>
+          <a href="#">Shop</a><img src="images/icons/arrow-down.png" alt="" />
+          <div class="sub-menu">
+            <ul>
+              <li><a href="collections.html?id=1">Dresses</a></li>
+              <li><a href="collections.html?id=2">Tops</a></li>
+              <li>
+                <a href="collections.html?id=3">Rompers & Playsuits</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Blog</a></li>
+        <li>
+          <a href="#">About</a>
+        </li>
+      </ul>
+    </div>
+    <aside class="animate__animated" id="slideout-mobile-navigation">
+      <div class="slideout-mobile-overlay"></div>
+      <div class="animate__animated slideout-mobile-content">
+        <div class="close-navigation">
+          <div class="icon-close"></div>
+        </div>
+        <div class="mobile-menu">
+          <ul class="nav flex-column justify-content-center">
+            <li><a href="index.html">Home</a></li>
+            <li>
+              <a href="#">Shop</a>
+              <div class="d-inline-block px-3 arrow-down">
+                <img src="images/icons/arrow-down-mobile.png" alt="" />
+              </div>
+            </li>
+            <li class="sub-menu">
               <ul>
                 <li><a href="collections.html?id=1">Dresses</a></li>
                 <li><a href="collections.html?id=2">Tops</a></li>
@@ -91,16 +122,16 @@
                   <a href="collections.html?id=3">Rompers & Playsuits</a>
                 </li>
               </ul>
-            </div>
-          </li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Blog</a></li>
-          <li>
-            <a href="#">About</a>
-          </li>
-        </ul>
+            </li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Blog</a></li>
+            <li>
+              <a href="#">About</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </header>
+    </aside>
     <main>
       <div class="collection-image">
         <img src="" alt="" />

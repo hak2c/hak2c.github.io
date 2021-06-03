@@ -1,5 +1,7 @@
 export const DEFAULT_SORT_VALUE = "featured";
 
+export const STORAGE_KEY = "testament_quote";
+
 export let includeHTML = () => {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
@@ -32,7 +34,40 @@ export let includeHTML = () => {
   }
 };
 
-let checkScreenForFixedMenu = () => {
+let checkExistQuoteList = () => {
+  let productsList = localStorage.getItem(STORAGE_KEY);
+  if (productsList == null || productsList == "") {
+    localStorage.setItem(STORAGE_KEY, "[]");
+    productsList = "[]";
+  }
+  productsList = JSON.parse(productsList);
+  if ($(".view_quote").length > 0) $(".view_quote").remove();
+  if (productsList.length > 0) {
+    createViewQuoteButton();
+  }
+};
+
+export let createViewQuoteButton = () => {
+  $("body").append(
+    `<div class="action-button"><a class="view_quote" href="javascript:void(0)">View quote</a></div>`
+  );
+  $(".view_quote").on("click", function () {
+    // if ($(".omgrfq-popup").length == 0) {
+    //   $(".omgrfq-overlay").css("display", "block");
+    //   omgrfq_getAddToQuotePopup(productList);
+    // }
+  });
+};
+
+checkExistQuoteList();
+
+$("body").append(
+  `<div class="">
+  
+  </div>`
+);
+
+/*let checkScreenForFixedMenu = () => {
   if ($(window).width() >= 992) {
     fixedMainMenu();
     $("header").removeClass("fixed-header");
@@ -76,9 +111,9 @@ let fixedHeaderMobile = () => {
   } else {
     $("header").removeClass("fixed-header");
   }
-};
+};*/
 
-checkScreenForFixedMenu();
+// checkScreenForFixedMenu();
 
 export let checkMainBannerImageHeight = () => {
   if ($(window).width() >= 1200) {

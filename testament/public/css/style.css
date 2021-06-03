@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   box-sizing: border-box;
   margin: 0;
@@ -101,14 +102,6 @@ select.form-control {
   display: block !important;
 }
 
-.fixed-header {
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  z-index: 99;
-}
-
 .icon-close {
   width: 20px;
   height: 20px;
@@ -146,45 +139,61 @@ select.form-control {
   }
 }
 /* HEADER */
-header .top-header {
+.top-header {
   background-color: #b79e8c;
   color: #fff;
   line-height: 48px;
 }
-header .top-header .top-socials {
+@media screen and (max-width: 992px) {
+  .top-header {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+  }
+}
+.top-header .top-socials {
   gap: 10px;
 }
-header .top-header .cart-count {
+.top-header .cart-count {
   font-size: 14px;
 }
-header .logo {
+
+.logo {
   padding: 10px 0;
 }
-header .mobile-logo {
+
+.mobile-logo {
   padding: 10px 0;
   height: 70px;
   background: #ffffff;
+  position: sticky;
+  top: 48px;
+  z-index: 99;
 }
-header .mobile-logo .cart-count {
+.mobile-logo .cart-count {
   color: #b79e8c;
   font-size: 14px;
 }
-header .primary-menu {
+
+.primary-menu {
   background-color: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
-header .primary-menu ul.nav > li {
+.primary-menu ul.nav > li {
   padding: 0 20px;
   position: relative;
 }
-header .primary-menu ul.nav > li > a {
+.primary-menu ul.nav > li > a {
   color: #fff;
   display: inline-block;
   line-height: 60px;
 }
-header .primary-menu ul.nav > li > img {
+.primary-menu ul.nav > li > img {
   margin-left: 10px;
 }
-header .primary-menu ul.nav > li .sub-menu {
+.primary-menu ul.nav > li .sub-menu {
   display: none;
   position: absolute;
   left: 0;
@@ -194,15 +203,15 @@ header .primary-menu ul.nav > li .sub-menu {
   padding: 10px;
   background-color: #ffffff;
 }
-header .primary-menu ul.nav > li .sub-menu ul li a {
+.primary-menu ul.nav > li .sub-menu ul li a {
   line-height: 34px;
   display: block;
   color: #000000;
 }
-header .primary-menu ul.nav > li .sub-menu ul li a:hover {
+.primary-menu ul.nav > li .sub-menu ul li a:hover {
   color: #796b62;
 }
-header .primary-menu ul.nav > li:hover .sub-menu {
+.primary-menu ul.nav > li:hover .sub-menu {
   display: block;
 }
 
@@ -894,6 +903,35 @@ footer .bottom-footer .footer-right .partners {
 .product-page .product-information .product-information-content .add-product-form .qty-selection input[type=text].quantity:focus {
   border-color: #cccccc;
 }
+.product-page .product-information .product-information-content .add-product-form .adđ-to-cart input#addToCart {
+  background: #b79e8c;
+  color: #ffffff;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.product-page .product-information .product-information-content .add-product-form .adđ-to-cart input#addToCart:hover {
+  background-color: #836957;
+}
+.product-page .product-information .product-information-content .add-product-form .addQuoteButton {
+  height: 50px;
+  border: 1px solid #b79e8c;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 3px;
+  color: #000000;
+}
+.product-page .product-information .product-information-content .add-product-form .addQuoteButton:hover {
+  background: #836957;
+  border-color: #836957;
+  color: #ffffff;
+}
 .product-page .product-information .product-information-content .product-description p {
   margin-bottom: 10px;
 }
@@ -959,6 +997,29 @@ footer .bottom-footer .footer-right .partners {
 
 .crossed {
   background: linear-gradient(to top left, rgba(213, 0, 0, 0) 0%, rgba(213, 0, 0, 0) calc(50% - 0.8px), #d50000 50%, rgba(213, 0, 0, 0) calc(50% + 0.8px), rgba(213, 0, 0, 0) 100%), linear-gradient(to top right, rgba(213, 0, 0, 0) 0%, rgba(213, 0, 0, 0) calc(50% - 0.8px), #d50000 50%, rgba(213, 0, 0, 0) calc(50% + 0.8px), rgba(213, 0, 0, 0) 100%);
+}
+
+.action-button {
+  position: fixed;
+  right: 0;
+  top: 30%;
+  width: auto;
+  z-index: 9;
+  transform-origin: center center;
+  transform: translateX(50%) rotate(-90deg) translateY(-50%) translateX(-50%);
+}
+.action-button .view_quote {
+  display: inline-block;
+  height: 40px;
+  background: #b79e8c;
+  color: #ffffff;
+  line-height: 40px;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 0 15px;
+}
+.action-button .view_quote:hover {
+  background-color: #836957;
 }
 
 /*# sourceMappingURL=style.css.map */
