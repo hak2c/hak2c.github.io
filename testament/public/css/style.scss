@@ -530,18 +530,22 @@ main {
     position: absolute;
     top: 50%;
     background: #ffffff;
-    width: 45px;
-    height: 45px;
+    width: 40px;
+    height: 40px;
     border: none;
     cursor: pointer;
+    @media screen and (min-width: 1024px) {
+      width: 45px;
+      height: 45px;
+      &.slick-prev {
+        left: -40px;
+      }
+      &.slick-next {
+        right: -40px;
+      }
+    }
     &:focus {
       outline: none;
-    }
-    &.slick-prev {
-      left: -50px;
-    }
-    &.slick-next {
-      right: -50px;
     }
   }
 }
@@ -729,7 +733,11 @@ footer {
 }
 
 /* COLLECTION PAGE */
-
+.collection-image {
+  img {
+    width: 100%;
+  }
+}
 .left-sidebar {
   #left-sidebar-content {
     display: none;
@@ -1077,7 +1085,7 @@ footer {
 
 .action-button {
   position: fixed;
-  right: 0;
+  right: 20px;
   top: 30%;
   width: auto;
   z-index: 9;
@@ -1094,6 +1102,181 @@ footer {
     padding: 0 15px;
     &:hover {
       background-color: $form-button-background-hover;
+    }
+  }
+}
+
+.raq-overlay {
+  display: none;
+  position: relative;
+  z-index: 100;
+  .raq-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .raq-popup {
+    width: 95%;
+    max-width: 1170px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background: #fff;
+    padding: 15px;
+    overflow-y: auto;
+    max-height: calc(100% - 150px);
+    -webkit-overflow-scrolling: touch;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    .close-raq-popup {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      background: url(../images/icons/times-solid.png) 50% no-repeat #000;
+    }
+    .raq-popup-content {
+      .raq-message {
+        text-align: center;
+        font-size: 18px;
+        margin-bottom: 24px;
+      }
+      .raq-action-button {
+        gap: 20px;
+        a,
+        input#submitRAQForm {
+          height: 40px;
+          line-height: 40px;
+          width: calc((100% - 20px) / 2);
+          max-width: 217px;
+          font-size: 16px;
+          border: 1px solid transparent;
+          border-radius: 3px;
+          display: inline-block;
+          text-align: center;
+          &.raq-continue-shopping {
+            border-color: $form-button-background-color;
+          }
+          &.raq-dialog-view {
+            background-color: $form-button-background-color;
+            color: #ffffff;
+          }
+          @media screen and (min-width: 768px) {
+            height: 50px;
+            line-height: 50px;
+            font-size: 18px;
+          }
+        }
+        input#submitRAQForm {
+          background-color: $form-button-background-color;
+          color: #ffffff;
+          cursor: pointer;
+        }
+      }
+      #raq-quote-list-form {
+        max-width: 1170px;
+        margin: 0 auto;
+        padding-top: 30px;
+        clear: both;
+        .raq-table {
+          width: 100%;
+          max-width: 100%;
+          margin-bottom: 20px;
+          border: 1px solid #b7b7b7;
+          thead {
+            @media screen and (max-width: 768px) {
+              display: none;
+            }
+            tr {
+              border-bottom: 1px solid #b7b7b7;
+              th {
+                vertical-align: bottom;
+                text-transform: uppercase;
+                font-size: 18px;
+                padding: 15px;
+              }
+            }
+          }
+
+          tbody {
+            tr {
+              border-bottom: 1px solid #e8e9eb;
+              td {
+                padding: 8px;
+                vertical-align: top;
+                @media screen and (max-width: 768px) {
+                  display: block;
+                  width: 100%;
+                  border: 1px solid #b7b7b7 !important;
+                  text-align: center;
+                }
+                &.raq_product_image {
+                  width: 80px;
+                  @media screen and (max-width: 768px) {
+                    width: 100%;
+                  }
+                  & img {
+                    @media screen and (max-width: 768px) {
+                      max-width: 50%;
+                    }
+                  }
+                }
+                .raq_remove_product {
+                  font-size: $text-size;
+                  padding: 5px 10px;
+                  border: 1px solid #b7b7b7;
+                  display: inline-block;
+                  cursor: pointer;
+                }
+                .qty-product-control {
+                  display: inline-block;
+                  vertical-align: top;
+                  line-height: 44px;
+                  padding: 0;
+                  width: 44px;
+                  color: $text-color;
+                  border: 1px solid $dotted-color;
+                  text-align: center;
+                  background: #fff;
+                }
+                input[type="text"].quantity {
+                  width: 50px;
+                  height: 46px;
+                  text-indent: 0;
+                  border: 1px solid $dotted-color;
+                  text-align: center;
+                  &:focus {
+                    border-color: $dotted-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .raq-form {
+          .form-group-row {
+            justify-content: space-between;
+            .form-group {
+              width: 100%;
+              @media screen and (min-width: 768px) {
+                width: calc((100% - 30px) / 2);
+              }
+            }
+          }
+          textarea {
+            min-height: 100px;
+            font-size: 18px;
+          }
+        }
+      }
     }
   }
 }

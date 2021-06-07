@@ -3,6 +3,7 @@ import {
   includeHTML,
   createViewQuoteButton,
   renderCollectionsListHtml,
+  createSuccessAddedProductToQuote,
 } from "./common.js";
 
 includeHTML();
@@ -108,18 +109,36 @@ let renderProductInformation = (product) => {
     let addedProduct = {
       id: productId,
       image: product.images[0],
-      size: $("input[name=size-variant]:checked").val() || null,
-      color: $("input[name=color-variant]:checked").val() || null,
+      title: product.title,
+      size: $("input[name=size-variant]:checked").val() || "",
+      color: $("input[name=color-variant]:checked").val() || "",
       qty: Number($("input[name=quantity]").val()),
       price: product.price,
+      total: (Number($("input[name=quantity]").val()) * product.price).toFixed(
+        2
+      ),
     };
     let productsList = JSON.parse(localStorage.getItem(STORAGE_KEY));
     if (productsList.length == 0) {
       productsList.push(addedProduct);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(productsList));
       createViewQuoteButton();
+    } else {
+      let exist = false;
+      for (let i = 0; i < productsList.length; i++) {
+        if (
+          productsList[i].id == addedProduct.id &&
+          productsList[i].size == addedProduct.size &&
+          productsList[i].color == addedProduct.color
+        ) {
+          exist = true;
+          productsList[i].qty += addedProduct.qty;
+        }
+      }
+      if (!exist) productsList.push(addedProduct);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(productsList));
     }
-    console.log(addedProduct);
+    createSuccessAddedProductToQuote();
   });
 };
 

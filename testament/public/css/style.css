@@ -491,19 +491,25 @@ main section .section-pretext {
   position: absolute;
   top: 50%;
   background: #ffffff;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border: none;
   cursor: pointer;
 }
+@media screen and (min-width: 1024px) {
+  .new-arrivals .slick-arrow {
+    width: 45px;
+    height: 45px;
+  }
+  .new-arrivals .slick-arrow.slick-prev {
+    left: -40px;
+  }
+  .new-arrivals .slick-arrow.slick-next {
+    right: -40px;
+  }
+}
 .new-arrivals .slick-arrow:focus {
   outline: none;
-}
-.new-arrivals .slick-arrow.slick-prev {
-  left: -50px;
-}
-.new-arrivals .slick-arrow.slick-next {
-  right: -50px;
 }
 
 @media screen and (max-width: 767px) {
@@ -684,6 +690,10 @@ footer .bottom-footer .footer-right .partners {
 }
 
 /* COLLECTION PAGE */
+.collection-image img {
+  width: 100%;
+}
+
 .left-sidebar #left-sidebar-content {
   display: none;
   margin-bottom: 20px;
@@ -1001,7 +1011,7 @@ footer .bottom-footer .footer-right .partners {
 
 .action-button {
   position: fixed;
-  right: 0;
+  right: 20px;
   top: 30%;
   width: auto;
   z-index: 9;
@@ -1020,6 +1030,185 @@ footer .bottom-footer .footer-right .partners {
 }
 .action-button .view_quote:hover {
   background-color: #836957;
+}
+
+.raq-overlay {
+  display: none;
+  position: relative;
+  z-index: 100;
+}
+.raq-overlay .raq-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+.raq-overlay .raq-popup {
+  width: 95%;
+  max-width: 1170px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background: #fff;
+  padding: 15px;
+  overflow-y: auto;
+  max-height: calc(100% - 150px);
+  -webkit-overflow-scrolling: touch;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+.raq-overlay .raq-popup .close-raq-popup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  background: url(../images/icons/times-solid.png) 50% no-repeat #000;
+}
+.raq-overlay .raq-popup .raq-popup-content .raq-message {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button {
+  gap: 20px;
+}
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button a,
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button input#submitRAQForm {
+  height: 40px;
+  line-height: 40px;
+  width: calc((100% - 20px) / 2);
+  max-width: 217px;
+  font-size: 16px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: inline-block;
+  text-align: center;
+}
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button a.raq-continue-shopping,
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button input#submitRAQForm.raq-continue-shopping {
+  border-color: #b79e8c;
+}
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button a.raq-dialog-view,
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button input#submitRAQForm.raq-dialog-view {
+  background-color: #b79e8c;
+  color: #ffffff;
+}
+@media screen and (min-width: 768px) {
+  .raq-overlay .raq-popup .raq-popup-content .raq-action-button a,
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button input#submitRAQForm {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+  }
+}
+.raq-overlay .raq-popup .raq-popup-content .raq-action-button input#submitRAQForm {
+  background-color: #b79e8c;
+  color: #ffffff;
+  cursor: pointer;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form {
+  max-width: 1170px;
+  margin: 0 auto;
+  padding-top: 30px;
+  clear: both;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #b7b7b7;
+}
+@media screen and (max-width: 768px) {
+  .raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table thead {
+    display: none;
+  }
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table thead tr {
+  border-bottom: 1px solid #b7b7b7;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table thead tr th {
+  vertical-align: bottom;
+  text-transform: uppercase;
+  font-size: 18px;
+  padding: 15px;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr {
+  border-bottom: 1px solid #e8e9eb;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td {
+  padding: 8px;
+  vertical-align: top;
+}
+@media screen and (max-width: 768px) {
+  .raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td {
+    display: block;
+    width: 100%;
+    border: 1px solid #b7b7b7 !important;
+    text-align: center;
+  }
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td.raq_product_image {
+  width: 80px;
+}
+@media screen and (max-width: 768px) {
+  .raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td.raq_product_image {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td.raq_product_image img {
+    max-width: 50%;
+  }
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td .raq_remove_product {
+  font-size: 16px;
+  padding: 5px 10px;
+  border: 1px solid #b7b7b7;
+  display: inline-block;
+  cursor: pointer;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td .qty-product-control {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 44px;
+  padding: 0;
+  width: 44px;
+  color: #000000;
+  border: 1px solid #cccccc;
+  text-align: center;
+  background: #fff;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td input[type=text].quantity {
+  width: 50px;
+  height: 46px;
+  text-indent: 0;
+  border: 1px solid #cccccc;
+  text-align: center;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-table tbody tr td input[type=text].quantity:focus {
+  border-color: #cccccc;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-form .form-group-row {
+  justify-content: space-between;
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-form .form-group-row .form-group {
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-form .form-group-row .form-group {
+    width: calc((100% - 30px) / 2);
+  }
+}
+.raq-overlay .raq-popup .raq-popup-content #raq-quote-list-form .raq-form textarea {
+  min-height: 100px;
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=style.css.map */

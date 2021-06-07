@@ -34,6 +34,18 @@ export let includeHTML = () => {
   }
 };
 
+/* QUOTE SCRIPTS */
+
+$("body").append(
+  `<div class="raq-overlay">
+    <div class="raq-bg"></div>
+    <div class="raq-popup">
+      <span class="close-raq-popup"></span>
+      <div class="raq-popup-content"></div>
+    </div>
+  </div>`
+);
+
 let checkExistQuoteList = () => {
   let productsList = localStorage.getItem(STORAGE_KEY);
   if (productsList == null || productsList == "") {
@@ -52,68 +64,221 @@ export let createViewQuoteButton = () => {
     `<div class="action-button"><a class="view_quote" href="javascript:void(0)">View quote</a></div>`
   );
   $(".view_quote").on("click", function () {
-    // if ($(".omgrfq-popup").length == 0) {
-    //   $(".omgrfq-overlay").css("display", "block");
-    //   omgrfq_getAddToQuotePopup(productList);
-    // }
+    getQuotePopupContent();
   });
 };
 
 checkExistQuoteList();
 
-$("body").append(
-  `<div class="">
-  
-  </div>`
-);
+export let createSuccessAddedProductToQuote = () => {
+  $(".raq-popup-content").html("").append(`
+    <div class="raq-message">Add product to quote successfully!</div>
+    <div class="raq-action-button d-flex justify-content-center">
+      <a class="raq-continue-shopping">Continue Shopping</a>
+      <a class="raq-dialog-view">View Quote</a>
+    </div>
+  `);
+  quotePopupOpenScripts();
+};
 
-/*let checkScreenForFixedMenu = () => {
-  if ($(window).width() >= 992) {
-    fixedMainMenu();
-    $("header").removeClass("fixed-header");
-  } else {
-    fixedHeaderMobile();
-  }
-  $(window).resize(function () {
-    if ($(window).width() >= 992) {
-      fixedMainMenu();
-      $("header").removeClass("fixed-header");
-      $("#slideout-mobile-navigation").hide();
-    } else {
-      $(".primary-menu").removeClass("fixed-header");
-      fixedHeaderMobile();
-    }
+let quotePopupOpenScripts = () => {
+  $(".raq-overlay").fadeIn("slow");
+  $(".close-raq-popup, .raq-continue-shopping").on("click", function () {
+    $(".raq-overlay").fadeOut("slow");
   });
-  $(window).scroll(function () {
-    if ($(window).width() >= 992) {
-      fixedMainMenu();
-      $("header").removeClass("fixed-header");
-    } else {
-      $(".primary-menu").removeClass("fixed-header");
-      fixedHeaderMobile();
-    }
+  $(".raq-dialog-view").on("click", function () {
+    getQuotePopupContent();
   });
 };
 
-let fixedMainMenu = () => {
-  let chktop = 0;
-  chktop = $(".logo").offset().top + $(".logo").outerHeight();
-  if ($(window).scrollTop() > chktop) {
-    $(".primary-menu").addClass("fixed-header");
+let getQuotePopupContent = () => {
+  $(".raq-popup-content").html(`
+    <div class="raq-quote-list">
+      <div class="raq-quote-list-content"></div>
+    </div>
+  `);
+  $(".raq-overlay").fadeIn("slow");
+  let productsList = JSON.parse(localStorage.getItem(STORAGE_KEY));
+  if (productsList.length > 0) {
+    genQuoteListViewForm(productsList);
   } else {
-    $(".primary-menu").removeClass("fixed-header");
+    emptyQuoteListContent();
   }
 };
 
-let fixedHeaderMobile = () => {
-  if ($(window).scrollTop() > 0) {
-    $("header").addClass("fixed-header");
-  } else {
-    $("header").removeClass("fixed-header");
-  }
-};*/
+let genQuoteListViewForm = (products) => {
+  let htmlSize = `<th class="text-center raq_product_size">Size</th>`,
+    htmlColor = `<th class="text-center raq_product_color">Color</th>`,
+    htmlQuantity = `<th class="text-center raq_product_qty">Quantity</th>`,
+    htmlPrice = `<th class="text-center raq_product_price">Price</th>`;
 
-// checkScreenForFixedMenu();
+  $(".raq-quote-list-content").html(
+    `<form id='raq-quote-list-form' method='post' name='raq-quote-list-form'>
+      <table class="table raq-table">
+        <thead>
+          <tr>
+            <th class="raq_product_image"></th>
+            <th>Product</th>` +
+      htmlSize +
+      htmlColor +
+      htmlQuantity +
+      htmlPrice +
+      `</tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <div class="raq-form">
+        <div class="d-flex flex-wrap form-group-row">
+          <div class="form-group">
+            <label class="control-label">Name</label>
+            <div class="raq-input">
+              <input type="text" id="raq-form_name" name="raq-form_name" required class="form-control">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <div class="raq-input">
+              <input type="email" pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{1,63}$" id="raq-form_email" name="raq-form_email" required class="form-control">
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="control-label">Message</label>
+          <div class="raq-input">
+            <textarea class="form-control" id="raq-form_message" name="raq-form_message" required></textarea>
+          </div>
+        </div>
+        <div class="raq-action-button d-flex justify-content-center">
+          <a class="raq-continue-shopping">Continue Shopping</a>
+          <input type="submit" id="submitRAQForm" name="submitRAQForm" value="Send Message">
+        </div>
+      </div>
+    </div>
+`
+  );
+  products.forEach((product, index) => {
+    $(".raq-table tbody").append(genProductInQuoteList(product, index));
+  });
+  $(".close-raq-popup, .raq-continue-shopping").on("click", function () {
+    $(".raq-overlay").fadeOut("slow");
+  });
+  $("#raq-quote-list-form .raq_remove_product").on("click", function () {
+    let tr = $(this).closest("tr");
+    let id = tr.data("product-id"),
+      size = tr.data("product-size"),
+      color = tr.data("product-color");
+    for (let i = 0; i < products.length; i++) {
+      if (
+        products[i].id == id &&
+        products[i].size == size &&
+        products[i].color == color
+      ) {
+        products.splice(i, 1);
+      }
+    }
+
+    if (products.length == 0) {
+      emptyQuoteListContent();
+    } else {
+      tr.fadeOut("slow");
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+    }
+    checkExistQuoteList();
+  });
+  $(".qty-product-control-down,.qty-product-control-up").click(function () {
+    let tr = $(this).closest("tr");
+    let id = tr.data("product-id"),
+      size = tr.data("product-size"),
+      color = tr.data("product-color"),
+      price = tr.data("product-price");
+    let value = parseInt(tr.find(".quantity").val(), 10) || 0;
+    if (value > 1 || $(this).is(".qty-product-control-up")) {
+      tr.find(".quantity").val(
+        $(this).is(".qty-product-control-down") ? value - 1 : value + 1
+      );
+    }
+    let total = (parseInt(tr.find(".quantity").val(), 10) * price).toFixed(2);
+    tr.find(".raq_product_price span").text("$" + total);
+    for (let i = 0; i < products.length; i++) {
+      if (
+        products[i].id == id &&
+        products[i].size == size &&
+        products[i].color == color
+      ) {
+        products[i].qty = parseInt(tr.find(".quantity").val(), 10);
+        products[i].total = total;
+      }
+    }
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(products));
+  });
+
+  const form = document.getElementById("raq-quote-list-form");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    $(".raq-popup-content").html("").append(`
+      <div class="raq-message">Thank you for submitting a request a quote!</div>
+      <div class="raq-action-button d-flex justify-content-center">
+        <a class="raq-continue-shopping">Continue Shopping</a>
+      </div>
+    `);
+    quotePopupOpenScripts();
+    localStorage.setItem(STORAGE_KEY, "[]");
+    checkExistQuoteList();
+  });
+};
+
+let genProductInQuoteList = (product, idx) => {
+  let htmlSize = `<td class="text-center">${product.size} </td>`,
+    htmlColor = `<td class="text-center">${product.color} </td>`,
+    htmlQuantity = `
+            <td class="text-center raq_product_qty">
+              <a class="qty-product-control qty-product-control-down" field="qty-product-${idx}">-</a>
+              <input min="1" type="text" name="qty-product-${idx}" class="quantity" id="updates_${idx}" value="${product.qty}" pattern="[0-9]*">
+              <a class="qty-product-control qty-product-control-up" field="qty-product-${idx}">+</a>
+            </td>
+        `,
+    htmlPrice = `
+            <td class="text-center raq_product_price">
+                <span id="raq_product-${idx}-price">$${product.total}</span>
+            </td>
+        `,
+    htmlRemove = `<p><a data-product-idx="${idx}" class="raq_remove_product" href="javascript:void(0)">Remove</a></p>`,
+    image =
+      product.image != ""
+        ? ` <a href="/product.html?id=${product.id}" target="_blank">
+                        <img src="${product.image}" alt="${product.title}">
+                    </a>`
+        : "";
+  return `<tr class="raq_product_row" id="raq_product_row_${idx}" data-product-id="${product.id}" data-product-price="${product.price}" data-product-size="${product.size}" data-product-color="${product.color}">
+      <td class="raq_product_image">
+        ${image}
+      </td>
+      <td class="raq_product_title d-flex flex-column">
+        <a href="/product.html?id=${product.id}" target="_blank">${product.title}</a>
+        ${htmlRemove}
+      </td>
+      ${htmlSize}
+      ${htmlColor}
+      ${htmlQuantity}
+      ${htmlPrice}
+    </tr>`;
+};
+
+let emptyQuoteListContent = () => {
+  $(".raq-popup-content").html("").append(`
+        <div class="raq-message">Your quote is currently empty.</div>
+        <div class="raq-action-button d-flex justify-content-center">
+          <a class="raq-continue-shopping">Continue Shopping</a>
+        </div>
+      `);
+  localStorage.setItem(STORAGE_KEY, "[]");
+  $(".close-raq-popup, .raq-continue-shopping").on("click", function () {
+    $(".raq-overlay").fadeOut("slow");
+  });
+};
+
+/* END QUOTE SCRIPTS */
 
 export let checkMainBannerImageHeight = () => {
   if ($(window).width() >= 1200) {
