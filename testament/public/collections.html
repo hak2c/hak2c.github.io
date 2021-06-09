@@ -77,28 +77,10 @@
         </div>
       </div>
     </div>
-    <div class="primary-menu d-none d-lg-block">
-      <ul class="nav justify-content-center">
-        <li><a href="index.html">Home</a></li>
-        <li>
-          <a href="#">Shop</a><img src="images/icons/arrow-down.png" alt="" />
-          <div class="sub-menu">
-            <ul>
-              <li><a href="collections.html?id=1">Dresses</a></li>
-              <li><a href="collections.html?id=2">Tops</a></li>
-              <li>
-                <a href="collections.html?id=3">Rompers & Playsuits</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li><a href="#">Contact</a></li>
-        <li><a href="#">Blog</a></li>
-        <li>
-          <a href="#">About</a>
-        </li>
-      </ul>
-    </div>
+    <div
+      class="primary-menu d-none d-lg-block"
+      include-html="template/primary-menu.html"
+    ></div>
     <aside class="animate__animated" id="slideout-mobile-navigation">
       <div class="slideout-mobile-overlay"></div>
       <div class="animate__animated slideout-mobile-content">
@@ -110,11 +92,17 @@
             <li><a href="index.html">Home</a></li>
             <li>
               <a href="#">Shop</a>
-              <div class="d-inline-block px-3 arrow-down">
+              <div
+                class="d-inline-block arrow"
+                data-toggle="collapse"
+                data-target="#sub-menu-1"
+                aria-expanded="true"
+                aria-controls="sub-menu-1"
+              >
                 <img src="images/icons/arrow-down-mobile.png" alt="" />
               </div>
             </li>
-            <li class="sub-menu">
+            <li class="sub-menu" id="sub-menu-1">
               <ul>
                 <li><a href="collections.html?id=1">Dresses</a></li>
                 <li><a href="collections.html?id=2">Tops</a></li>
@@ -123,7 +111,7 @@
                 </li>
               </ul>
             </li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="contact.html">Contact</a></li>
             <li><a href="#">Blog</a></li>
             <li>
               <a href="#">About</a>

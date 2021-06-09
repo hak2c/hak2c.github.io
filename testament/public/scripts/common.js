@@ -2,7 +2,7 @@ export const DEFAULT_SORT_VALUE = "featured";
 
 export const STORAGE_KEY = "testament_quote";
 
-export let includeHTML = () => {
+let includeHTML = () => {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
   z = document.getElementsByTagName("*");
@@ -33,6 +33,7 @@ export let includeHTML = () => {
     }
   }
 };
+includeHTML();
 
 /* QUOTE SCRIPTS */
 
@@ -300,7 +301,17 @@ export let checkMainBannerImageHeight = () => {
   });
 };
 
-export let renderCollectionsListHtml = (collection) =>
+export let getListCollections = (el, limit) => {
+  fetch("/collections?_limit=" + limit).then((response) => {
+    response.json().then((data) => {
+      data.forEach((collection) => {
+        $(el).append(renderCollectionsListHtml(collection));
+      });
+    });
+  });
+};
+
+let renderCollectionsListHtml = (collection) =>
   `<div class="col-md-4 mb-5">
     <div class="item position-relative">
       <div class="item-overlay"></div>
@@ -308,6 +319,8 @@ export let renderCollectionsListHtml = (collection) =>
       <h3 class="item-title position-absolute"><a href="collections.html?id=${collection.id}">${collection.title}</a></h3>
     </div>
   </div>`;
+
+getListCollections(".list-collections .row", 3);
 
 export let renderGridProductHtml = (product) => {
   let color = "";
@@ -411,6 +424,15 @@ $("#slideout-mobile-navigation").mousedown(function (e) {
   }
 });
 
+$("#sub-menu-1").on("show.bs.collapse", function () {
+  $(".mobile-menu .arrow img").attr("src", "images/icons/arrow-up-mobile.png");
+});
+$("#sub-menu-1").on("hide.bs.collapse", function () {
+  $(".mobile-menu .arrow img").attr(
+    "src",
+    "images/icons/arrow-down-mobile.png"
+  );
+});
 // End Toggle mobile menu
 
 export let checkSortProductCondition = () => {

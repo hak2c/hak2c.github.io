@@ -1,10 +1,4 @@
-import {
-  includeHTML,
-  DEFAULT_SORT_VALUE,
-  renderCollectionsListHtml,
-  checkSortProductCondition,
-} from "./common.js";
-includeHTML();
+import { DEFAULT_SORT_VALUE, checkSortProductCondition } from "./common.js";
 
 checkSortProductCondition();
 
@@ -119,17 +113,3 @@ let getProductColorIcon = (color, active = false) => {
 };
 
 renderCollectionPageHtml(collectionId, condition);
-
-let getListCollections = () => {
-  fetch("/collections").then((response) => {
-    response.json().then((data) => {
-      data.forEach((collection) => {
-        $(".list-collections .row").append(
-          renderCollectionsListHtml(collection)
-        );
-      });
-    });
-  });
-};
-
-getListCollections();

@@ -1,12 +1,8 @@
 import {
   STORAGE_KEY,
-  includeHTML,
   createViewQuoteButton,
-  renderCollectionsListHtml,
   createSuccessAddedProductToQuote,
 } from "./common.js";
-
-includeHTML();
 
 let url = new URL(window.location.href);
 let productId = url.searchParams.get("id");
@@ -298,17 +294,3 @@ let renderColorSelect = (product) => {
 };
 
 renderProductPageHtml(productId);
-
-let getListCollections = () => {
-  fetch("/collections").then((response) => {
-    response.json().then((data) => {
-      data.forEach((collection) => {
-        $(".list-collections .row").append(
-          renderCollectionsListHtml(collection)
-        );
-      });
-    });
-  });
-};
-
-getListCollections();

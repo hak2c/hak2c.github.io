@@ -1,28 +1,14 @@
 import {
-  includeHTML,
   checkMainBannerImageHeight,
-  renderCollectionsListHtml,
+  getListCollections,
   renderGridProductHtml,
   renderRecentPostHtml,
 } from "./common.js";
-includeHTML();
 // checkMainBannerImageHeight();
 
 // fetch("/test.html")
 //   .then((res) => res.text())
 //   .then((html) => console.log(JSON.stringify(html)));
-
-let getListCollections = () => {
-  fetch("/collections").then((response) => {
-    response.json().then((data) => {
-      data.forEach((collection) => {
-        $(".top-collections .row").append(
-          renderCollectionsListHtml(collection)
-        );
-      });
-    });
-  });
-};
 
 let getNewArrivalProducts = () => {
   fetch("/products?_limit=8&_sort=id&_order=desc&available=true").then(
@@ -75,6 +61,6 @@ let getRecentBlogPosts = () => {
   });
 };
 
-getListCollections();
+getListCollections(".top-collections .row", 3);
 getNewArrivalProducts();
 getRecentBlogPosts();

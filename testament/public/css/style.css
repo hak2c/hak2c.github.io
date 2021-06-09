@@ -97,6 +97,10 @@ select.form-control {
   overflow: hidden;
 }
 
+.collapse {
+  display: none !important;
+}
+
 .collapse.show,
 .showMenu {
   display: block !important;
@@ -263,12 +267,15 @@ select.form-control {
 #slideout-mobile-navigation .slideout-mobile-content .mobile-menu ul.nav li a {
   font-size: calc(16px - (16px * 0.15));
 }
-#slideout-mobile-navigation .slideout-mobile-content .mobile-menu ul.nav li .arrow-down {
+#slideout-mobile-navigation .slideout-mobile-content .mobile-menu ul.nav li .arrow {
   padding-left: 10px;
   padding-right: 10px;
   height: 22px;
+  border-radius: 3px;
+  border-left: 1px solid #000000;
 }
 #slideout-mobile-navigation .slideout-mobile-content .mobile-menu ul.nav li.sub-menu {
+  display: none;
   padding-left: 10px;
   padding-bottom: 20px;
   border: none;
@@ -1011,7 +1018,7 @@ footer .bottom-footer .footer-right .partners {
 
 .action-button {
   position: fixed;
-  right: 20px;
+  right: 0;
   top: 30%;
   width: auto;
   z-index: 9;
