@@ -122,6 +122,12 @@ input.form-control {
   font-size: $text-size;
 }
 
+textarea.form-control {
+  border: 1px solid $form-input-border;
+  padding-left: 15px;
+  font-size: $text-size;
+}
+
 select.form-control {
   border: 1px solid #dddddd;
   border-radius: 1px;
@@ -129,6 +135,15 @@ select.form-control {
   line-height: 46px;
   font-size: $text-size;
   padding: 0 10px;
+}
+
+input[type="submit"].form-control {
+  background: $form-button-background-color;
+  color: $form-button-color;
+  cursor: pointer;
+  &:hover {
+    background: $form-button-background-hover;
+  }
 }
 
 .stopScrolling {
@@ -167,6 +182,15 @@ select.form-control {
   }
 }
 
+@media (min-width: 768px) {
+  .pr-md-25 {
+    padding-right: 2.5rem !important;
+  }
+  .pl-md-25 {
+    padding-left: 2.5rem !important;
+  }
+}
+
 .price-badge {
   display: inline-block;
   padding: 2px 5px;
@@ -179,6 +203,13 @@ select.form-control {
 @media (min-width: 1200px) {
   .container {
     max-width: 1200px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container .post-container {
+    width: 60%;
+    max-width: 720px;
   }
 }
 /* HEADER */
@@ -733,7 +764,7 @@ footer {
     font-size: $page-title-size;
     margin-bottom: 30px;
     @media screen and (min-width: 1200px) {
-      margin-bottom: 60px;
+      margin-bottom: 40px;
     }
   }
 }
@@ -1284,5 +1315,39 @@ footer {
         }
       }
     }
+  }
+}
+
+/* BLOG PAGE */
+
+.blogs-list {
+  .blog-item {
+    .blog-info {
+      .blog-title {
+        font-size: 18px;
+        margin-bottom: 20px;
+        font-weight: 400;
+      }
+      p {
+        line-height: 24px;
+      }
+      .item-tags {
+        li {
+          display: inline-block;
+          margin-right: 10px;
+          a {
+            text-transform: uppercase;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* POST PAGE */
+.post-container {
+  .post-details {
+    border-bottom: 1px solid $dotted-color;
   }
 }
