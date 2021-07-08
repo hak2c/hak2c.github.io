@@ -16,7 +16,6 @@
     <script src="scripts/popper.min.js"></script>
     <script src="scripts/jquery.min.js"></script>
     <script src="scripts/bootstrap.min.js"></script>
-    \
   </head>
   <body>
     <div class="top-header">
@@ -35,12 +34,34 @@
           </div>
           <div class="d-none d-lg-block col-lg-4">
             <div
-              class="d-flex justify-content-end align-items-center"
+              class="d-flex justify-content-end align-items-center position-relative"
               style="gap: 10px"
             >
               <span class="search-icon"
-                ><img src="images/icons/search.png" alt=""
+                ><img
+                  data-toggle="collapse"
+                  data-target="#search-form-1"
+                  aria-expanded="true"
+                  aria-controls="search-form-1"
+                  src="images/icons/search.png"
+                  alt=""
               /></span>
+              <form
+                name="search"
+                action="search.html"
+                class="search-form form-inline"
+                id="search-form-1"
+              >
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    id="search"
+                    type="text"
+                    placeholder="Search"
+                    name="key"
+                  />
+                </div>
+              </form>
               <span class="cart">
                 <img class="mr-1" src="images/icons/cart.png" alt="" />
                 <span class="cart-count">0</span>
@@ -115,6 +136,35 @@
               <a href="about.html">About</a>
             </li>
           </ul>
+          <div class="mobile-menu__search">
+            <form
+              name="search"
+              action="search.html"
+              class="search-form form-inline"
+            >
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  id="search"
+                  type="text"
+                  placeholder="Search"
+                  name="key"
+                />
+              </div>
+            </form>
+          </div>
+          <div
+            class="d-flex justify-content-center align-items-center mobile-menu__socials"
+          >
+            <a href="#"><img src="images/icons/facebook-subc.png" alt="" /></a>
+            <a href="#"><img src="images/icons/instagram-subc.png" alt="" /></a>
+            <a href="#"><img src="images/icons/twitter-subc.png" alt="" /></a>
+            <a href="#"><img src="images/icons/linkedin-subc.png" alt="" /></a>
+          </div>
+          <div class="mobile-menu__featured-text text-center">
+            <p><strong>Featured Text</strong></p>
+            <p><em>A great place to share about a sale!</em></p>
+          </div>
         </div>
       </div>
     </aside>

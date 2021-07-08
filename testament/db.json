@@ -167,15 +167,15 @@
       "size": [
         {
           "name": "6",
-          "available": false
+          "available": true
         },
         {
           "name": "8",
-          "available": false
+          "available": true
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -264,7 +264,7 @@
       "size": [
         {
           "name": "XS",
-          "available": false
+          "available": true
         },
         {
           "name": "S",
@@ -341,7 +341,7 @@
         },
         {
           "name": "14",
-          "available": false
+          "available": true
         }
       ],
       "images": [
@@ -414,7 +414,7 @@
       "size": [
         {
           "name": "6",
-          "available": false
+          "available": true
         },
         {
           "name": "8",
@@ -437,7 +437,7 @@
         {
           "name": "Chocolate",
           "thumb": "images/color/210218TaneishaStudio13991_100x.jpg",
-          "available": false
+          "available": true
         },
         {
           "name": "Black",
@@ -481,7 +481,7 @@
       "size": [
         {
           "name": "S",
-          "available": false
+          "available": true
         },
         {
           "name": "M",
@@ -493,7 +493,7 @@
         },
         {
           "name": "XL",
-          "available": false
+          "available": true
         }
       ],
       "color": [
@@ -547,7 +547,7 @@
         },
         {
           "name": "14",
-          "available": false
+          "available": true
         }
       ],
       "color": [
@@ -639,11 +639,11 @@
       "size": [
         {
           "name": "8",
-          "available": false
+          "available": true
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -651,7 +651,7 @@
         },
         {
           "name": "14",
-          "available": false
+          "available": true
         }
       ],
       "color": [
@@ -695,11 +695,11 @@
         },
         {
           "name": "8",
-          "available": false
+          "available": true
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -798,15 +798,15 @@
       "collectionId": 2,
       "title": "Grove Top",
       "price": 59.99,
-      "available": false,
+      "available": true,
       "size": [
         {
           "name": "S",
-          "available": false
+          "available": true
         },
         {
           "name": "M",
-          "available": false
+          "available": true
         }
       ],
       "images": [
@@ -865,11 +865,11 @@
         },
         {
           "name": "8",
-          "available": false
+          "available": true
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -908,7 +908,7 @@
         },
         {
           "name": "XL",
-          "available": false
+          "available": true
         }
       ],
       "color": [
@@ -969,7 +969,7 @@
         },
         {
           "name": "12",
-          "available": false
+          "available": true
         },
         {
           "name": "14",
@@ -1039,7 +1039,7 @@
         {
           "name": "Chocolate",
           "thumb": "images/color/20_12_22_TanieshaStudio5758_100x.jpg",
-          "available": false
+          "available": true
         }
       ],
       "images": [
@@ -1068,7 +1068,7 @@
       "size": [
         {
           "name": "6",
-          "available": false
+          "available": true
         },
         {
           "name": "8",
@@ -1076,7 +1076,7 @@
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -1127,7 +1127,7 @@
         {
           "name": "Floral",
           "thumb": "images/color/210211ActualTaneishaStudio13111_100x.jpg",
-          "available": false
+          "available": true
         }
       ],
       "images": [
@@ -1164,7 +1164,7 @@
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -1196,11 +1196,11 @@
       "size": [
         {
           "name": "6",
-          "available": false
+          "available": true
         },
         {
           "name": "8",
-          "available": false
+          "available": true
         },
         {
           "name": "10",
@@ -1208,7 +1208,7 @@
         },
         {
           "name": "12",
-          "available": false
+          "available": true
         },
         {
           "name": "14",
@@ -1224,7 +1224,7 @@
         {
           "name": "White",
           "thumb": "images/color/20_09_17NatStudio20712_100x.jpg",
-          "available": false
+          "available": true
         }
       ],
       "images": [
@@ -1257,11 +1257,11 @@
         },
         {
           "name": "M",
-          "available": false
+          "available": true
         },
         {
           "name": "L",
-          "available": false
+          "available": true
         }
       ],
       "color": [
@@ -1273,7 +1273,7 @@
         {
           "name": "Peach",
           "thumb": "images/color/21_01_14TaneishaStudio8254_100x.jpg",
-          "available": false
+          "available": true
         }
       ],
       "images": [
@@ -1309,11 +1309,11 @@
       "size": [
         {
           "name": "XS",
-          "available": false
+          "available": true
         },
         {
           "name": "S",
-          "available": false
+          "available": true
         },
         {
           "name": "M",
@@ -1321,11 +1321,11 @@
         },
         {
           "name": "L",
-          "available": false
+          "available": true
         },
         {
           "name": "XL",
-          "available": false
+          "available": true
         }
       ],
       "images": [
@@ -1353,7 +1353,7 @@
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -1383,7 +1383,7 @@
       "size": [
         {
           "name": "6",
-          "available": false
+          "available": true
         },
         {
           "name": "8",
@@ -1391,7 +1391,7 @@
         },
         {
           "name": "10",
-          "available": false
+          "available": true
         },
         {
           "name": "12",
@@ -1411,12 +1411,12 @@
         {
           "name": "Chocolate",
           "thumb": "images/color/21_01_07TaneishaStudio7013_100x.jpg",
-          "available": false
+          "available": true
         },
         {
           "name": "Beige",
           "thumb": "images/color/21_01_07TaneishaStudio7039_91a2c632-a471-46d3-bfd6-6e0a48fa237d_100x.jpg",
-          "available": false
+          "available": true
         },
         {
           "name": "Pink",
@@ -1466,7 +1466,7 @@
       "size": [
         {
           "name": "6",
-          "available": false
+          "available": true
         },
         {
           "name": "8",

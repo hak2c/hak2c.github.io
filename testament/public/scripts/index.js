@@ -22,7 +22,8 @@ let getNewArrivalProducts = () => {
         let slickOpts = {
           slidesToShow: 4,
           slidesToScroll: 1,
-          autoplay: false,
+          autoplay: true,
+          autoplaySpeed: 2000,
           dots: false,
           infinite: true,
           arrows: true,
@@ -41,6 +42,16 @@ let getNewArrivalProducts = () => {
               settings: {
                 slidesToShow: 2,
                 slidesToScroll: 1,
+              },
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 2000,
               },
             },
           ],

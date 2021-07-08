@@ -2,6 +2,8 @@ export const DEFAULT_SORT_VALUE = "featured";
 
 export const STORAGE_KEY = "testament_quote";
 
+export const CART_KEY = "testament_cart";
+
 let includeHTML = () => {
   var z, i, elmnt, file, xhttp;
   /*loop through a collection of all HTML elements:*/
@@ -34,6 +36,28 @@ let includeHTML = () => {
   }
 };
 includeHTML();
+
+export let checkProductsInCart = () => {
+  let productsInCart = localStorage.getItem(CART_KEY);
+  if (productsInCart == null || productsInCart == "") {
+    localStorage.setItem(CART_KEY, "[]");
+    productsInCart = "[]";
+  }
+  productsInCart = JSON.parse(productsInCart);
+  $("span.cart .cart-count").text(productsInCart.length);
+};
+
+checkProductsInCart();
+
+export let createSuccessAddedProductToCart = () => {
+  $(".raq-popup-content").html("").append(`
+    <div class="raq-message">Add product to cart successfully!</div>
+    <div class="raq-action-button d-flex justify-content-center">
+      <a class="raq-continue-shopping">Continue Shopping</a>
+    </div>
+  `);
+  quotePopupOpenScripts();
+};
 
 /* QUOTE SCRIPTS */
 
@@ -396,7 +420,6 @@ export let renderRecentPostHtml = (post) =>
   </div>`;
 
 // Toggle mobile menu
-
 $(".mobile-icon").on("click", function () {
   $("#slideout-mobile-navigation").fadeIn("slow");
   $("#slideout-mobile-navigation .slideout-mobile-content")

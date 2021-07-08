@@ -1,7 +1,9 @@
 import {
   STORAGE_KEY,
+  CART_KEY,
   createViewQuoteButton,
   createSuccessAddedProductToQuote,
+  createSuccessAddedProductToCart,
 } from "./common.js";
 
 let url = new URL(window.location.href);
@@ -38,6 +40,18 @@ let renderProductImagesSlide = (images) => {
     fade: true,
     arrows: false,
     asNavFor: ".nav-image",
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: true,
+          prevArrow: `<button type="button" class="slick-prev"><img src="images/icons/arrow-left.png" /></button>`,
+          nextArrow: `<button type="button" class="slick-next"><img src="images/icons/arrow-right.png" /></button>`,
+        },
+      },
+    ],
   };
   let navImgOps = {
     slidesToShow: 5,
@@ -73,8 +87,8 @@ let renderProductInformation = (product) => {
                 <input min="1" type="text" name="quantity" class="quantity" value="1">
                 <a class="quantity-control quantity-control-up" field="quantity">+</a>
             </div>
-            <div class="adđ-to-cart mt-4">
-                <input id="addToCart" type="submit" name="button" class="AddtoCart" value="Add To Cart">
+            <div class="add-to-cart mt-4">
+              <a class="addToCart d-block">Add To Cart</a>
             </div>
             <p class="mt-4 text-center text-uppercase bold">Or</p>
             <div class="mt-4">
@@ -129,12 +143,52 @@ let renderProductInformation = (product) => {
         ) {
           exist = true;
           productsList[i].qty += addedProduct.qty;
+          productsList[i].total = productsList[i].qty * productsList[i].price;
         }
       }
       if (!exist) productsList.push(addedProduct);
       localStorage.setItem(STORAGE_KEY, JSON.stringify(productsList));
     }
     createSuccessAddedProductToQuote();
+  });
+
+  // Add to cart button click
+  $(".addToCart").on("click", function () {
+    let addedProduct = {
+      id: productId,
+      image: product.images[0],
+      title: product.title,
+      size: $("input[name=size-variant]:checked").val() || "",
+      color: $("input[name=color-variant]:checked").val() || "",
+      qty: Number($("input[name=quantity]").val()),
+      price: product.price,
+      total: (Number($("input[name=quantity]").val()) * product.price).toFixed(
+        2
+      ),
+    };
+    let productsInCart = JSON.parse(localStorage.getItem(CART_KEY));
+    if (productsInCart.length == 0) {
+      productsInCart.push(addedProduct);
+      localStorage.setItem(CART_KEY, JSON.stringify(productsInCart));
+    } else {
+      let exist = false;
+      for (let i = 0; i < productsInCart.length; i++) {
+        if (
+          productsInCart[i].id == addedProduct.id &&
+          productsInCart[i].size == addedProduct.size &&
+          productsInCart[i].color == addedProduct.color
+        ) {
+          exist = true;
+          productsInCart[i].qty += addedProduct.qty;
+          productsInCart[i].total =
+            productsInCart[i].qty * productsInCart[i].price;
+        }
+      }
+      if (!exist) productsInCart.push(addedProduct);
+      localStorage.setItem(CART_KEY, JSON.stringify(productsInCart));
+    }
+    $("span.cart .cart-count").text(productsInCart.length);
+    createSuccessAddedProductToCart();
   });
 };
 

@@ -35,12 +35,39 @@
           </div>
           <div class="d-none d-lg-block col-lg-4">
             <div
-              class="d-flex justify-content-end align-items-center"
+              class="
+                d-flex
+                justify-content-end
+                align-items-center
+                position-relative
+              "
               style="gap: 10px"
             >
               <span class="search-icon"
-                ><img src="images/icons/search.png" alt=""
+                ><img
+                  data-toggle="collapse"
+                  data-target="#search-form-1"
+                  aria-expanded="true"
+                  aria-controls="search-form-1"
+                  src="images/icons/search.png"
+                  alt=""
               /></span>
+              <form
+                name="search"
+                action="search.html"
+                class="search-form form-inline"
+                id="search-form-1"
+              >
+                <div class="form-group">
+                  <input
+                    class="form-control"
+                    id="search"
+                    type="text"
+                    placeholder="Search"
+                    name="key"
+                  />
+                </div>
+              </form>
               <span class="cart">
                 <img class="mr-1" src="images/icons/cart.png" alt="" />
                 <span class="cart-count">0</span>
@@ -115,6 +142,40 @@
               <a href="about.html">About</a>
             </li>
           </ul>
+          <div class="mobile-menu__search">
+            <form
+              name="search"
+              action="search.html"
+              class="search-form form-inline"
+            >
+              <div class="form-group">
+                <input
+                  class="form-control"
+                  id="search"
+                  type="text"
+                  placeholder="Search"
+                  name="key"
+                />
+              </div>
+            </form>
+          </div>
+          <div
+            class="
+              d-flex
+              justify-content-center
+              align-items-center
+              mobile-menu__socials
+            "
+          >
+            <a href="#"><img src="images/icons/facebook-subc.png" alt="" /></a>
+            <a href="#"><img src="images/icons/instagram-subc.png" alt="" /></a>
+            <a href="#"><img src="images/icons/twitter-subc.png" alt="" /></a>
+            <a href="#"><img src="images/icons/linkedin-subc.png" alt="" /></a>
+          </div>
+          <div class="mobile-menu__featured-text text-center">
+            <p><strong>Featured Text</strong></p>
+            <p><em>A great place to share about a sale!</em></p>
+          </div>
         </div>
       </div>
     </aside>
@@ -124,7 +185,7 @@
           id="carouselMainBanner"
           class="carousel slide"
           data-ride="carousel"
-          data-interval="5000"
+          data-interval="3000"
         >
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -138,7 +199,9 @@
                 <p class="caption-text pb-3 pb-md-5">
                   Explore the latest range
                 </p>
-                <a class="d-inline-block" href="#">Shop now!</a>
+                <a class="d-inline-block" href="collections.html?id=1"
+                  >Shop now!</a
+                >
               </div>
             </div>
             <div class="carousel-item">
@@ -152,7 +215,9 @@
                 <p class="caption-text pb-3 pb-md-5">
                   Crushing on this seasons new colors
                 </p>
-                <a class="d-inline-block" href="#">Shop Rust</a>
+                <a class="d-inline-block" href="collections.html?id=2"
+                  >Shop Rust</a
+                >
               </div>
             </div>
           </div>
@@ -172,7 +237,7 @@
           </div>
         </div>
       </section>
-      <section class="content-banner">
+      <section class="content-banner d-none d-md-block">
         <div
           id="carouselSecondBanner"
           class="carousel slide"
@@ -209,7 +274,13 @@
             </div>
           </div>
           <div
-            class="d-flex flex-md-wrap justify-content-md-center align-items-center explore-collections-content"
+            class="
+              d-flex
+              flex-md-wrap
+              justify-content-md-center
+              align-items-center
+              explore-collections-content
+            "
           >
             <img
               class="item first-line"
@@ -284,7 +355,13 @@
                 </form>
               </div>
               <div
-                class="d-flex justify-content-center align-items-center subcribe-socials mt-3"
+                class="
+                  d-flex
+                  justify-content-center
+                  align-items-center
+                  subcribe-socials
+                  mt-3
+                "
               >
                 <a href="#"
                   ><img src="images/icons/facebook-subc.png" alt=""
