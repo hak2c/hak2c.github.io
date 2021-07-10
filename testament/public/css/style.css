@@ -61,10 +61,14 @@ a {
   cursor: pointer;
 }
 
-a,
-a:hover {
+a {
   text-decoration: none;
   color: #000000;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #b79e8c;
 }
 
 img {
@@ -726,6 +730,9 @@ main section .section-title h2 {
   .subcribe-email .subcribe-form #subcribe-email-button {
     width: 180px;
   }
+}
+.subcribe-email .subcribe-form #subcribe-email-button:hover {
+  background-color: #836957;
 }
 .subcribe-email .subcribe-socials {
   gap: 26px;

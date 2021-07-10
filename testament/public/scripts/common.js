@@ -413,7 +413,7 @@ export let renderRecentPostHtml = (post) =>
       alt="${post.title}"
     />
     <div class="blog-info">
-      <h3 class="blog-title">${post.title}</h3>
+      <h3 class="blog-title"><a href="post.html?id=${post.id}">${post.title}</a></h3>
       <p class="blog-created mb-3">Posted on ${post.created_at}</p>
       <p class="introtext">${post.introtext}</p>
     </div>
