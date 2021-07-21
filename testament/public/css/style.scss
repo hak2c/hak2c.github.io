@@ -1,12 +1,14 @@
 $main-family: "Karla", sans-serif;
 $text-size: 16px;
 $text-weight: 500;
+$heading-weight: 400;
 $text-color: #000000;
 $link-color: #000000;
 $link-hover-color: #b79e8c;
 $dotted-color: #cccccc;
 $direction-color: #a4a4a4;
 
+$h1-size: 26px;
 $h2-size: 24px;
 
 $main-background: #b79e8c;
@@ -26,6 +28,9 @@ $form-button-background-color: #b79e8c;
 $form-button-background-hover: #836957;
 $form-button-color: #ffffff;
 
+$free-shipping-background: #b79e8c;
+$free-shipping-text: #ffffff;
+
 $footer-background-color: #000;
 $footer-color: #ffffff;
 $footer-title-size: 20px;
@@ -43,6 +48,7 @@ $product-price-size: 18px;
 @media screen and (max-width: 767px) {
   $text-size: calc(16px - (16px * 0.15));
   $h2-size: calc(24px - (24px * 0.15));
+  $h1-size: calc(26px - (26px * 0.15));
 }
 
 * {
@@ -100,10 +106,7 @@ ol {
   margin-bottom: 0;
 }
 a {
-  color: inherit;
   cursor: pointer;
-}
-a {
   text-decoration: none;
   color: $link-color;
 }
@@ -117,6 +120,15 @@ img {
   height: auto;
   object-fit: cover;
   transition: transform 7s cubic-bezier(0.25, 0.5, 0.8, 0.65);
+}
+
+hr {
+  background-color: $dotted-color;
+  color: $dotted-color;
+  height: 1px;
+  display: block;
+  width: 100%;
+  margin-top: 20px;
 }
 
 input.form-control {
@@ -1265,12 +1277,11 @@ footer {
     animation-fill-mode: both;
     .close-raq-popup {
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 24px;
-      height: 24px;
+      top: 10px;
+      right: 10px;
+      width: 10px;
+      height: 10px;
       cursor: pointer;
-      background: url(../images/icons/times-solid.png) 50% no-repeat #000;
     }
     .raq-popup-content {
       .raq-message {
@@ -1308,6 +1319,20 @@ footer {
           background-color: $form-button-background-color;
           color: #ffffff;
           cursor: pointer;
+          &:hover {
+            background-color: $form-button-background-hover;
+          }
+        }
+
+        @media screen and (max-width: 414px) {
+          flex-wrap: wrap;
+          gap: 10px;
+        }
+        @media screen and (max-width: 414px) {
+          &.raq-continue-shopping,
+          input#submitRAQForm {
+            width: 100%;
+          }
         }
       }
       #raq-quote-list-form {
@@ -1372,7 +1397,7 @@ footer {
                   padding: 0;
                   width: 44px;
                   color: $text-color;
-                  border: 1px solid $dotted-color;
+                  border: 1px solid transparent;
                   text-align: center;
                   background: #fff;
                 }
@@ -1383,6 +1408,11 @@ footer {
                   border: 1px solid $dotted-color;
                   text-align: center;
                   &:focus {
+                    border-color: $dotted-color;
+                  }
+                }
+                &.raq_product_qty:hover {
+                  .qty-product-control {
                     border-color: $dotted-color;
                   }
                 }
@@ -1441,5 +1471,140 @@ footer {
 .post-container {
   .post-details {
     border-bottom: 1px solid $dotted-color;
+  }
+}
+
+/* CART PAGE */
+.cart-content__header {
+  padding: 20px 0;
+  .cart-content__title {
+    font-size: $h1-size;
+    font-weight: $heading-weight;
+  }
+}
+.cart-items {
+  margin-bottom: 20px;
+  .cart-item {
+    padding: 10px;
+    position: relative;
+    border-top: 1px solid $dotted-color;
+    gap: 10px;
+    .item-image {
+      width: calc((100% - 10px) / 3);
+      @media screen and (min-width: 768px) {
+        width: calc((100% - 40px) / 6);
+        img {
+          max-width: 160px;
+        }
+      }
+    }
+    .item-details {
+      width: calc(((100% - 10px) / 3) * 2);
+      @media screen and (min-width: 768px) {
+        width: calc((100% - 40px) / 3);
+      }
+    }
+    .item-price,
+    .item-quantity,
+    .item-total {
+      width: calc((100% - 20px) / 3);
+      @media screen and (min-width: 768px) {
+        width: calc((100% - 40px) / 6);
+      }
+    }
+    .item-quantity {
+      .qty-product-control {
+        display: inline-block;
+        line-height: 48px;
+        padding: 0;
+        width: 30px;
+        color: $text-color;
+        border: 1px solid transparent;
+        text-align: center;
+      }
+      input[type="text"].quantity {
+        width: 80px;
+        height: 50px;
+        text-indent: 0;
+        border: 1px solid transparent;
+        text-align: center;
+        &:focus {
+          border-color: $dotted-color;
+        }
+      }
+      &:hover {
+        input[type="text"].quantity {
+          border-color: $dotted-color;
+        }
+        .qty-product-control {
+          border-color: $dotted-color;
+          background-color: $dotted-color;
+        }
+      }
+    }
+    .item-remove {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      width: 16px;
+    }
+    &:last-child {
+      border-bottom: 1px solid $dotted-color;
+    }
+  }
+}
+.cart-footer {
+  .cart-infor {
+    .cart-infor__note {
+      margin-bottom: 20px;
+      .noteBtn {
+        padding: 10px;
+        background-color: $dotted-color;
+        width: 100%;
+        &:hover {
+          color: $text-color;
+        }
+      }
+      #noteTextarea {
+        display: none;
+      }
+    }
+    .cart-infor__free-shipping {
+      .free-shipping {
+        color: $free-shipping-text;
+        background-color: $free-shipping-background;
+        padding: 20px;
+      }
+    }
+  }
+  .cart_total {
+    .cart-total__details {
+      p {
+        width: 50%;
+      }
+      & > div {
+        margin-bottom: 5px;
+      }
+    }
+    .cart-total__button-submit {
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      display: inline-block;
+      text-align: center;
+      background-color: $form-button-background-color;
+      color: #ffffff;
+      cursor: pointer;
+      &:hover {
+        background-color: $form-button-background-hover;
+      }
+      @media screen and (min-width: 768px) {
+        height: 50px;
+        line-height: 50px;
+      }
+    }
   }
 }

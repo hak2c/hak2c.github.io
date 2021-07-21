@@ -65,7 +65,7 @@ $("body").append(
   `<div class="raq-overlay">
     <div class="raq-bg"></div>
     <div class="raq-popup">
-      <span class="close-raq-popup"></span>
+      <span class="close-raq-popup"><img src="images/icons/close.png" /></span>
       <div class="raq-popup-content"></div>
     </div>
   </div>`

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
-    <title>About Us</title>
+    <title>Cart</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Karla:wght@400;600;700;800&display=swap"
@@ -13,6 +13,10 @@
     />
     <link rel="stylesheet" href="css/lib.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <!--<script src="scripts/popper.min.js"></script>
+    <script src="scripts/jquery.min.js"></script>
+    <script src="scripts/bootstrap.min.js"></script>
+    <script src="scripts/slick.min.js"></script>-->
   </head>
   <body>
     <div class="top-header">
@@ -176,36 +180,18 @@
       </div>
     </aside>
     <main>
-      <div class="page-image">
-        <img src="images/new-arrivals_800x.jpg" class="d-block w-100" alt="" />
-      </div>
       <div class="container">
         <section class="ot-breadcrumb">
           <div class="row">
-            <div class="col-12"><a href="index.html">Home</a> > About Us</div>
+            <div class="col-12">
+              <a href="index.html">Home</a> > Your Shopping Cart
+            </div>
           </div>
         </section>
-        <div class="page-title">
-          <h3>About Us</h3>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-8 col-md-10 mx-auto py-5">
-            <p class="mb-3">
-              Our story began in 2001 in a small studio in the middle of
-              nowhere. With only one desk and next to no free time, our brand
-              was born. Our passion for unique design and collaboration brought
-              our vision, and products, to life.
-            </p>
-            <p class="mb-3">
-              &nbsp;Our products bring together the finest materials and
-              stunning design to create something very special. We believe in
-              quality, care, and creating unique products that everyone can
-              enjoy. Colorful, creative, and inspired by what we see everyday,
-              each product represents what we love about the world we live in.
-              We hope they’ll inspire you too.
-            </p>
-          </div>
-        </div>
+        <!--<div class="page-title">
+          <h3>Search results</h3>
+        </div>-->
+        <div class="cart_content"></div>
       </div>
     </main>
     <section class="list-collections">
@@ -214,9 +200,17 @@
       </div>
     </section>
     <footer include-html="template/footer.html"></footer>
-    <script src="scripts/popper.min.js"></script>
+
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script src="scripts/jquery.min.js"></script>
-    <script src="scripts/bootstrap.min.js"></script>
-    <script src="scripts/common.js" type="module"></script>
+    <script src="scripts/cart.js" type="text/babel"></script>
   </body>
 </html>
